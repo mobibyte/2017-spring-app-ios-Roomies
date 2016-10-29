@@ -47,7 +47,7 @@
         <!--Chat-->
         <scene sceneID="bp8-N6-5HL">
             <objects>
-                <viewController id="QpS-3O-cyx" sceneMemberID="viewController">
+                <viewController id="QpS-3O-cyx" customClass="ChatViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BG2-Nh-SS0"/>
                         <viewControllerLayoutGuide type="bottom" id="W79-A2-1VV"/>
