@@ -214,7 +214,7 @@
                                     </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="90"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" red="0.53230863809999995" green="0.77742391820000001" blue="0.91109675170000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -228,7 +228,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="UserTableViewCell" rowHeight="101" id="vIk-bs-Zdw" userLabel="UserTableViewCell" customClass="UserTableViewCell" customModule="Roomies" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="257" width="375" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="vIk-bs-Zdw" id="W4N-hV-hnV">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vIk-bs-Zdw" id="W4N-hV-hnV">
                                     <frame key="frameInset" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -247,8 +247,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xik-hO-ZbD">
-                                            <frame key="frameInset" minX="21" minY="15" width="70" height="70"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xik-hO-ZbD">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="70" id="HVK-pA-wDs"/>
                                                 <constraint firstAttribute="width" constant="70" id="gL2-Bb-dIk"/>
