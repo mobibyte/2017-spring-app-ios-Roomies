@@ -20,7 +20,7 @@ class ChatViewController: JSQMessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.edgesForExtendedLayout = []
+        //self.edgesForExtendedLayout = []
         self.senderId = "self"
         self.senderDisplayName = "test"
         
@@ -28,6 +28,7 @@ class ChatViewController: JSQMessagesViewController {
         self.inBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
     
+
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
     }
