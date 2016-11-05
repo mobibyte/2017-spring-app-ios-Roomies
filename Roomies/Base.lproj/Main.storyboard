@@ -26,25 +26,6 @@
             </objects>
             <point key="canvasLocation" x="1810" y="-691"/>
         </scene>
-        <!--Expenses-->
-        <scene sceneID="4PC-UY-O54">
-            <objects>
-                <viewController id="Ffs-K0-l4N" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="H6n-lx-1MU"/>
-                        <viewControllerLayoutGuide type="bottom" id="fkA-Ie-GUK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kuA-fO-EQD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Expenses" id="Bhx-8y-QM1"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Knc-oW-2x1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1810" y="12"/>
-        </scene>
         <!--Chat-->
         <scene sceneID="bp8-N6-5HL">
             <objects>
@@ -135,12 +116,47 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ffs-K0-l4N" kind="relationship" relationship="rootViewController" id="iAD-5i-5kU"/>
+                        <segue destination="oQh-Di-Ydb" kind="relationship" relationship="rootViewController" id="coz-gw-cIj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhH-5O-7nu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1045.5999999999999" y="12.143928035982009"/>
+        </scene>
+        <!--Expenses-->
+        <scene sceneID="8kj-2n-PSB">
+            <objects>
+                <tableViewController id="oQh-Di-Ydb" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xnn-Uk-inM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ui4-3U-weu">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ui4-3U-weu" id="aLr-1u-gLP">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oQh-Di-Ydb" id="dT4-Gs-bf7"/>
+                            <outlet property="delegate" destination="oQh-Di-Ydb" id="Gve-A8-SPt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Expenses" id="dRV-Cz-oRB">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="QLI-qo-WQv">
+                            <connections>
+                                <segue destination="Xjw-AP-c8o" kind="presentation" id="eRw-qX-Gkp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qU5-HV-nhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="23"/>
         </scene>
         <!--Tasks-->
         <scene sceneID="3yr-gE-BVL">
@@ -250,7 +266,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LM-gn-ujV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NT2-fm-951" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3353" y="716"/>
+            <point key="canvasLocation" x="3417" y="10"/>
         </scene>
         <!--AddExpenses-->
         <scene sceneID="JdZ-jZ-oeX">
@@ -297,6 +313,9 @@
                                     </state>
                                     <connections>
                                         <action selector="unwindToAddExpensesWithSegue:" destination="Xjw-AP-c8o" eventType="touchUpInside" id="tbz-Ig-ADG"/>
+                                        <segue destination="hgy-tU-qJ7" kind="popoverPresentation" popoverAnchorView="WqU-V4-zrq" id="qs1-b3-GLk">
+                                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                        </segue>
                                     </connections>
                                 </button>
                             </subviews>
@@ -312,7 +331,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="UserTableViewCell" rowHeight="101" id="vIk-bs-Zdw" userLabel="UserTableViewCell" customClass="UserTableViewCell" customModule="Roomies" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="255" width="375" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="vIk-bs-Zdw" id="W4N-hV-hnV">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vIk-bs-Zdw" id="W4N-hV-hnV">
                                     <frame key="frameInset" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -331,8 +350,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xik-hO-ZbD">
-                                            <frame key="frameInset" minX="21" minY="15" width="70" height="70"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xik-hO-ZbD">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="70" id="HVK-pA-wDs"/>
                                                 <constraint firstAttribute="width" constant="70" id="gL2-Bb-dIk"/>
@@ -364,7 +382,7 @@
                                     <outlet property="thumbnailImageView" destination="Xik-hO-ZbD" id="ncX-R9-lsF"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="textViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="textViewTableViewCell" rowHeight="128" id="bri-35-w2R" customClass="textViewTableViewCell" customModule="Roomies" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="textViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="textViewTableViewCell" rowHeight="128" id="bri-35-w2R" customClass="TextViewTableViewCell" customModule="Roomies" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="356" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bri-35-w2R" id="BWr-FI-lXH">
@@ -413,7 +431,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="pickerViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="pickerViewTableViewCell" rowHeight="201" id="FQm-W2-the" customClass="pickerViewTableViewCell" customModule="Roomies" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="pickerViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="pickerViewTableViewCell" rowHeight="201" id="FQm-W2-the" customClass="PickerViewTableViewCell" customModule="Roomies" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="484" width="375" height="201"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQm-W2-the" id="CZ4-Xc-wdo">
@@ -472,7 +490,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sze-Wy-jKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bTq-SL-Hzv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2590" y="716"/>
+            <point key="canvasLocation" x="2642" y="11"/>
         </scene>
     </scenes>
 </document>
