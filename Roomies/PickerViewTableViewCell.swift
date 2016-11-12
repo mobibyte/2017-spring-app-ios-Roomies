@@ -16,13 +16,11 @@ class PickerViewTableViewCell: UITableViewCell {
     
     
     class var expandedHeight: CGFloat { get { return 200 } }
-    class var defaultHeight: CGFloat  { get { return 50  } }
-    
-    
-    
+    class var defaultHeight: CGFloat  { get { return 44  } }
     
     
     func checkHeight() {
+        print("Checking height \(frame.size.height)")
         categoryPicker.isHidden = (frame.size.height < PickerViewTableViewCell.expandedHeight)
     }
     

@@ -72,17 +72,18 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == 0{
+
+        switch(section) {
+        case 0:
             return userNames.count
-        }
-        else {
-            return 1
+        case 1:
+            return 2
+        default:
+            return 0
         }
     }
     
@@ -106,27 +107,24 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             
             return cell
             
-        }  else if indexPath.section == 1 {
-            let cellIdentifier = "textViewTableViewCell"
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TextViewTableViewCell
+        }  else {
             
-            
-            return cell
-            
-        }
-        else {
-            let cellIdentifier = "pickerViewTableViewCell"
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PickerViewTableViewCell
-            cell.categoryPicker.showsSelectionIndicator = true
-            
-            
-            cell.categoryPicker.delegate = self
-            cell.categoryPicker.dataSource = self
-            
-            
-            return cell
-            
-            
+            if indexPath.row == 0 {
+                let cellIdentifier = "textViewTableViewCell"
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TextViewTableViewCell
+                return cell
+            } else {
+                let cellIdentifier = "pickerViewTableViewCell"
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PickerViewTableViewCell
+                cell.categoryPicker.showsSelectionIndicator = true
+                
+                
+                cell.categoryPicker.delegate = self
+                cell.categoryPicker.dataSource = self
+                
+                
+                return cell
+            }
             
         }
         
@@ -220,8 +218,19 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch(section) {
+        case 0:
+            return "Choose a roommate"
+        case 1:
+            return "Other Info"
+        default:
+            return nil
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 2 {
+        if indexPath.section == 1 && indexPath.row == 1 {
             if indexPath == selectedIndexPath {
                 return PickerViewTableViewCell.expandedHeight
             } else {
@@ -229,8 +238,6 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             }
         }
             
-        else{
-            return 115
-        }
+        return 44
     }
 }
