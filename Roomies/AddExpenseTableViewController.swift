@@ -17,13 +17,12 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     var selectedIndexPath : IndexPath?
     
-    var array = [ "Rent", "Bills", "Entertainment", "Food"]
+    var array = [ "Rent", "Bills", "Entertainment", "Food", "Other" , ]
     
     
     var userNames = ["Bruce", "Wade", "Logan"]
     var userImages = ["wafflewolf.jpg", "homei.jpg", "teakha.jpg"]
     var UserIsVotedfor = Array(repeating: false, count: 4)
-    
     
     
     //Unwind and pass data
@@ -38,8 +37,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     //Text Input for label
     override func viewDidLoad() {
         //amount.text = "$" + amountText
-        
-    }
+          }
     
     
     //PICKERVIEW vvvv
@@ -121,6 +119,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                 
                 cell.categoryPicker.delegate = self
                 cell.categoryPicker.dataSource = self
+               
                 
                 
                 return cell
@@ -195,13 +194,19 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             if indexPaths.count > 0 {
                 tableView.reloadRows(at: indexPaths, with: UITableViewRowAnimation.automatic)
             }
+            let numberOfSections = self.tableView.numberOfSections
+            let numberOfRows = self.tableView.numberOfRows(inSection: numberOfSections-1)
             
+            let indexPath = IndexPath(row: numberOfRows-1 , section: numberOfSections-1)
+            self.tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
         }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             (cell as! PickerViewTableViewCell).watchFrameChanges()
+           
+            
         }
     }
     
@@ -229,11 +234,16 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         }
     }
     
+   
+
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 && indexPath.row == 1 {
             if indexPath == selectedIndexPath {
                 return PickerViewTableViewCell.expandedHeight
             } else {
+                
+
                 return PickerViewTableViewCell.defaultHeight
             }
         }

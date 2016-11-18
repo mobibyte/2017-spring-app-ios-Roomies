@@ -305,7 +305,7 @@
                                 <rect key="frame" x="0.0" y="321.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bri-35-w2R" id="BWr-FI-lXH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title of expense" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y6E-1I-0MX">
@@ -338,12 +338,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="FGH-Ws-Lac">
-                                            <rect key="frame" x="8" y="36" width="359" height="162"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="Xjw-AP-c8o" id="xRI-l7-vCi"/>
-                                            </connections>
-                                        </pickerView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWu-9T-iEq">
                                             <rect key="frame" x="16" y="12" width="120" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -355,13 +349,19 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
+                                        <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="FGH-Ws-Lac">
+                                            <rect key="frame" x="8" y="38" width="359" height="154"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="Xjw-AP-c8o" id="xRI-l7-vCi"/>
+                                            </connections>
+                                        </pickerView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="XWu-9T-iEq" firstAttribute="top" secondItem="CZ4-Xc-wdo" secondAttribute="topMargin" constant="4" id="Doh-ef-YFq"/>
-                                        <constraint firstAttribute="bottom" secondItem="FGH-Ws-Lac" secondAttribute="bottom" constant="2.5" id="I5Z-bt-RDu"/>
+                                        <constraint firstAttribute="bottom" secondItem="FGH-Ws-Lac" secondAttribute="bottom" constant="8.5" id="I5Z-bt-RDu"/>
                                         <constraint firstItem="XWu-9T-iEq" firstAttribute="leading" secondItem="CZ4-Xc-wdo" secondAttribute="leading" constant="16" id="JMG-KH-Ub0"/>
                                         <constraint firstItem="FGH-Ws-Lac" firstAttribute="leading" secondItem="CZ4-Xc-wdo" secondAttribute="leading" constant="8" id="LEc-77-RKt"/>
-                                        <constraint firstItem="FGH-Ws-Lac" firstAttribute="top" secondItem="XWu-9T-iEq" secondAttribute="bottom" constant="6" id="Ma6-5V-uXq"/>
+                                        <constraint firstItem="FGH-Ws-Lac" firstAttribute="top" secondItem="XWu-9T-iEq" secondAttribute="bottom" constant="8" id="Ma6-5V-uXq"/>
                                         <constraint firstAttribute="trailing" secondItem="FGH-Ws-Lac" secondAttribute="trailing" constant="8" id="OcG-FL-W7A"/>
                                     </constraints>
                                 </tableViewCellContentView>
