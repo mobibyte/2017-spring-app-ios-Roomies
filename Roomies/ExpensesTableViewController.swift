@@ -10,6 +10,10 @@ import UIKit
 
 class ExpensesTableViewController: UITableViewController {
 
+    @IBOutlet var amount: UILabel!
+  
+     var amountText = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +24,9 @@ class ExpensesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

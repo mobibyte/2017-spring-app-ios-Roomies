@@ -20,6 +20,7 @@
 		7E84A0F41DCD61F10064770E /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F31DCD61F10064770E /* TextInputViewController.swift */; };
 		7E84A0F61DCD62040064770E /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F51DCD62040064770E /* TextViewTableViewCell.swift */; };
 		7E84A0F81DCD62800064770E /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F71DCD62800064770E /* UserTableViewCell.swift */; };
+		86B21DC31DDFD6D900CA0E85 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B21DC21DDFD6D900CA0E85 /* Expense.swift */; };
 		AE672AD0639E421620F4D8B8 /* Pods_Roomies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2794CB297C84749E5189FD52 /* Pods_Roomies.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		7E84A0F31DCD61F10064770E /* TextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
 		7E84A0F51DCD62040064770E /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
 		7E84A0F71DCD62800064770E /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		86B21DC21DDFD6D900CA0E85 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		AE17966670C156D6A21D3C32 /* Pods-Roomies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roomies/Pods-Roomies.release.xcconfig"; sourceTree = "<group>"; };
 		BA375E9C639FE6B50720DC2D /* Pods-Roomies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roomies/Pods-Roomies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 				7E1769F31DC41DAF00EA7B1E /* Roomies-Bridging-Header.h */,
 				7E1769F41DC41E1F00EA7B1E /* ChatViewController.swift */,
 				7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */,
+				86B21DC21DDFD6D900CA0E85 /* Expense.swift */,
 				7E84A0EF1DCD61C00064770E /* ExpensesTableViewController.swift */,
 				7E84A0F11DCD61D00064770E /* PickerViewTableViewCell.swift */,
 				7E84A0F31DCD61F10064770E /* TextInputViewController.swift */,
@@ -242,6 +245,7 @@
 				7E84A0F81DCD62800064770E /* UserTableViewCell.swift in Sources */,
 				7E84A0F61DCD62040064770E /* TextViewTableViewCell.swift in Sources */,
 				7E1769E31DC419B100EA7B1E /* ViewController.swift in Sources */,
+				86B21DC31DDFD6D900CA0E85 /* Expense.swift in Sources */,
 				7E1769F51DC41E1F00EA7B1E /* ChatViewController.swift in Sources */,
 				7E84A0EE1DCD61B30064770E /* AddExpenseTableViewController.swift in Sources */,
 				7E84A0F41DCD61F10064770E /* TextInputViewController.swift in Sources */,
