@@ -176,9 +176,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="amount" destination="Faj-b1-itX" id="zjV-0V-EVl"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qU5-HV-nhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Vbd-iS-Xob" userLabel="Exit" sceneMemberID="exit"/>
