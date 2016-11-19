@@ -8,12 +8,25 @@
 
 import UIKit
 
+
+protocol AddExpenseDelegate {
+    func addExpense( expense: Expense)
+    func cancelExpense()
+    
+}
+
+
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate  {
+    
+    @IBOutlet var CancelExpense: UIBarButtonItem!
+    
+    @IBOutlet var AddExpense: UIBarButtonItem!
     
     
     @IBOutlet weak var amount: UILabel!
     var amountText = String()
     
+    var delegate: AddExpenseDelegate?
     
     var selectedIndexPath : IndexPath?
     
@@ -25,12 +38,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var UserIsVotedfor = Array(repeating: false, count: 4)
     
     
-    //Unwind and pass data
-    @IBAction func unwindToAddExpenses(segue: UIStoryboardSegue) {
-        
-        amount.text = "$" + amountText
-        
-    }
+   
     
     
     
@@ -251,3 +259,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         return 44
     }
 }
+
+
+
+
