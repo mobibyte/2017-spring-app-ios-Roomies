@@ -385,10 +385,6 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Q9S-bv-DPP"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xyt-Pp-A9M"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="AddExpense" destination="xyt-Pp-A9M" id="NTY-mC-inh"/>
-                        <outlet property="CancelExpense" destination="Q9S-bv-DPP" id="0g6-e5-wKz"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sze-Wy-jKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
