@@ -1,7 +1,5 @@
 PODS:
-  - Firebase (3.8.0):
-    - Firebase/Core (= 3.8.0)
-  - Firebase/Core (3.8.0):
+  - Firebase/Core (3.9.0):
     - FirebaseAnalytics (= 3.5.1)
     - FirebaseCore (= 3.4.4)
   - FirebaseAnalytics (3.5.1):
@@ -25,11 +23,11 @@ PODS:
   - JSQSystemSoundPlayer (2.0.1)
 
 DEPENDENCIES:
-  - Firebase (~> 3.8.0)
+  - Firebase/Core (~> 3.9.0)
   - JSQMessagesViewController (~> 7.3.4)
 
 SPEC CHECKSUMS:
-  Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
+  Firebase: ff77ffb77b317c3720fef57a60e9335cebf962e6
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
@@ -39,6 +37,6 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
 
-PODFILE CHECKSUM: 376f4194ca06bc647881ad9ed8a619abfbb5d925
+PODFILE CHECKSUM: 127cbeeff8e857a9668c109b6be208be6c41bcb4
 
 COCOAPODS: 1.1.0.rc.2

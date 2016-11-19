@@ -18,10 +18,6 @@ protocol AddExpenseDelegate {
 
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate  {
     
-    @IBOutlet var CancelExpense: UIBarButtonItem!
-    
-    @IBOutlet var AddExpense: UIBarButtonItem!
-    
     
     @IBOutlet weak var amount: UILabel!
     var amountText = String()
@@ -38,17 +34,15 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var UserIsVotedfor = Array(repeating: false, count: 4)
     
     
-   
-    
     
     
     //Text Input for label
     override func viewDidLoad() {
         //amount.text = "$" + amountText
-          }
+    }
     
     
-    //PICKERVIEW vvvv
+    // MARK: - Picker View
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return array[row]
@@ -61,9 +55,6 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     public func numberOfComponents(in pickerView: UIPickerView) -> Int{
         return 1
     }
-    
-    // PICKERVIEW ^^^
-    
     
     
     override func didReceiveMemoryWarning() {
@@ -82,7 +73,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         switch(section) {
         case 0:
             return userNames.count
@@ -127,7 +118,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                 
                 cell.categoryPicker.delegate = self
                 cell.categoryPicker.dataSource = self
-               
+                
                 
                 
                 return cell
@@ -213,7 +204,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             (cell as! PickerViewTableViewCell).watchFrameChanges()
-           
+            
             
         }
     }
@@ -242,8 +233,8 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         }
     }
     
-   
-
+    
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 && indexPath.row == 1 {
@@ -251,11 +242,11 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                 return PickerViewTableViewCell.expandedHeight
             } else {
                 
-
+                
                 return PickerViewTableViewCell.defaultHeight
             }
         }
-            
+        
         return 44
     }
 }
