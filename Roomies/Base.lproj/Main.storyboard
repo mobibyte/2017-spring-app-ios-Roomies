@@ -139,7 +139,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ui4-3U-weu" id="aLr-1u-gLP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faj-b1-itX" userLabel="amount">
@@ -159,7 +159,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7oZ-hZ-kqh" id="hm7-Wc-hFm">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -172,7 +172,7 @@
                     <navigationItem key="navigationItem" title="Expenses" id="dRV-Cz-oRB">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="QLI-qo-WQv">
                             <connections>
-                                <segue destination="2Cb-LX-eFg" kind="presentation" id="eRw-qX-Gkp"/>
+                                <segue destination="2Cb-LX-eFg" kind="presentation" identifier="AddExpenseSegue" id="eRw-qX-Gkp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -250,13 +250,13 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="UserTableViewCell" rowHeight="101" id="vIk-bs-Zdw" userLabel="UserTableViewCell" customClass="UserTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="220.5" width="375" height="101"/>
+                                <rect key="frame" x="0.0" y="221" width="375" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Add" tableViewCell="vIk-bs-Zdw" id="W4N-hV-hnV">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" restorationIdentifier="Add" tableViewCell="vIk-bs-Zdw" id="W4N-hV-hnV">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xik-hO-ZbD">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xik-hO-ZbD">
                                             <rect key="frame" x="21" y="15" width="70" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="70" id="HVK-pA-wDs"/>
@@ -269,7 +269,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gJ-fc-rua">
-                                            <rect key="frame" x="90" y="15" width="195" height="68"/>
+                                            <rect key="frame" x="90" y="-35" width="195" height="68"/>
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="68" id="7Wz-0b-15M"/>
@@ -306,10 +306,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="textViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="textViewTableViewCell" id="bri-35-w2R" customClass="TextViewTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="321.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="322" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bri-35-w2R" id="BWr-FI-lXH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title of expense" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y6E-1I-0MX">
@@ -336,10 +336,10 @@
                                 </userDefinedRuntimeAttributes>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="pickerViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="pickerViewTableViewCell" rowHeight="201" id="FQm-W2-the" customClass="PickerViewTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="365.5" width="375" height="201"/>
+                                <rect key="frame" x="0.0" y="366" width="375" height="201"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQm-W2-the" id="CZ4-Xc-wdo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWu-9T-iEq">
@@ -382,8 +382,16 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Expenses" id="RW1-XO-Xb2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Q9S-bv-DPP"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xyt-Pp-A9M"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Q9S-bv-DPP">
+                            <connections>
+                                <action selector="cancelExpensesButton:" destination="Xjw-AP-c8o" id="sby-lk-4t9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xyt-Pp-A9M">
+                            <connections>
+                                <action selector="addExpensesButton:" destination="Xjw-AP-c8o" id="h4Y-Ua-P4q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sze-Wy-jKC" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,11 +8,33 @@
 
 import UIKit
 
-class ExpensesTableViewController: UITableViewController {
+class ExpensesTableViewController: UITableViewController, AddExpenseDelegate {
 
     @IBOutlet var amount: UILabel!
   
      var amountText = String()
+    
+    
+    func addExpense(expense: Expense) {
+        print("Add Expenses Button\(expense.title) ")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func cancelExpense() {
+        print("Cancel Expenses Button ")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "AddExpenseSegue")
+        {
+            let vc = (segue.destination as! UINavigationController).topViewController as! AddExpenseTableViewController
+            vc.delegate = self
+            
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

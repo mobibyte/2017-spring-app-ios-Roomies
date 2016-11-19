@@ -19,10 +19,23 @@ protocol AddExpenseDelegate {
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate  {
     
     
+    @IBAction func addExpensesButton(_ sender: Any) {
+        print("Add Expenses Button Clicked")
+        let e = Expense(title: "Food", amount: 20)
+        delegate?.addExpense(expense: e)
+    }
+    
+    
+    @IBAction func cancelExpensesButton(_ sender: Any) {
+        print("Cancel Expenses Button Clicked")
+        delegate?.cancelExpense()
+    }
+    
+    
     @IBOutlet weak var amount: UILabel!
     var amountText = String()
     
-    var delegate: AddExpenseDelegate
+    var delegate: AddExpenseDelegate?
     
     var selectedIndexPath : IndexPath?
     
@@ -32,13 +45,6 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var userNames = ["Bruce", "Wade", "Logan"]
     var userImages = ["wafflewolf.jpg", "homei.jpg", "teakha.jpg"]
     var UserIsVotedfor = Array(repeating: false, count: 4)
-    
-    
-<<<<<<< HEAD
-    
-    
-=======
->>>>>>> 237f53b1e2075a5e6a02c63ed35d69e81ef2a07e
     
     
     //Text Input for label
