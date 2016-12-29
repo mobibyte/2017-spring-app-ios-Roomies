@@ -18,7 +18,9 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var expense:ExpenseMO!
     var arrayOfNames : [String] = [String]()
     var rowBeingEdited : Int? = nil
-
+    
+    var selectedUser:String? = nil
+    var selectedUserIndex:Int? = nil
     
     
     @IBAction func cancelExpensesButton(_ sender: Any) {
@@ -41,7 +43,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     var userNames = ["Bruce", "Wade", "Logan"]
     var userImages = ["User1", "User2", "User3"]
-    var userIsVotedfor = Array(repeating: false, count: 4)
+    
     
     
    
@@ -104,8 +106,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             // Configure the cell...
             cell.nameLabel.text = userNames[indexPath.row]
             cell.thumbnailImageView.image = UIImage(named: userImages[indexPath.row])
-            cell.accessoryType = userIsVotedfor[indexPath.row] ?  .checkmark : .none
-            
+            cell.accessoryType = indexPath.row == selectedUserIndex ?  .checkmark : .none
             
             return cell
             
@@ -139,15 +140,20 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-                // Vote for which user has to pay
+        if indexPath.section == 0 { //Toggle Selected User
             
-                let cell = tableView.cellForRow(at: indexPath)
-                cell?.accessoryType = .checkmark
-                
-                self.userIsVotedfor[indexPath.row] = self.userIsVotedfor[indexPath.row] ? false : true
+            //Other row is selected - need to deselect it
+            if let index = selectedUserIndex {
+                let cell = tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath)
+                cell?.accessoryType = .none
+            }
             
-                cell?.accessoryType = self.userIsVotedfor[indexPath.row] ? .checkmark : .none
+            selectedUserIndex = indexPath.row
+            selectedUser = userNames[indexPath.row]
+            
+            //update the checkmark for the current row
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
             
             
             } else if indexPath.section == 1 && indexPath.row == 1 {
