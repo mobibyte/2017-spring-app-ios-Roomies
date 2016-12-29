@@ -15,6 +15,8 @@ class PickerViewTableViewCell: UITableViewCell {
     @IBOutlet var categoryPicker: UIPickerView!
     
     
+    
+    
     class var expandedHeight: CGFloat { get { return 200 } }
     class var defaultHeight: CGFloat  { get { return 44  } }
     

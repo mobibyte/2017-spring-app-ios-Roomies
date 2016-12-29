@@ -7,25 +7,31 @@
 //
 
 import UIKit
+import CoreData
 
-class ExpensesTableViewController: UITableViewController, AddExpenseDelegate {
+class ExpensesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-    @IBOutlet var amount: UILabel!
+    //@IBOutlet var amount: UILabel!
   
-     var amountText = String()
+    // var amountText = String()
+    
+    var expenses: [ExpenseMO] = []
+    var fetchResultController: NSFetchedResultsController<ExpenseMO>!
     
     
-    func addExpense(expense: Expense) {
-        print("Add Expenses Button\(expense.title) ")
-        self.dismiss(animated: true, completion: nil)
-    }
     
     func cancelExpense() {
         print("Cancel Expenses Button ")
         self.dismiss(animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*func textView(sender: TextViewTableViewCell) {
+        let indexPath = tableView.indexPath(for: sender)
+        print("IT changed")
+        
+    }*/
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "AddExpenseSegue")
         {
             let vc = (segue.destination as! UINavigationController).topViewController as! AddExpenseTableViewController
@@ -35,10 +41,30 @@ class ExpensesTableViewController: UITableViewController, AddExpenseDelegate {
         
         
     }
-    
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Fetch data from data store
+        let fetchRequest: NSFetchRequest<ExpenseMO> = ExpenseMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "amount", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            
+            do {
+                try fetchResultController.performFetch()
+                if let fetchedObjects = fetchResultController.fetchedObjects {
+                    expenses = fetchedObjects
+                }
+            } catch {
+                print(error)
+            }
+        }
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -63,15 +89,90 @@ class ExpensesTableViewController: UITableViewController, AddExpenseDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return expenses.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cellIdentifier = "Cell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        
         // Configure the cell...
+        cell.textLabel?.text = expenses[indexPath.row].amount
+        
 
         return cell
+    }
+    
+    
+    // MARK: - Delete Expense Edit Action
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            expenses.remove(at: indexPath.row)
+        }
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        
+    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        // Delete button
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
+            
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                
+                let context = appDelegate.persistentContainer.viewContext
+                let expenseToDelete = self.fetchResultController.object(at: indexPath)
+                
+                context.delete(expenseToDelete)
+                appDelegate.saveContext()
+                
+            }
+            
+            
+            
+        })
+
+        deleteAction.backgroundColor = UIColor(red: 210/255.0, green: 77/255.0, blue: 89/255.0, alpha: 1.0)
+        
+        return [deleteAction]
+        
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        
+        if let fetchedObjects = controller.fetchedObjects {
+            expenses = fetchedObjects as! [ExpenseMO]
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
 
     /*

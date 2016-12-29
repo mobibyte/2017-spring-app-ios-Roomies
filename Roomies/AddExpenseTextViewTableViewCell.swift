@@ -9,12 +9,23 @@
 import Foundation
 import UIKit
 
+/*protocol TextViewTableViewDelegate {
+    func textView (sender: TextViewTableViewCell )
+    
+}*/
+
 class TextViewTableViewCell: UITableViewCell {
     
+    //var delegate: TextViewTableViewDelegate?
     
-    @IBAction func titleTextField(_ sender: UITextField) {
-    }
+    @IBOutlet var expenseTitle: UITextField!
     
+    /*@IBAction func expenseTitleChanged(sender: UITextField){
+        if delegate != nil {
+            delegate?.textView(sender: self)
+        }
+    }*/
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +36,7 @@ class TextViewTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    
     
 }
