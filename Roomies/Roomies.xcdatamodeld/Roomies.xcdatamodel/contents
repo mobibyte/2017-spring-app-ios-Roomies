@@ -2,8 +2,11 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Expense" representedClassName="ExpenseMO" syncable="YES" codeGenerationType="class">
         <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" defaultValueString="Expense" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="Other" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" defaultValueString="Uknown" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Expense" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Expense" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

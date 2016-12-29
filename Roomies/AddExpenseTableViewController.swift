@@ -11,8 +11,8 @@ import CoreData
 
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate  {
    
-    var allCellsText = [String]()
-    
+    var allCellsText = ""
+    var expenseType = ""
     @IBOutlet var amount: UITextField!
     
     var expense:ExpenseMO!
@@ -38,7 +38,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     var selectedIndexPath : IndexPath?
     
-    var pickerExpenseTypeArray = [ "Rent", "Bills", "Entertainment", "Food", "Other" , ]
+    var pickerExpenseTypeArray = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
     
     
     var userNames = ["Bruce", "Wade", "Logan"]
@@ -240,13 +240,24 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         return tableView.rowHeight
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        allCellsText.append(textField.text!)
-        print("***********... \(allCellsText)")
-        expense.amount = allCellsText[0]
+    
+    
+    
+   func textFieldDidEndEditing(_ textField: UITextField) {
         
+        allCellsText = textField.text!
+        print(allCellsText)
+    
+    
         
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        expenseType = pickerExpenseTypeArray[row]
+
+    }
+    
+
     
     @IBAction func save(sender: AnyObject) {
         if amount.text == "0" {
@@ -260,9 +271,10 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             expense = ExpenseMO(context: appDelegate.persistentContainer.viewContext)
-            //expense.amount = amount.text
-            //expense.amount = allCellsText[0]
-            
+            expense.amount = amount.text
+            expense.username = selectedUser
+            expense.type = expenseType
+            expense.title = allCellsText
             print("Saving data to context ...")
             appDelegate.saveContext()
             

@@ -15,6 +15,8 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
   
     // var amountText = String()
     
+    var amountText = ""
+    
     var expenses: [ExpenseMO] = []
     var fetchResultController: NSFetchedResultsController<ExpenseMO>!
     
@@ -93,11 +95,14 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "Cell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cellIdentifier = "ExpenseCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ExpenseTableViewCell
         
         // Configure the cell...
-        cell.textLabel?.text = expenses[indexPath.row].amount
+        
+        cell.expenseAmount.text = ("$" + expenses[indexPath.row].amount!)
+        cell.expenseTitle.text =   expenses[indexPath.row].title!
+        cell.expenseForUser.text = ("Owed to " + expenses[indexPath.row].username!)
         
 
         return cell
