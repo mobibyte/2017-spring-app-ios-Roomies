@@ -17,6 +17,12 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     
     var amountText = ""
     
+    var userNames = ["Bruce", "Wade", "Logan"]
+    var userDict = [String: [String]] ()
+    var userSectionTitles = [String] ()
+    
+    var expenseTypes = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
+    
     var expenses: [ExpenseMO] = []
     var fetchResultController: NSFetchedResultsController<ExpenseMO>!
     
@@ -27,29 +33,12 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*func textView(sender: TextViewTableViewCell) {
-        let indexPath = tableView.indexPath(for: sender)
-        print("IT changed")
-        
-    }*/
-    
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "AddExpenseSegue")
-        {
-            let vc = (segue.destination as! UINavigationController).topViewController as! AddExpenseTableViewController
-            vc.delegate = self
-            
-        }
-        
-        
-    }
-    */
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Fetch data from data store
         let fetchRequest: NSFetchRequest<ExpenseMO> = ExpenseMO.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "amount", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "username", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
@@ -104,6 +93,22 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         cell.expenseTitle.text =   expenses[indexPath.row].title!
         cell.expenseForUser.text = ("Owed to " + expenses[indexPath.row].username!)
         
+        
+        
+        switch expenses[indexPath.row].type {
+        case (expenseTypes[0])?:
+            cell.expenseAmount.backgroundColor = UIColor(red: 0.8863, green: 0.6039, blue: 0.3176, alpha: 1.0)
+        case (expenseTypes[1])?:
+            cell.expenseAmount.backgroundColor = UIColor(red: 0.3333, green: 0.9294, blue: 0.4235, alpha: 1.0)
+        case (expenseTypes[2])?:
+            cell.expenseAmount.backgroundColor = UIColor(red: 0.5137, green: 0.302, blue: 0.8392, alpha: 1.0)
+        case (expenseTypes[3])?:
+            cell.expenseAmount.backgroundColor = UIColor(red: 0.8275, green: 0.298, blue: 0.4196, alpha: 1.0)
+        default:
+            cell.expenseAmount.backgroundColor = UIColor(red: 0.898, green: 0.8706, blue: 0.3216, alpha: 1.0)
+        }
+        
+        //cell.expenseAmount.backgroundColor =
 
         return cell
     }
@@ -114,7 +119,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            // Delete the row from the data source
             expenses.remove(at: indexPath.row)
         }
         tableView.deleteRows(at: [indexPath], with: .fade)
@@ -137,9 +141,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
                 appDelegate.saveContext()
                 
             }
-            
-            
-            
         })
 
         deleteAction.backgroundColor = UIColor(red: 210/255.0, green: 77/255.0, blue: 89/255.0, alpha: 1.0)
@@ -180,7 +181,9 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         tableView.endUpdates()
     }
 
-    /*
+   
+    
+       /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
