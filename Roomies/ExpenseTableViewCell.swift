@@ -13,7 +13,7 @@ class ExpenseTableViewCell: UITableViewCell {
     @IBOutlet var expenseAmount: UILabel!
     @IBOutlet var expenseTitle: UILabel!
     @IBOutlet var expenseForUser: UILabel!
-    
+    @IBOutlet var expenseCategory: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

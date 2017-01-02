@@ -11,9 +11,8 @@ import CoreData
 
 class ExpensesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-    //@IBOutlet var amount: UILabel!
-  
-    // var amountText = String()
+    @IBOutlet var sorterSegmentedControl: UISegmentedControl!
+   
     
     var amountText = ""
     
@@ -26,20 +25,31 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     var expenses: [ExpenseMO] = []
     var fetchResultController: NSFetchedResultsController<ExpenseMO>!
     
-    
-    
-    func cancelExpense() {
-        print("Cancel Expenses Button ")
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) {
+        
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Fetch data from data store
         let fetchRequest: NSFetchRequest<ExpenseMO> = ExpenseMO.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "username", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let usernameSort = NSSortDescriptor(key: "username", ascending: true)
+        let amountSort = NSSortDescriptor(key: "amount", ascending: true)
+        let categorySort = NSSortDescriptor(key: "type", ascending: true)
+        
+        switch sorterSegmentedControl.selectedSegmentIndex {
+        case 0:
+            fetchRequest.sortDescriptors = [usernameSort]
+        case 1:
+            fetchRequest.sortDescriptors = [amountSort]
+        case 2:
+            fetchRequest.sortDescriptors = [categorySort]
+        default:
+            fetchRequest.sortDescriptors = [amountSort]
+        }
+        
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = appDelegate.persistentContainer.viewContext
@@ -56,14 +66,14 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
             }
         }
     
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     
+    @IBAction func segmentChange(_ sender: Any) {
+        viewDidLoad()
+        tableView.reloadData()
+        
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -92,9 +102,9 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         cell.expenseAmount.text = ("$" + expenses[indexPath.row].amount!)
         cell.expenseTitle.text =   expenses[indexPath.row].title!
         cell.expenseForUser.text = ("Owed to " + expenses[indexPath.row].username!)
+        cell.expenseCategory.text = expenses[indexPath.row].type
         
-        
-        
+        /*
         switch expenses[indexPath.row].type {
         case (expenseTypes[0])?:
             cell.expenseAmount.backgroundColor = UIColor(red: 0.8863, green: 0.6039, blue: 0.3176, alpha: 1.0)
@@ -106,7 +116,8 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
             cell.expenseAmount.backgroundColor = UIColor(red: 0.8275, green: 0.298, blue: 0.4196, alpha: 1.0)
         default:
             cell.expenseAmount.backgroundColor = UIColor(red: 0.898, green: 0.8706, blue: 0.3216, alpha: 1.0)
-        }
+        }*/
+        
         
         //cell.expenseAmount.backgroundColor =
 

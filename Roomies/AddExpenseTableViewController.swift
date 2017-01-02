@@ -23,14 +23,6 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var selectedUserIndex:Int? = nil
     
     
-    @IBAction func cancelExpensesButton(_ sender: Any) {
-        print("Cancel Expenses Button Clicked")
-        //delegate?.cancelExpense()
-    }
-   
-   
-    
-    
     
     var amountText = String()
     
