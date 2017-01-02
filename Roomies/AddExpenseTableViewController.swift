@@ -234,15 +234,14 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     
     
-    
-   func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        allCellsText = textField.text!
+    @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
+        allCellsText = sender.text!
         print(allCellsText)
-    
-    
+        
+        
         
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         expenseType = pickerExpenseTypeArray[row]
