@@ -18,27 +18,16 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var expense:ExpenseMO!
     var arrayOfNames : [String] = [String]()
     var rowBeingEdited : Int? = nil
-    
     var selectedUser:String? = nil
     var selectedUserIndex:Int? = nil
     
-    
-    
     var amountText = String()
     
-    //var delegate: AddExpenseDelegate?
-    
     var selectedIndexPath : IndexPath?
-    
     var pickerExpenseTypeArray = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
-    
-    
     var userNames = ["Bruce", "Wade", "Logan"]
     var userImages = ["User1", "User2", "User3"]
     
-    
-    
-   
     override func viewDidLoad() {
        
         
@@ -236,10 +225,6 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
         allCellsText = sender.text!
-        print(allCellsText)
-        
-        
-        
     }
     
     
@@ -248,9 +233,8 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
 
     }
     
-
     
-    @IBAction func save(sender: AnyObject) {
+    @IBAction func saveExpense(sender: AnyObject) {
         if amount.text == "0" {
             let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)

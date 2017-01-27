@@ -10,6 +10,12 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
 
+    
+    //@IBOutlet var taskOwner: UILabel!
+    @IBOutlet var taskName: UILabel!
+    @IBOutlet var taskDueDate: UILabel!
+    @IBOutlet var taskOwners: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
