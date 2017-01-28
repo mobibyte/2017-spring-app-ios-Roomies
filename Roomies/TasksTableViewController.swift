@@ -10,10 +10,9 @@ import UIKit
 import CoreData
 
 class TasksTableViewController: UITableViewController, NSFetchedResultsControllerDelegate  {
-   
-    var countDownString = "Hours Left: "
-    var countDownDouble = 0.0
-    var tasks: [TaskMO] = []
+    let userCalendar = NSCalendar.current
+    
+    var tasks: [Task] = []
     var fetchResultController: NSFetchedResultsController<TaskMO>!
 
     
@@ -35,7 +34,16 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
             do {
                 try fetchResultController.performFetch()
                 if let fetchedObjects = fetchResultController.fetchedObjects {
-                   tasks = fetchedObjects
+                    for fetched in fetchedObjects {
+                        let task = Task()
+                        task.name = fetched.name
+                        task.dueDate = fetched.duedate as? Date
+                        task.owner = fetched.owner
+                        
+                        tasks.append(task)
+                    }
+                   
+                    self.tableView.reloadData()
                 }
             } catch {
                 print(error)
@@ -66,34 +74,32 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        countDownString = ""
+        
         let cellIdentifier = "TaskCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TaskTableViewCell
      
      // Configure the cell...
         
-        countDownDouble = tasks[indexPath.row].duedate/(60 * 60)
-        if (countDownDouble > 24.0){
-            
-            countDownDouble/=60
-            countDownString += " Days Left: "
+        let task = tasks[indexPath.row]
+        
+        // TODO: Wrap duedate optional
+        let calendar = Calendar.current
+        let dueDays = calendar.component(.day, from: task.dueDate!)
+        let dueHours = calendar.component(.hour, from: task.dueDate!)
+        
+
+        //CountDownDoubleDifference.day
+        if (dueDays > 1){
+            cell.taskDueDate.text = "\(dueDays) days left"
             
         } else {
-            
-            //cell.backgroundColor = UIColor(red: 0.7569, green: 0, blue: 0.2275, alpha: 1.0)
-            countDownString += " Hours Left: "
-            
+            cell.taskDueDate.text = "\(dueHours) hours left"
         }
-        countDownString += " \(String(Int(countDownDouble))) "
         
-        
-        cell.taskName.text = tasks[indexPath.row].name
-        cell.taskDueDate.text = countDownString
-        cell.taskOwners.text = tasks[indexPath.row].owner
-        
-        
+        cell.taskName.text = task.name
+        cell.taskOwners.text = task.owner
+    
         return cell
-        
     }
     
     // MARK: - Segue and Passing Data
@@ -162,7 +168,7 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         }
         
         if let fetchedObjects = controller.fetchedObjects {
-            tasks = fetchedObjects as! [TaskMO]
+            tasks = fetchedObjects as! [Task]
         }
     }
     

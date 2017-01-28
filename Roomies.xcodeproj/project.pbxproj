@@ -19,6 +19,7 @@
 		7E84A0F21DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F11DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift */; };
 		7E84A0F61DCD62040064770E /* AddExpenseTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F51DCD62040064770E /* AddExpenseTextViewTableViewCell.swift */; };
 		7E84A0F81DCD62800064770E /* AddExpenseUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F71DCD62800064770E /* AddExpenseUserTableViewCell.swift */; };
+		860FC4731E3C305300A0980D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FC4721E3C305300A0980D /* Task.swift */; };
 		86310DA91E15BF44001BAAD8 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */; };
 		868093B11E19E712003A440B /* ExpenseMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868093B01E19E712003A440B /* ExpenseMaterialView.swift */; };
 		86A9D1E11E35931B00E17091 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E01E35931B00E17091 /* TasksTableViewController.swift */; };
@@ -45,6 +46,7 @@
 		7E84A0F11DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpensePickerViewTableViewCell.swift; sourceTree = "<group>"; };
 		7E84A0F51DCD62040064770E /* AddExpenseTextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseTextViewTableViewCell.swift; sourceTree = "<group>"; };
 		7E84A0F71DCD62800064770E /* AddExpenseUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseUserTableViewCell.swift; sourceTree = "<group>"; };
+		860FC4721E3C305300A0980D /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		868093B01E19E712003A440B /* ExpenseMaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseMaterialView.swift; sourceTree = "<group>"; };
 		86A9D1E01E35931B00E17091 /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				86A9D1E21E3596A500E17091 /* TaskTableViewCell.swift */,
 				86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */,
 				86A9D1E61E36D08600E17091 /* Roomies.xcdatamodeld */,
+				860FC4721E3C305300A0980D /* Task.swift */,
 			);
 			path = Roomies;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				868093B11E19E712003A440B /* ExpenseMaterialView.swift in Sources */,
 				7E84A0F61DCD62040064770E /* AddExpenseTextViewTableViewCell.swift in Sources */,
 				86A9D1E81E36D08600E17091 /* Roomies.xcdatamodeld in Sources */,
+				860FC4731E3C305300A0980D /* Task.swift in Sources */,
 				86A9D1E11E35931B00E17091 /* TasksTableViewController.swift in Sources */,
 				7E1769E31DC419B100EA7B1E /* ViewController.swift in Sources */,
 				7E1769F51DC41E1F00EA7B1E /* ChatViewController.swift in Sources */,

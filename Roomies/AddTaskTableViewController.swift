@@ -48,8 +48,8 @@ class AddTaskTableViewController: UITableViewController {
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             task = TaskMO(context: appDelegate.persistentContainer.viewContext)
             task.name = taskNameTextField.text
-           
-            task.duedate = taskDueDatePicker.countDownDuration
+            
+            task.duedate = taskDueDatePicker.date as NSDate?
             
            
             print("Saving data to context ...")
@@ -60,19 +60,6 @@ class AddTaskTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
  
     }
-    
-    
-    /*@IBAction func saveExpense(sender: AnyObject) {
-        if amount.text == "0" {
-            let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            present(alertController, animated: true, completion: nil)
-        }
-        
-        print("Amount: \(amount.text)")
-                dismiss(animated: true, completion: nil)
-    }*/
 
 
 }
