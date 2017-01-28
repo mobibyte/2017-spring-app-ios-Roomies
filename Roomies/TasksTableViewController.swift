@@ -87,7 +87,7 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         let dueDays = calendar.component(.day, from: task.dueDate!)
         let dueHours = calendar.component(.hour, from: task.dueDate!)
         
-
+ 
         //CountDownDoubleDifference.day
         if (dueDays > 1){
             cell.taskDueDate.text = "\(dueDays) days left"
@@ -168,7 +168,7 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         }
         
         if let fetchedObjects = controller.fetchedObjects {
-            tasks = fetchedObjects as! [Task]
+            //tasks = fetchedObjects as! [Task]
         }
     }
     
