@@ -66,16 +66,23 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     
+        countDownString = ""
         let cellIdentifier = "TaskCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TaskTableViewCell
      
      // Configure the cell...
         
-        countDownDouble = tasks[indexPath.row].duedate/360
+        countDownDouble = tasks[indexPath.row].duedate/(60 * 60)
         if (countDownDouble > 24.0){
+            
             countDownDouble/=60
-            countDownString = "Days Left: "
+            countDownString += " Days Left: "
+            
+        } else {
+            
+            //cell.backgroundColor = UIColor(red: 0.7569, green: 0, blue: 0.2275, alpha: 1.0)
+            countDownString += " Hours Left: "
+            
         }
         countDownString += " \(String(Int(countDownDouble))) "
         
@@ -84,7 +91,9 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         cell.taskDueDate.text = countDownString
         cell.taskOwners.text = tasks[indexPath.row].owner
         
+        
         return cell
+        
     }
     
     // MARK: - Segue and Passing Data
