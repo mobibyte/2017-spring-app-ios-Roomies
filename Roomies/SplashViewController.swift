@@ -33,7 +33,7 @@ class SplashViewController: UIViewController {
             })
             
         } else {
-            //self.gotoEntry()
+            self.gotoEntry()
         }
     }
 
