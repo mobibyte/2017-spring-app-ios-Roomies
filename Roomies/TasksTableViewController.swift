@@ -9,51 +9,16 @@
 import UIKit
 import CoreData
 
-class TasksTableViewController: UITableViewController, NSFetchedResultsControllerDelegate  {
+class TasksTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     let userCalendar = NSCalendar.current
     
     var tasks: [Task] = []
     var fetchResultController: NSFetchedResultsController<TaskMO>!
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            let context = appDelegate.persistentContainer.viewContext
-            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            fetchResultController.delegate = self
-            
-            do {
-                try fetchResultController.performFetch()
-                if let fetchedObjects = fetchResultController.fetchedObjects {
-                    for fetched in fetchedObjects {
-                        let task = Task()
-                        task.name = fetched.name
-                        task.dueDate = fetched.duedate as? Date
-                        task.owner = fetched.owner
-                        
-                        tasks.append(task)
-                    }
-                   
-                    self.tableView.reloadData()
-                }
-            } catch {
-                print(error)
-            }
-        }
-    
-    
+      
     }
-        
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -71,7 +36,6 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         // #warning Incomplete implementation, return the number of rows
         return tasks.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -104,8 +68,23 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
     
     // MARK: - Segue and Passing Data
     
-    @IBAction func unwindTasks(segue:UIStoryboardSegue) {
+    @IBAction func cancel(segue:UIStoryboardSegue) {
+       
+    }
+    
+    @IBAction func done(segue:UIStoryboardSegue) {
+        let newTask = Task()
+        let addTask = segue.source as! AddTaskTableViewController
         
+        newTask.name = addTask.addTask.name
+        newTask.dueDate = addTask.addTask.dueDate
+        if (addTask.addTask.owner == nil){
+            newTask.owner = "None"
+        } else {
+            newTask.owner = addTask.addTask.owner
+        }
+        tasks.append(newTask)
+        self.tableView.reloadData()
     }
     
     
@@ -114,11 +93,11 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tasks.remove(at: indexPath.row)
+            
         }
         
         tableView.deleteRows(at: [indexPath], with: .fade)
+        
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -127,13 +106,9 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         // Delete button
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
             
-            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-                let context = appDelegate.persistentContainer.viewContext
-                let listToDelete = self.fetchResultController.object(at: indexPath)
-                context.delete(listToDelete)
-                
-                appDelegate.saveContext()
-            }
+            self.tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
         })
         
         
@@ -141,42 +116,5 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         
         return [deleteAction]
     }
-    
-    
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        switch type {
-        case .insert:
-            if let newIndexPath = newIndexPath {
-                tableView.insertRows(at: [newIndexPath], with: .fade)
-            }
-        case .delete:
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-        case .update:
-            if let indexPath = indexPath {
-                tableView.reloadRows(at: [indexPath], with: .fade)
-            }
-        default:
-            tableView.reloadData()
-        }
-        
-        if let fetchedObjects = controller.fetchedObjects {
-            //tasks = fetchedObjects as! [Task]
-        }
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    
-
-
 
 }

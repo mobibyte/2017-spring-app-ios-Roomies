@@ -15,6 +15,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var expenseType = ""
     @IBOutlet var amount: UITextField!
     
+    let addExpense = Expense()
     var expense:ExpenseMO!
     var arrayOfNames : [String] = [String]()
     var rowBeingEdited : Int? = nil
@@ -56,10 +57,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     // MARK: - Table view data source
     
-    
-    
-    
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -233,30 +231,31 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
 
     }
     
-    
-    @IBAction func saveExpense(sender: AnyObject) {
-        if amount.text == "0" {
-            let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            present(alertController, animated: true, completion: nil)
-        }
-        
-        print("Amount: \(amount.text)")
-        
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            expense = ExpenseMO(context: appDelegate.persistentContainer.viewContext)
-            expense.amount = amount.text
-            expense.username = selectedUser
-            expense.type = expenseType
-            expense.title = allCellsText
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "doneExpense" {
+            
+            if amount.text == "0" {
+                let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                present(alertController, animated: true, completion: nil)
+            }
+            
+            print("Amount: \(amount.text)")
+            print("User: \(selectedUser)")
+            print("Type: \(expenseType)")
+            print("Title: \(allCellsText)")
+            
+            addExpense.amount = amount.text
+            addExpense.username = selectedUser
+            addExpense.type = expenseType
+            addExpense.title = allCellsText
+            
             print("Saving data to context ...")
-            appDelegate.saveContext()
             
         }
-        dismiss(animated: true, completion: nil)
+        
     }
-    
    
     
  }
