@@ -644,5 +644,160 @@
             </objects>
             <point key="canvasLocation" x="3437.5999999999999" y="724.58770614692662"/>
         </scene>
+        <!--Entry View Controller-->
+        <scene sceneID="ioZ-il-zTD">
+            <objects>
+                <viewController id="exZ-ba-3Sc" customClass="EntryViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VHp-Yn-A2G"/>
+                        <viewControllerLayoutGuide type="bottom" id="qDM-Gx-585"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cQN-sd-hmv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaG-bN-Z4y" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="36" y="592" width="303" height="55"/>
+                                <color key="backgroundColor" red="1" green="0.22738962930000001" blue="0.94165065049999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="6dl-UZ-neP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="EaG-bN-Z4y" secondAttribute="trailing" constant="20" id="4rE-RY-lYO"/>
+                            <constraint firstItem="qDM-Gx-585" firstAttribute="top" secondItem="EaG-bN-Z4y" secondAttribute="bottom" constant="20" id="eWa-hU-vhX"/>
+                            <constraint firstItem="EaG-bN-Z4y" firstAttribute="leading" secondItem="cQN-sd-hmv" secondAttribute="leadingMargin" constant="20" id="qaS-nF-Tee"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="q9s-Fk-cIu"/>
+                    <connections>
+                        <outlet property="loginButton" destination="EaG-bN-Z4y" id="sSW-rc-g6b"/>
+                        <segue destination="fao-fm-b2Q" kind="showDetail" identifier="JoinRoomSegue" id="QTr-x1-8tx">
+                            <nil key="action"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfm-cm-68b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1764" y="-282"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="bdA-sc-CCK">
+            <objects>
+                <viewController id="SJ5-Aa-8Sw" customClass="SplashViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YX1-G7-WER"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gko-Fs-Pf2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2p7-An-fr3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPt-uF-bXL">
+                                <rect key="frame" x="157" y="323" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cPt-uF-bXL" firstAttribute="centerX" secondItem="2p7-An-fr3" secondAttribute="centerX" id="ATg-5V-MTI"/>
+                            <constraint firstItem="cPt-uF-bXL" firstAttribute="centerY" secondItem="2p7-An-fr3" secondAttribute="centerY" id="d4i-Pt-evh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="exZ-ba-3Sc" kind="showDetail" identifier="EntryViewController" id="AyO-3Q-sD6">
+                            <nil key="action"/>
+                        </segue>
+                        <segue destination="IPh-0h-bSE" kind="showDetail" identifier="OpenRoomSegue" id="PLS-Ee-bMB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kDF-Nd-ecq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2559" y="449"/>
+        </scene>
+        <!--Join Room View Controller-->
+        <scene sceneID="OrJ-gt-Zum">
+            <objects>
+                <viewController id="fao-fm-b2Q" customClass="JoinRoomViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FQN-ds-NE2"/>
+                        <viewControllerLayoutGuide type="bottom" id="ozt-C2-6MH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B0j-qF-tYs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CM3-BV-uwA">
+                                <rect key="frame" x="136" y="557" width="102" height="30"/>
+                                <state key="normal" title="Create a Room"/>
+                                <connections>
+                                    <action selector="createRoomPressed:" destination="fao-fm-b2Q" eventType="touchUpInside" id="2OH-r6-Fx2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpR-iK-3rZ">
+                                <rect key="frame" x="151" y="179" width="72" height="30"/>
+                                <state key="normal" title="Join Room"/>
+                                <connections>
+                                    <action selector="joinRoomPressed:" destination="fao-fm-b2Q" eventType="touchUpInside" id="rjS-ja-C3W"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="His-WS-dxI">
+                                <rect key="frame" x="16" y="141" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already apart of a room?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8S-E3-89P">
+                                <rect key="frame" x="93" y="100" width="189" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="His-WS-dxI" firstAttribute="top" secondItem="W8S-E3-89P" secondAttribute="bottom" constant="20" id="8hi-pK-3qB"/>
+                            <constraint firstItem="W8S-E3-89P" firstAttribute="centerX" secondItem="B0j-qF-tYs" secondAttribute="centerX" id="9gB-Cx-bOv"/>
+                            <constraint firstItem="His-WS-dxI" firstAttribute="trailing" secondItem="B0j-qF-tYs" secondAttribute="trailingMargin" id="B4n-sR-5vn"/>
+                            <constraint firstItem="gpR-iK-3rZ" firstAttribute="top" secondItem="His-WS-dxI" secondAttribute="bottom" constant="8" id="J7g-MH-PYf"/>
+                            <constraint firstItem="CM3-BV-uwA" firstAttribute="centerX" secondItem="B0j-qF-tYs" secondAttribute="centerX" id="MPO-Iu-NZ9"/>
+                            <constraint firstItem="ozt-C2-6MH" firstAttribute="top" secondItem="CM3-BV-uwA" secondAttribute="bottom" constant="80" id="avL-ee-OWn"/>
+                            <constraint firstItem="His-WS-dxI" firstAttribute="leading" secondItem="B0j-qF-tYs" secondAttribute="leadingMargin" id="bE5-2c-0K6"/>
+                            <constraint firstItem="W8S-E3-89P" firstAttribute="top" secondItem="FQN-ds-NE2" secondAttribute="bottom" constant="80" id="czq-Xh-Vqu"/>
+                            <constraint firstItem="gpR-iK-3rZ" firstAttribute="centerX" secondItem="B0j-qF-tYs" secondAttribute="centerX" id="uBV-XS-IDj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="roomCodeTextField" destination="His-WS-dxI" id="ZaV-gr-T8z"/>
+                        <segue destination="IPh-0h-bSE" kind="showDetail" identifier="OpenRoomSegue" id="v2n-HN-wk9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NBa-sA-OoE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1057" y="-282"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="4qb-6V-mnW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8UC-xP-KBp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chat" id="uRJ-14-hRr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A4b-wC-Che">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jMF-a5-Ocg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-418.39999999999998" y="1057.4212893553224"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="v2n-HN-wk9"/>
+    </inferredMetricsTieBreakers>
 </document>
