@@ -11,25 +11,6 @@
     </dependencies>
     <scenes>
         <!--Expenses-->
-        <scene sceneID="ZPx-lD-YpW">
-            <objects>
-                <navigationController storyboardIdentifier="ExpensesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="6D3-aG-KSp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Expenses" id="Jdo-t8-YHW"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="u6R-Gv-Xuv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fhi-Z9-e38" kind="relationship" relationship="rootViewController" id="8bC-JH-cPm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NRV-7n-3UQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1045.5999999999999" y="12.143928035982009"/>
-        </scene>
-        <!--Expenses-->
         <scene sceneID="w3Z-gs-3ZT">
             <objects>
                 <tableViewController id="fhi-Z9-e38" customClass="ExpensesTableViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
@@ -173,7 +154,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVH-EJ-1iG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QC5-1U-1Vk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1808.8" y="11.244377811094454"/>
+            <point key="canvasLocation" x="2748" y="11.244377811094454"/>
         </scene>
         <!--AddExpenses-->
         <scene sceneID="8j0-Wi-SHL">
@@ -205,10 +186,10 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="UserTableViewCell" rowHeight="85" id="TS3-p5-Bkl" userLabel="UserTableViewCell" customClass="UserTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="221" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="220.5" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Add" tableViewCell="TS3-p5-Bkl" id="Pho-Pg-Fic">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBh-oQ-ROi">
@@ -255,10 +236,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="textViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="textViewTableViewCell" rowHeight="69" id="xgt-um-vUm" customClass="TextViewTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="306" width="375" height="69"/>
+                                <rect key="frame" x="0.0" y="305.5" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xgt-um-vUm" id="1rB-Og-ISc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title of Expense" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qMl-dI-XeY">
@@ -288,10 +269,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="pickerViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="pickerViewTableViewCell" rowHeight="201" id="4V0-Dw-j7K" customClass="PickerViewTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="375" width="375" height="201"/>
+                                <rect key="frame" x="0.0" y="374.5" width="375" height="201"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4V0-Dw-j7K" id="aST-vQ-Esc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qou-kF-Cyh">
@@ -352,7 +333,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bl5-qV-vMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yax-x0-zlw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3439" y="12"/>
+            <point key="canvasLocation" x="4376.8000000000002" y="11.244377811094454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tpi-QJ-iIu">
@@ -370,7 +351,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tP1-OJ-yRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2658" y="12"/>
+            <point key="canvasLocation" x="3596" y="11.244377811094454"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vdQ-TU-1xz">
+            <objects>
+                <navigationController storyboardIdentifier="ExpensesNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="3Go-J7-kqb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hxg-mC-Qje">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fhi-Z9-e38" kind="relationship" relationship="rootViewController" id="flD-ij-dvA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fVs-8j-9DK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1808.8" y="11.244377811094454"/>
         </scene>
     </scenes>
 </document>

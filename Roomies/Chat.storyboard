@@ -10,42 +10,41 @@
     </dependencies>
     <scenes>
         <!--Chat-->
-        <scene sceneID="XMT-Kz-hWo">
+        <scene sceneID="uyn-fD-aBs">
             <objects>
-                <viewController id="RMr-c7-4tu" customClass="ChatViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="767-bx-Y0n" customClass="ChatViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GST-Qk-fhn"/>
-                        <viewControllerLayoutGuide type="bottom" id="WCn-Mu-dJz"/>
+                        <viewControllerLayoutGuide type="top" id="Eel-ms-jRk"/>
+                        <viewControllerLayoutGuide type="bottom" id="wsD-VZ-zib"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eMP-2o-lmn">
+                    <view key="view" contentMode="scaleToFill" id="sme-No-H9b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="lVV-P9-kDM"/>
+                    <navigationItem key="navigationItem" title="Chat" id="5ww-k7-qBy"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ElM-nO-mRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2XN-BV-FgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270" y="1144"/>
+            <point key="canvasLocation" x="-231" y="1201"/>
         </scene>
-        <!--Chat-->
-        <scene sceneID="gEQ-4a-x79">
+        <!--Navigation Controller-->
+        <scene sceneID="lr1-Gx-V8L">
             <objects>
-                <navigationController storyboardIdentifier="ChatNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="0x9-bX-FeO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" id="Dm6-Ul-kNT"/>
+                <navigationController storyboardIdentifier="ChatNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="g9Q-8l-jDa" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="noF-Oq-6uE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zOv-lC-fkD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="RMr-c7-4tu" kind="relationship" relationship="rootViewController" id="h7p-9H-KI9"/>
+                        <segue destination="767-bx-Y0n" kind="relationship" relationship="rootViewController" id="7cc-Lz-eAz"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mcx-CQ-1M2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J9x-PG-LNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1007" y="1144"/>
+            <point key="canvasLocation" x="-946" y="1202"/>
         </scene>
     </scenes>
 </document>

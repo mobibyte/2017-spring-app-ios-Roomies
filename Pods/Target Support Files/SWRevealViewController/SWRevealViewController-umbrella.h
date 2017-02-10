@@ -10,8 +10,8 @@
 #endif
 #endif
 
-#import "JSQSystemSoundPlayer.h"
+#import "SWRevealViewController.h"
 
-FOUNDATION_EXPORT double JSQSystemSoundPlayerVersionNumber;
-FOUNDATION_EXPORT const unsigned char JSQSystemSoundPlayerVersionString[];
+FOUNDATION_EXPORT double SWRevealViewControllerVersionNumber;
+FOUNDATION_EXPORT const unsigned char SWRevealViewControllerVersionString[];
 

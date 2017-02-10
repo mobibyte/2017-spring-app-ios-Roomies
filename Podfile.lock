@@ -53,6 +53,7 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - Bolts
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - Firebase/Core (~> 3.10.0)
   - Firebase/Database
   - JSQMessagesViewController (~> 7.3.4)
+  - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -81,7 +83,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 8a80bae2076b1f5feab545792b71c8877a23b1ac
+PODFILE CHECKSUM: '0494cc4a25370d720e536ebd4712ecea3cb8d846'
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.2.0

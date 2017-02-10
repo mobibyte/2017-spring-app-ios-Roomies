@@ -6,6 +6,8 @@ target 'Roomies' do
   pod 'Firebase/Auth', '~> 3.10.0'
   pod 'Firebase/Database'
 
+  pod 'SWRevealViewController', '~> 2.3.0'
+
   pod 'Bolts'  
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
