@@ -39,7 +39,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         newExpense.title = addExpense.addExpense.title
         newExpense.type = addExpense.addExpense.type
         
-        
         expenses.append(newExpense)
         self.tableView.reloadData()
     }
@@ -47,8 +46,8 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
+        
+        BaseViewControllerUtil.setup(viewController: self)
     }
 
     

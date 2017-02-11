@@ -231,6 +231,20 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
 
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+            
+            if amount.text == "0" {
+                let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                present(alertController, animated: true, completion: nil)
+                return false
+            }
+        return true
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doneExpense" {
             

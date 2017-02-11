@@ -18,6 +18,7 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        BaseViewControllerUtil.setup(viewController: self)
     }
 
     override func didReceiveMemoryWarning() {
