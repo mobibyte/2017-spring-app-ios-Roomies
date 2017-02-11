@@ -71,15 +71,19 @@ class JoinRoomViewController: UIViewController {
         let userId = FIRAuth.auth()?.currentUser?.uid
         let groupKey = self.generateRoomKey(length: 8)
         
-        let group = [
-            "creator": userId,
-            "key": groupKey
+        let members = [
+            "\(userId!)": true
+        ]
+        
+        let group: [String:Any] = [
+            "creator": userId!,
+            "key": groupKey,
+            "members": members
         ]
         
         // Add group and update user
         let updates: [String:Any] = [
             "/groups/\(key)": group,                        // Create the group
-            "/groups/\(key)/members/\(userId)": true,       // Add user to members of group
             "/users/\(userId!)/group": key,                 // Assign group to user
             "/groupKeys/\(groupKey)": key                   // Create a join key
         ]

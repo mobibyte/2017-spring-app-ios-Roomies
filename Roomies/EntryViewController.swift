@@ -44,6 +44,38 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.performSegue(withIdentifier: "JoinRoomSegue", sender: self)
     }
     
+    func gotoRoom() {
+        self.performSegue(withIdentifier: "OpenRoomSegue", sender: self)
+    }
+    
+    // Already apart of a group, join that one or
+    func joinOrLeave(userId: String, groupId: String) {
+        let alert = UIAlertController(
+            title: "Decisions!",
+            message: "It looks like you are already apart of a group. Would you like to join that group or leave and join another?",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Leave Group", style: .destructive, handler: { (action) in
+            // Leave group
+            let updates: [String:Any?] = [
+                "users/\(userId)/group": nil,
+                "groups/\(groupId)/members/\(userId)": nil
+            ]
+            
+            // Update and goto join
+            self.ref.updateChildValues(updates) { error, data in
+                self.gotoJoinRoom()
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Join Existing", style: .default, handler: { (action) in
+            self.gotoRoom()
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error?) {
         
         if let error = error {
@@ -58,15 +90,25 @@ class EntryViewController: UIViewController, FBSDKLoginButtonDelegate {
                 return
             }
             
-            
             // Update info on db
-            self.ref.child("users").child(user!.uid).setValue([
+            let updates: [String:Any?] = [
                 "email": user?.email,
                 "name": user?.displayName,
                 "avatarUrl": user?.photoURL?.absoluteString
-            ])
+            ]
             
-            self.gotoJoinRoom()
+            self.ref.child("users/\(user!.uid)").updateChildValues(updates) { (error, dataGroup) in
+                
+                // Check if user is already apart of a group
+                self.ref.child("users/\(user!.uid)/group").observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let groupId = snapshot.value as? String {
+                        self.joinOrLeave(userId: user!.uid, groupId: groupId)
+                    } else {
+                        self.gotoJoinRoom()
+                    }
+                })
+                
+            }
         })
     }
     

@@ -43,11 +43,12 @@
                         <segue destination="fao-fm-b2Q" kind="showDetail" identifier="JoinRoomSegue" id="QTr-x1-8tx">
                             <nil key="action"/>
                         </segue>
+                        <segue destination="ZP4-B3-dlj" kind="showDetail" identifier="OpenRoomSegue" action="showViewController:sender:" id="2bU-Rb-FTT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfm-cm-68b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1764" y="-282"/>
+            <point key="canvasLocation" x="-1764" y="-327"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="bdA-sc-CCK">
@@ -144,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBa-sA-OoE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1057" y="-282"/>
+            <point key="canvasLocation" x="-1058" y="-327"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="acO-Nc-mRD">
@@ -343,7 +344,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1jb-XA-FpH"/>
         <segue reference="EBS-Tu-BQ6"/>
+        <segue reference="2bU-Rb-FTT"/>
     </inferredMetricsTieBreakers>
 </document>
