@@ -275,6 +275,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="QZh-q0-TIf" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="drj-Vh-gnq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -319,6 +322,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gG-6d-Tlv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-189" y="531"/>
+        </scene>
+        <!--SettingsNavigationViewController-->
+        <scene sceneID="zSC-Zb-GyV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="SettingsNavigationViewController" id="QZh-q0-TIf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4aN-xO-EOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-184" y="619"/>
         </scene>
         <!--ChatNavigationViewController-->
         <scene sceneID="oUh-rk-hgD">

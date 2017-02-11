@@ -19,6 +19,8 @@
 		7E1D6BC81E456A06009E6634 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BC71E456A06009E6634 /* Tasks.storyboard */; };
 		7E1D6BCA1E456A0D009E6634 /* Expenses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */; };
 		7E1D6BCC1E456A20009E6634 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */; };
+		7E5F45631E4E9CDB003CD686 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5F45621E4E9CDB003CD686 /* Settings.storyboard */; };
+		7E5F45661E4E9D67003CD686 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */; };
 		7E6529491E4E6D1500E4BDEF /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6529481E4E6D1500E4BDEF /* Chat.storyboard */; };
 		7E65294B1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E65294A1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift */; };
 		7E84A0EE1DCD61B30064770E /* AddExpenseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */; };
@@ -54,6 +56,8 @@
 		7E1D6BC71E456A06009E6634 /* Tasks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
 		7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Expenses.storyboard; sourceTree = "<group>"; };
 		7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		7E5F45621E4E9CDB003CD686 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7E6529481E4E6D1500E4BDEF /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		7E65294A1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewControllerUtil.swift; sourceTree = "<group>"; };
 		7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseTableViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 		7E1D6BBF1E4568E8009E6634 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				7E5F45641E4E9D14003CD686 /* Settings */,
 				7E1D6BC31E456906009E6634 /* Entry */,
 				7E1D6BC21E4568FF009E6634 /* Tasks */,
 				7E1D6BC11E4568FA009E6634 /* Expenses */,
@@ -200,8 +205,17 @@
 				7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */,
 				7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */,
 				7E6529481E4E6D1500E4BDEF /* Chat.storyboard */,
+				7E5F45621E4E9CDB003CD686 /* Settings.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		7E5F45641E4E9D14003CD686 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		7E726A4A1E4BD79F0045AD80 /* Utilities */ = {
@@ -281,6 +295,7 @@
 				7E1769E81DC419B100EA7B1E /* Assets.xcassets in Resources */,
 				7E1D6BC81E456A06009E6634 /* Tasks.storyboard in Resources */,
 				7E1D6BCC1E456A20009E6634 /* Calendar.storyboard in Resources */,
+				7E5F45631E4E9CDB003CD686 /* Settings.storyboard in Resources */,
 				7E1D6BCA1E456A0D009E6634 /* Expenses.storyboard in Resources */,
 				7E1769E61DC419B100EA7B1E /* Main.storyboard in Resources */,
 			);
@@ -357,6 +372,7 @@
 				86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */,
 				7E1D6BBE1E45636F009E6634 /* SplashViewController.swift in Sources */,
 				7E84A0EE1DCD61B30064770E /* AddExpenseTableViewController.swift in Sources */,
+				7E5F45661E4E9D67003CD686 /* SettingsTableViewController.swift in Sources */,
 				7E84A0F01DCD61C00064770E /* ExpensesTableViewController.swift in Sources */,
 				7E1769E11DC419B100EA7B1E /* AppDelegate.swift in Sources */,
 				7E1D6BBD1E45636F009E6634 /* JoinRoomViewController.swift in Sources */,
