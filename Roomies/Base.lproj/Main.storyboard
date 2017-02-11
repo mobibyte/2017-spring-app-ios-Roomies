@@ -13,7 +13,7 @@
         <!--Entry View Controller-->
         <scene sceneID="ioZ-il-zTD">
             <objects>
-                <viewController id="exZ-ba-3Sc" customClass="EntryViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EntryViewController" id="exZ-ba-3Sc" customClass="EntryViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VHp-Yn-A2G"/>
                         <viewControllerLayoutGuide type="bottom" id="qDM-Gx-585"/>
