@@ -36,6 +36,7 @@
 		86A9D1E31E3596A500E17091 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E21E3596A500E17091 /* TaskTableViewCell.swift */; };
 		86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */; };
 		86A9D1E81E36D08600E17091 /* Roomies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E61E36D08600E17091 /* Roomies.xcdatamodeld */; };
+		86F1821D1E4EA42700D582B5 /* AddExpenseEmojiTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1821C1E4EA42700D582B5 /* AddExpenseEmojiTextViewTableViewCell.swift */; };
 		AE672AD0639E421620F4D8B8 /* Pods_Roomies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2794CB297C84749E5189FD52 /* Pods_Roomies.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		86A9D1E21E3596A500E17091 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskTableViewController.swift; sourceTree = "<group>"; };
 		86A9D1E71E36D08600E17091 /* Roomies1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Roomies1.xcdatamodel; sourceTree = "<group>"; };
+		86F1821C1E4EA42700D582B5 /* AddExpenseEmojiTextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseEmojiTextViewTableViewCell.swift; sourceTree = "<group>"; };
 		AE17966670C156D6A21D3C32 /* Pods-Roomies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roomies/Pods-Roomies.release.xcconfig"; sourceTree = "<group>"; };
 		BA375E9C639FE6B50720DC2D /* Pods-Roomies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roomies/Pods-Roomies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +146,7 @@
 				7E84A0EF1DCD61C00064770E /* ExpensesTableViewController.swift */,
 				7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */,
 				7E84A0F11DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift */,
+				86F1821C1E4EA42700D582B5 /* AddExpenseEmojiTextViewTableViewCell.swift */,
 				7E84A0F51DCD62040064770E /* AddExpenseTextViewTableViewCell.swift */,
 				7E84A0F71DCD62800064770E /* AddExpenseUserTableViewCell.swift */,
 				86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */,
@@ -375,6 +378,7 @@
 				7E5F45661E4E9D67003CD686 /* SettingsTableViewController.swift in Sources */,
 				7E84A0F01DCD61C00064770E /* ExpensesTableViewController.swift in Sources */,
 				7E1769E11DC419B100EA7B1E /* AppDelegate.swift in Sources */,
+				86F1821D1E4EA42700D582B5 /* AddExpenseEmojiTextViewTableViewCell.swift in Sources */,
 				7E1D6BBD1E45636F009E6634 /* JoinRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
