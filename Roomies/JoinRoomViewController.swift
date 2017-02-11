@@ -18,6 +18,7 @@ class JoinRoomViewController: UIViewController {
     
     
     @IBAction func joinRoomPressed(_ sender: UIButton) {
+        attemptJoinRoom(key: roomCodeTextField.text)
     }
     
     @IBAction func createRoomPressed(_ sender: UIButton) {
@@ -30,18 +31,57 @@ class JoinRoomViewController: UIViewController {
         ref = FIRDatabase.database().reference()
     }
     
+    func gotoRoom() {
+        self.performSegue(withIdentifier: "OpenRoomSegue", sender: self)
+    }
+    
+    // MARK: - Join room
+    func attemptJoinRoom(key: String?) {
+        if let key = key, key.characters.count > 0 {
+            ref.child("groupKeys/\(key)").observeSingleEvent(of: .value, with: { (snapshot) in
+                if let groupId = snapshot.value as? String {
+                    self.joinRoom(groupId: groupId)
+                } else {
+                    self.showBasicAlert(title: "Uh oh", message: "Invalid room key")
+                }
+            })
+        } else {
+            self.showBasicAlert(title: "Uh oh", message: "A room key is required")
+        }
+    }
+    
+    func joinRoom(groupId: String) {
+        let userId = FIRAuth.auth()?.currentUser?.uid
+        
+        let updates: [String:Any] = [
+            "/users/\(userId!)/group": groupId,
+            "/groups/\(groupId)/members/\(userId!)": true
+        ]
+        
+        
+        ref.updateChildValues(updates) { (error, dataGroup) in
+            self.gotoRoom()
+        }
+    }
+    
+    
+    // MARK: - Create room
     func createRoom() {
         let key = ref.child("groups").childByAutoId().key
         let userId = FIRAuth.auth()?.currentUser?.uid
+        let groupKey = self.generateRoomKey(length: 8)
         
         let group = [
-            "creator": userId
+            "creator": userId,
+            "key": groupKey
         ]
         
         // Add group and update user
         let updates: [String:Any] = [
-            "/groups/\(key)": group,
-            "/users/\(userId!)/group": key
+            "/groups/\(key)": group,                        // Create the group
+            "/groups/\(key)/members/\(userId)": true,       // Add user to members of group
+            "/users/\(userId!)/group": key,                 // Assign group to user
+            "/groupKeys/\(groupKey)": key                   // Create a join key
         ]
 
         ref.updateChildValues(updates) { (error, dataGroup) in
@@ -49,7 +89,18 @@ class JoinRoomViewController: UIViewController {
         }
     }
     
-    func gotoRoom() {
-        self.performSegue(withIdentifier: "OpenRoomSegue", sender: self)
+    func generateRoomKey(length: Int) -> String {
+        let letters : NSString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        return randomString
     }
 }

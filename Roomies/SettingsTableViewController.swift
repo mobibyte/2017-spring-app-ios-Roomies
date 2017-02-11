@@ -32,12 +32,9 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func logout() {
-        // Logout firebase
+        // Logout firebase + facebook
         try! FIRAuth.auth()?.signOut()
-        
-        // Logout of facebook
-        let loginManager = FBSDKLoginManager()
-        loginManager.logOut()
+        FBSDKLoginManager().logOut()
         
         // Change pages
         self.performSegue(withIdentifier: "LogoutSegue", sender: self)
