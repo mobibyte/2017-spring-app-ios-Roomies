@@ -49,10 +49,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Zok-Pj-YcT"/>
+                    <connections>
+                        <segue destination="9nX-6h-2sd" kind="showDetail" identifier="LogoutSegue" id="KYy-IP-By8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j42-27-QVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1295.2" y="-175.86206896551727"/>
+        </scene>
+        <!--EntryViewController-->
+        <scene sceneID="hmH-DD-UOx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="EntryViewController" id="9nX-6h-2sd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iao-Fj-vMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1887" y="-335"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RUI-Fp-liW">

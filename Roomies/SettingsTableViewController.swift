@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FBSDKLoginKit
 
 class SettingsTableViewController: UITableViewController {
 
@@ -21,12 +23,21 @@ class SettingsTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Logout", message: "Are you sure you want to log out? Your roommates will miss you", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { (action) in
-            print("logout")
+            self.logout()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func logout() {
+        // Logout firebase + facebook
+        try! FIRAuth.auth()?.signOut()
+        FBSDKLoginManager().logOut()
+        
+        // Change pages
+        self.performSegue(withIdentifier: "LogoutSegue", sender: self)
     }
     
     // MARK: - TableView
