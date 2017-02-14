@@ -38,6 +38,7 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         newExpense.amount = addExpense.addExpense.amount
         newExpense.title = addExpense.addExpense.title
         newExpense.type = addExpense.addExpense.type
+        newExpense.emoji = addExpense.addExpense.emoji
         
         expenses.append(newExpense)
         self.tableView.reloadData()
@@ -86,6 +87,10 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         cell.expenseForUser.text = ("Owed to " + expenses[indexPath.row].username!)
         cell.expenseCategory.text = expenses[indexPath.row].type
 
+        cell.emojiImage.text = expenses[indexPath.row].emoji
+        
+        
+        
         return cell
     }
     

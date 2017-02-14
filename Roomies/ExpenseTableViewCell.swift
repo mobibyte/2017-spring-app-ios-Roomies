@@ -14,6 +14,8 @@ class ExpenseTableViewCell: UITableViewCell {
     @IBOutlet var expenseTitle: UILabel!
     @IBOutlet var expenseForUser: UILabel!
     @IBOutlet var expenseCategory: UILabel!
+    @IBOutlet var emojiImage: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

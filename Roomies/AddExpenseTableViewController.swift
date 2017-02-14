@@ -12,6 +12,7 @@ import CoreData
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate  {
    
     var allCellsText = ""
+    var emojiText = ""
     var expenseType = ""
     @IBOutlet var amount: UITextField!
     
@@ -229,8 +230,18 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     
     @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
+        
         allCellsText = sender.text!
+        
     }
+    
+    @IBAction func emojiFieldDidChangeEditing(_ sender: UITextField) {
+        
+        emojiText = sender.text!
+        
+    }
+    
+    
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -271,11 +282,13 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             print("User: \(selectedUser)")
             print("Type: \(expenseType)")
             print("Title: \(allCellsText)")
-            
+            print("Emoji: \(emojiText)")
+//            print("Emoji: \(emojiTextView.text)")
             addExpense.amount = amount.text
             addExpense.username = selectedUser
             addExpense.type = expenseType
             addExpense.title = allCellsText
+            addExpense.emoji = emojiText
             
             print("Saving data to context ...")
             
