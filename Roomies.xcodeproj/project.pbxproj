@@ -33,6 +33,7 @@
 		86310DA91E15BF44001BAAD8 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */; };
 		86594BCC1E3FB3DF006736BB /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86594BCB1E3FB3DF006736BB /* Expense.swift */; };
 		868093B11E19E712003A440B /* ExpenseMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868093B01E19E712003A440B /* ExpenseMaterialView.swift */; };
+		8685DF891E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685DF881E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift */; };
 		86A9D1E11E35931B00E17091 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E01E35931B00E17091 /* TasksTableViewController.swift */; };
 		86A9D1E31E3596A500E17091 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E21E3596A500E17091 /* TaskTableViewCell.swift */; };
 		86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */; };
@@ -71,6 +72,7 @@
 		86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		86594BCB1E3FB3DF006736BB /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		868093B01E19E712003A440B /* ExpenseMaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseMaterialView.swift; sourceTree = "<group>"; };
+		8685DF881E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseEmojiTextViewTableViewCell.swift; sourceTree = "<group>"; };
 		86A9D1E01E35931B00E17091 /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		86A9D1E21E3596A500E17091 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskTableViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				7E84A0F11DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift */,
 				7E84A0F51DCD62040064770E /* AddExpenseTextViewTableViewCell.swift */,
 				7E84A0F71DCD62800064770E /* AddExpenseUserTableViewCell.swift */,
+				8685DF881E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift */,
 				86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */,
 				868093B01E19E712003A440B /* ExpenseMaterialView.swift */,
 				86A9D1E01E35931B00E17091 /* TasksTableViewController.swift */,
@@ -380,6 +383,7 @@
 				860FC4731E3C305300A0980D /* Task.swift in Sources */,
 				7E65294B1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift in Sources */,
 				86A9D1E11E35931B00E17091 /* TasksTableViewController.swift in Sources */,
+				8685DF891E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift in Sources */,
 				7E1769F51DC41E1F00EA7B1E /* ChatViewController.swift in Sources */,
 				86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */,
 				7E1D6BBE1E45636F009E6634 /* SplashViewController.swift in Sources */,

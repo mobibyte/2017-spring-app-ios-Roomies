@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -127,6 +127,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.97224575280000003" green="0.98055738209999999" blue="0.97628480200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="emojiImage" destination="LGh-kp-EeH" id="pbT-Rq-1Ho"/>
                                     <outlet property="expenseAmount" destination="rDa-7j-LBJ" id="IT0-nm-Bah"/>
                                     <outlet property="expenseCategory" destination="ued-OU-ZWW" id="IhR-cB-Cr3"/>
                                     <outlet property="expenseForUser" destination="6dm-fJ-iH0" id="Mqg-fR-CBX"/>
@@ -268,8 +269,36 @@
                                     <outlet property="expenseTitle" destination="qMl-dI-XeY" id="eFQ-sU-dM0"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="emojiTextViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="emojiTextViewTableViewCell" rowHeight="64" id="fao-ee-k3Z" customClass="EmojiTextViewTableViewCell" customModule="Roomies" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="374.5" width="375" height="64"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fao-ee-k3Z" id="8BO-bG-7Iz">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Emoji" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIR-Ga-kjK">
+                                            <rect key="frame" x="15" y="16" width="352" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="emojiFieldDidChangeEditing:" destination="uuG-Oc-ng9" eventType="editingChanged" id="hEe-qa-e4w"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="emojiTextView" destination="EIR-Ga-kjK" id="2qL-T1-LvR"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="pickerViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="pickerViewTableViewCell" rowHeight="201" id="4V0-Dw-j7K" customClass="PickerViewTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="374.5" width="375" height="201"/>
+                                <rect key="frame" x="0.0" y="438.5" width="375" height="201"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4V0-Dw-j7K" id="aST-vQ-Esc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>

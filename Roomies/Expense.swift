@@ -14,5 +14,6 @@ class Expense {
     var title: String?
     var type: String?
     var username: String?
+    var emoji: String?
 
 }

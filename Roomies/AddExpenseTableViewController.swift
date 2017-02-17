@@ -10,8 +10,9 @@ import UIKit
 import CoreData
 
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate  {
-   
+    
     var allCellsText = ""
+    var emojiText = ""
     var expenseType = ""
     @IBOutlet var amount: UITextField!
     
@@ -30,7 +31,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var userImages = ["User1", "User2", "User3"]
     
     override func viewDidLoad() {
-       
+        
         
     }
     
@@ -57,7 +58,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     // MARK: - Table view data source
     
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -68,7 +69,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         case 0:
             return userNames.count
         case 1:
-            return 2
+            return 3
         default:
             return 0
         }
@@ -100,7 +101,14 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                 
                 return cell
                 
-            } else {
+            } else if (indexPath.row == 1) {
+                let cellIdentifer = "emojiTextViewTableViewCell"
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! EmojiTextViewTableViewCell
+                cell.emojiTextView.text = ""
+                
+                
+                return cell
+            }else {
                 let cellIdentifier = "pickerViewTableViewCell"
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PickerViewTableViewCell
                 
@@ -135,7 +143,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             cell?.accessoryType = .checkmark
             
             
-            } else if indexPath.section == 1 && indexPath.row == 1 {
+        } else if indexPath.section == 1 && indexPath.row == 2 {
             
             
             let previousIndexPath = selectedIndexPath
@@ -154,7 +162,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             if let current = selectedIndexPath {
                 indexPaths += [current]
             }
-           
+            
             if indexPaths.count > 0 {
                 tableView.reloadRows(at: indexPaths, with: UITableViewRowAnimation.automatic)
             }
@@ -163,10 +171,10 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             let numberOfSections = self.tableView.numberOfSections
             let numberOfRows = self.tableView.numberOfRows(inSection: numberOfSections-1)
             
-            let indexPath = IndexPath(row: numberOfRows-1 , section: numberOfSections-1)
+            let indexPath = IndexPath(row: numberOfRows-2 , section: numberOfSections-1)
             self.tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
-        
-        
+            
+            
         }
         else {
             
@@ -206,7 +214,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 && indexPath.row == 1 {
+        if indexPath.section == 1 && indexPath.row == 2 {
             if indexPath == selectedIndexPath {
                 return PickerViewTableViewCell.expandedHeight
             } else {
@@ -222,25 +230,40 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     
     @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
+        
         allCellsText = sender.text!
+        
     }
+    
+    @IBAction func emojiFieldDidChangeEditing(_ sender: UITextField) {
+        
+        emojiText = sender.text!
+        
+    }
+    
+    
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         expenseType = pickerExpenseTypeArray[row]
-
+        
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-            
+        if identifier == "doneExpense" {
             if amount.text == "0" {
                 let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(alertAction)
                 present(alertController, animated: true, completion: nil)
                 return false
+                
             }
+        }
+        
+        
+        
         return true
         
     }
@@ -259,19 +282,21 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             print("User: \(selectedUser)")
             print("Type: \(expenseType)")
             print("Title: \(allCellsText)")
-            
+            print("Emoji: \(emojiText)")
+            //            print("Emoji: \(emojiTextView.text)")
             addExpense.amount = amount.text
             addExpense.username = selectedUser
             addExpense.type = expenseType
             addExpense.title = allCellsText
+            addExpense.emoji = emojiText
             
             print("Saving data to context ...")
             
         }
         
     }
-   
     
- }
+    
+}
 
 
