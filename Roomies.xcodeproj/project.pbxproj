@@ -9,17 +9,35 @@
 /* Begin PBXBuildFile section */
 		7E037B7A1DDFC4E800385C2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E037B791DDFC4E800385C2E /* GoogleService-Info.plist */; };
 		7E1769E11DC419B100EA7B1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1769E01DC419B100EA7B1E /* AppDelegate.swift */; };
-		7E1769E31DC419B100EA7B1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1769E21DC419B100EA7B1E /* ViewController.swift */; };
 		7E1769E61DC419B100EA7B1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1769E41DC419B100EA7B1E /* Main.storyboard */; };
 		7E1769E81DC419B100EA7B1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E1769E71DC419B100EA7B1E /* Assets.xcassets */; };
 		7E1769EB1DC419B100EA7B1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1769E91DC419B100EA7B1E /* LaunchScreen.storyboard */; };
 		7E1769F51DC41E1F00EA7B1E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1769F41DC41E1F00EA7B1E /* ChatViewController.swift */; };
+		7E1D6BBC1E45636F009E6634 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D6BB91E45636F009E6634 /* EntryViewController.swift */; };
+		7E1D6BBD1E45636F009E6634 /* JoinRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D6BBA1E45636F009E6634 /* JoinRoomViewController.swift */; };
+		7E1D6BBE1E45636F009E6634 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D6BBB1E45636F009E6634 /* SplashViewController.swift */; };
+		7E1D6BC81E456A06009E6634 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BC71E456A06009E6634 /* Tasks.storyboard */; };
+		7E1D6BCA1E456A0D009E6634 /* Expenses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */; };
+		7E1D6BCC1E456A20009E6634 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */; };
+		7E5F45631E4E9CDB003CD686 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5F45621E4E9CDB003CD686 /* Settings.storyboard */; };
+		7E5F45661E4E9D67003CD686 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */; };
+		7E6529491E4E6D1500E4BDEF /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6529481E4E6D1500E4BDEF /* Chat.storyboard */; };
+		7E65294B1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E65294A1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift */; };
 		7E84A0EE1DCD61B30064770E /* AddExpenseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */; };
 		7E84A0F01DCD61C00064770E /* ExpensesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0EF1DCD61C00064770E /* ExpensesTableViewController.swift */; };
-		7E84A0F21DCD61D00064770E /* PickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F11DCD61D00064770E /* PickerViewTableViewCell.swift */; };
-		7E84A0F41DCD61F10064770E /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F31DCD61F10064770E /* TextInputViewController.swift */; };
-		7E84A0F61DCD62040064770E /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F51DCD62040064770E /* TextViewTableViewCell.swift */; };
-		7E84A0F81DCD62800064770E /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F71DCD62800064770E /* UserTableViewCell.swift */; };
+		7E84A0F21DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F11DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift */; };
+		7E84A0F61DCD62040064770E /* AddExpenseTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F51DCD62040064770E /* AddExpenseTextViewTableViewCell.swift */; };
+		7E84A0F81DCD62800064770E /* AddExpenseUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F71DCD62800064770E /* AddExpenseUserTableViewCell.swift */; };
+		7E8AD0961E4EF34F00523F5B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8AD0951E4EF34F00523F5B /* UIViewControllerExtension.swift */; };
+		860FC4731E3C305300A0980D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FC4721E3C305300A0980D /* Task.swift */; };
+		86310DA91E15BF44001BAAD8 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */; };
+		86594BCC1E3FB3DF006736BB /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86594BCB1E3FB3DF006736BB /* Expense.swift */; };
+		868093B11E19E712003A440B /* ExpenseMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868093B01E19E712003A440B /* ExpenseMaterialView.swift */; };
+		8685DF891E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8685DF881E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift */; };
+		86A9D1E11E35931B00E17091 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E01E35931B00E17091 /* TasksTableViewController.swift */; };
+		86A9D1E31E3596A500E17091 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E21E3596A500E17091 /* TaskTableViewCell.swift */; };
+		86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */; };
+		86A9D1E81E36D08600E17091 /* Roomies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E61E36D08600E17091 /* Roomies.xcdatamodeld */; };
 		AE672AD0639E421620F4D8B8 /* Pods_Roomies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2794CB297C84749E5189FD52 /* Pods_Roomies.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,19 +46,37 @@
 		7E037B791DDFC4E800385C2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7E1769DD1DC419B100EA7B1E /* Roomies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1769E01DC419B100EA7B1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7E1769E21DC419B100EA7B1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7E1769E51DC419B100EA7B1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E1769E71DC419B100EA7B1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E1769EA1DC419B100EA7B1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E1769EC1DC419B100EA7B1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E1769F31DC41DAF00EA7B1E /* Roomies-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Roomies-Bridging-Header.h"; sourceTree = "<group>"; };
 		7E1769F41DC41E1F00EA7B1E /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		7E1D6BB91E45636F009E6634 /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		7E1D6BBA1E45636F009E6634 /* JoinRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinRoomViewController.swift; sourceTree = "<group>"; };
+		7E1D6BBB1E45636F009E6634 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		7E1D6BC71E456A06009E6634 /* Tasks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
+		7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Expenses.storyboard; sourceTree = "<group>"; };
+		7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		7E5F45621E4E9CDB003CD686 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		7E6529481E4E6D1500E4BDEF /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		7E65294A1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewControllerUtil.swift; sourceTree = "<group>"; };
 		7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseTableViewController.swift; sourceTree = "<group>"; };
 		7E84A0EF1DCD61C00064770E /* ExpensesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesTableViewController.swift; sourceTree = "<group>"; };
-		7E84A0F11DCD61D00064770E /* PickerViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewTableViewCell.swift; sourceTree = "<group>"; };
-		7E84A0F31DCD61F10064770E /* TextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
-		7E84A0F51DCD62040064770E /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
-		7E84A0F71DCD62800064770E /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		7E84A0F11DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpensePickerViewTableViewCell.swift; sourceTree = "<group>"; };
+		7E84A0F51DCD62040064770E /* AddExpenseTextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseTextViewTableViewCell.swift; sourceTree = "<group>"; };
+		7E84A0F71DCD62800064770E /* AddExpenseUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseUserTableViewCell.swift; sourceTree = "<group>"; };
+		7E8AD0951E4EF34F00523F5B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		860FC4721E3C305300A0980D /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
+		86594BCB1E3FB3DF006736BB /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		868093B01E19E712003A440B /* ExpenseMaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseMaterialView.swift; sourceTree = "<group>"; };
+		8685DF881E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseEmojiTextViewTableViewCell.swift; sourceTree = "<group>"; };
+		86A9D1E01E35931B00E17091 /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
+		86A9D1E21E3596A500E17091 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskTableViewController.swift; sourceTree = "<group>"; };
+		86A9D1E71E36D08600E17091 /* Roomies1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Roomies1.xcdatamodel; sourceTree = "<group>"; };
 		AE17966670C156D6A21D3C32 /* Pods-Roomies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roomies/Pods-Roomies.release.xcconfig"; sourceTree = "<group>"; };
 		BA375E9C639FE6B50720DC2D /* Pods-Roomies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roomies/Pods-Roomies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,23 +131,113 @@
 		7E1769DF1DC419B100EA7B1E /* Roomies */ = {
 			isa = PBXGroup;
 			children = (
+				7E8AD0941E4EF34200523F5B /* Extensions */,
+				7E726A4A1E4BD79F0045AD80 /* Utilities */,
+				7E1D6BC41E4569DA009E6634 /* Storyboards */,
+				7E1D6BBF1E4568E8009E6634 /* Features */,
 				7E037B791DDFC4E800385C2E /* GoogleService-Info.plist */,
 				7E1769E01DC419B100EA7B1E /* AppDelegate.swift */,
-				7E1769E21DC419B100EA7B1E /* ViewController.swift */,
 				7E1769E41DC419B100EA7B1E /* Main.storyboard */,
 				7E1769E71DC419B100EA7B1E /* Assets.xcassets */,
 				7E1769E91DC419B100EA7B1E /* LaunchScreen.storyboard */,
 				7E1769EC1DC419B100EA7B1E /* Info.plist */,
 				7E1769F31DC41DAF00EA7B1E /* Roomies-Bridging-Header.h */,
 				7E1769F41DC41E1F00EA7B1E /* ChatViewController.swift */,
-				7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */,
+				7E1D6BB91E45636F009E6634 /* EntryViewController.swift */,
+				7E1D6BBA1E45636F009E6634 /* JoinRoomViewController.swift */,
+				7E1D6BBB1E45636F009E6634 /* SplashViewController.swift */,
 				7E84A0EF1DCD61C00064770E /* ExpensesTableViewController.swift */,
-				7E84A0F11DCD61D00064770E /* PickerViewTableViewCell.swift */,
-				7E84A0F31DCD61F10064770E /* TextInputViewController.swift */,
-				7E84A0F51DCD62040064770E /* TextViewTableViewCell.swift */,
-				7E84A0F71DCD62800064770E /* UserTableViewCell.swift */,
+				7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */,
+				7E84A0F11DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift */,
+				7E84A0F51DCD62040064770E /* AddExpenseTextViewTableViewCell.swift */,
+				7E84A0F71DCD62800064770E /* AddExpenseUserTableViewCell.swift */,
+				8685DF881E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift */,
+				86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */,
+				868093B01E19E712003A440B /* ExpenseMaterialView.swift */,
+				86A9D1E01E35931B00E17091 /* TasksTableViewController.swift */,
+				86A9D1E21E3596A500E17091 /* TaskTableViewCell.swift */,
+				86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */,
+				86A9D1E61E36D08600E17091 /* Roomies.xcdatamodeld */,
+				860FC4721E3C305300A0980D /* Task.swift */,
+				86594BCB1E3FB3DF006736BB /* Expense.swift */,
 			);
 			path = Roomies;
+			sourceTree = "<group>";
+		};
+		7E1D6BBF1E4568E8009E6634 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				7E5F45641E4E9D14003CD686 /* Settings */,
+				7E1D6BC31E456906009E6634 /* Entry */,
+				7E1D6BC21E4568FF009E6634 /* Tasks */,
+				7E1D6BC11E4568FA009E6634 /* Expenses */,
+				7E1D6BC01E4568F1009E6634 /* Chat */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		7E1D6BC01E4568F1009E6634 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		7E1D6BC11E4568FA009E6634 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Expenses;
+			sourceTree = "<group>";
+		};
+		7E1D6BC21E4568FF009E6634 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		7E1D6BC31E456906009E6634 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entry;
+			sourceTree = "<group>";
+		};
+		7E1D6BC41E4569DA009E6634 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7E1D6BC71E456A06009E6634 /* Tasks.storyboard */,
+				7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */,
+				7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */,
+				7E6529481E4E6D1500E4BDEF /* Chat.storyboard */,
+				7E5F45621E4E9CDB003CD686 /* Settings.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		7E5F45641E4E9D14003CD686 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		7E726A4A1E4BD79F0045AD80 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7E65294A1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		7E8AD0941E4EF34200523F5B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E8AD0951E4EF34F00523F5B /* UIViewControllerExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +275,7 @@
 				TargetAttributes = {
 					7E1769DC1DC419B100EA7B1E = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = W73S6RNNDW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -176,9 +303,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6529491E4E6D1500E4BDEF /* Chat.storyboard in Resources */,
 				7E1769EB1DC419B100EA7B1E /* LaunchScreen.storyboard in Resources */,
 				7E037B7A1DDFC4E800385C2E /* GoogleService-Info.plist in Resources */,
 				7E1769E81DC419B100EA7B1E /* Assets.xcassets in Resources */,
+				7E1D6BC81E456A06009E6634 /* Tasks.storyboard in Resources */,
+				7E1D6BCC1E456A20009E6634 /* Calendar.storyboard in Resources */,
+				7E5F45631E4E9CDB003CD686 /* Settings.storyboard in Resources */,
+				7E1D6BCA1E456A0D009E6634 /* Expenses.storyboard in Resources */,
 				7E1769E61DC419B100EA7B1E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,15 +370,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E84A0F21DCD61D00064770E /* PickerViewTableViewCell.swift in Sources */,
-				7E84A0F81DCD62800064770E /* UserTableViewCell.swift in Sources */,
-				7E84A0F61DCD62040064770E /* TextViewTableViewCell.swift in Sources */,
-				7E1769E31DC419B100EA7B1E /* ViewController.swift in Sources */,
+				86594BCC1E3FB3DF006736BB /* Expense.swift in Sources */,
+				86310DA91E15BF44001BAAD8 /* ExpenseTableViewCell.swift in Sources */,
+				86A9D1E31E3596A500E17091 /* TaskTableViewCell.swift in Sources */,
+				7E1D6BBC1E45636F009E6634 /* EntryViewController.swift in Sources */,
+				7E84A0F21DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift in Sources */,
+				7E8AD0961E4EF34F00523F5B /* UIViewControllerExtension.swift in Sources */,
+				7E84A0F81DCD62800064770E /* AddExpenseUserTableViewCell.swift in Sources */,
+				868093B11E19E712003A440B /* ExpenseMaterialView.swift in Sources */,
+				7E84A0F61DCD62040064770E /* AddExpenseTextViewTableViewCell.swift in Sources */,
+				86A9D1E81E36D08600E17091 /* Roomies.xcdatamodeld in Sources */,
+				860FC4731E3C305300A0980D /* Task.swift in Sources */,
+				7E65294B1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift in Sources */,
+				86A9D1E11E35931B00E17091 /* TasksTableViewController.swift in Sources */,
+				8685DF891E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift in Sources */,
 				7E1769F51DC41E1F00EA7B1E /* ChatViewController.swift in Sources */,
+				86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */,
+				7E1D6BBE1E45636F009E6634 /* SplashViewController.swift in Sources */,
 				7E84A0EE1DCD61B30064770E /* AddExpenseTableViewController.swift in Sources */,
-				7E84A0F41DCD61F10064770E /* TextInputViewController.swift in Sources */,
+				7E5F45661E4E9D67003CD686 /* SettingsTableViewController.swift in Sources */,
 				7E84A0F01DCD61C00064770E /* ExpensesTableViewController.swift in Sources */,
 				7E1769E11DC419B100EA7B1E /* AppDelegate.swift in Sources */,
+				7E1D6BBD1E45636F009E6634 /* JoinRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +517,7 @@
 			baseConfigurationReference = BA375E9C639FE6B50720DC2D /* Pods-Roomies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W73S6RNNDW;
 				INFOPLIST_FILE = Roomies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mobi.idappthat.Roomies;
@@ -385,6 +531,7 @@
 			baseConfigurationReference = AE17966670C156D6A21D3C32 /* Pods-Roomies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W73S6RNNDW;
 				INFOPLIST_FILE = Roomies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mobi.idappthat.Roomies;
@@ -415,6 +562,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		86A9D1E61E36D08600E17091 /* Roomies.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				86A9D1E71E36D08600E17091 /* Roomies1.xcdatamodel */,
+			);
+			currentVersion = 86A9D1E71E36D08600E17091 /* Roomies1.xcdatamodel */;
+			name = Roomies.xcdatamodeld;
+			path = Roomies1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7E1769D51DC419B100EA7B1E /* Project object */;
 }

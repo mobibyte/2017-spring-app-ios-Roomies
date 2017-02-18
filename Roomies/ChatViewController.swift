@@ -20,6 +20,9 @@ class ChatViewController: JSQMessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        BaseViewControllerUtil.setup(viewController: self)
+        
         //self.edgesForExtendedLayout = []
         self.senderId = "self"
         self.senderDisplayName = "test"
