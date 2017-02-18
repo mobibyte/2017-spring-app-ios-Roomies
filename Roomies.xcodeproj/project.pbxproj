@@ -277,7 +277,7 @@
 				TargetAttributes = {
 					7E1769DC1DC419B100EA7B1E = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ML66LL2664;
+						DevelopmentTeam = W73S6RNNDW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -519,10 +519,11 @@
 			baseConfigurationReference = BA375E9C639FE6B50720DC2D /* Pods-Roomies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ML66LL2664;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W73S6RNNDW;
 				INFOPLIST_FILE = Roomies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "maryehuerta-gmail.com";
+				PRODUCT_BUNDLE_IDENTIFIER = idappthat.mobi.roomies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -533,10 +534,11 @@
 			baseConfigurationReference = AE17966670C156D6A21D3C32 /* Pods-Roomies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ML66LL2664;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W73S6RNNDW;
 				INFOPLIST_FILE = Roomies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "maryehuerta-gmail.com";
+				PRODUCT_BUNDLE_IDENTIFIER = idappthat.mobi.roomies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
