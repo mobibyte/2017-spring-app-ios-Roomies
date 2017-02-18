@@ -48,21 +48,40 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         let task = tasks[indexPath.row]
         
         // TODO: Wrap duedate optional
-        let calendar = Calendar.current
-        let dueDays = calendar.component(.day, from: task.dueDate!)
-        let dueHours = calendar.component(.hour, from: task.dueDate!)
         
- 
-        //CountDownDoubleDifference.day
-        if (dueDays > 1){
-            cell.taskDueDate.text = "\(dueDays) days left"
+        var str: String!
+        
+        if let due = task.dueDate {
+            let timeDelta = Int(due.timeIntervalSince(Date()))
+            let dueMinutes = timeDelta / 60
+            let dueHours = dueMinutes / 60
+            let dueDays = dueHours / 24
             
+            print("DELTA \(timeDelta)")
+            print(dueDays)
+            print(dueHours)
+            print(dueMinutes)
+            
+            
+            
+            //CountDownDoubleDifference.day
+            if (dueDays > 0){
+                str = "\(dueDays) days left"
+            } else if dueHours > 0 {
+                str = "\(dueHours) hours left"
+            } else if dueMinutes > 0 {
+                str = "\(dueMinutes) minutes left"
+            } else {
+                str = "YOU DIDNT DO IT"
+            }
         } else {
-            cell.taskDueDate.text = "\(dueHours) hours left"
+            str = ""
         }
+        
         
         cell.taskName.text = task.name
         cell.taskOwners.text = task.owner
+        cell.taskDueDate.text = str
     
         return cell
     }

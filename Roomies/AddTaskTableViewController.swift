@@ -73,6 +73,7 @@ class AddTaskTableViewController: UITableViewController {
            
             addTask.name = taskNameTextField.text
             addTask.dueDate = taskDueDatePicker.date
+            
             print("Saving data to context ...")
             
             }
