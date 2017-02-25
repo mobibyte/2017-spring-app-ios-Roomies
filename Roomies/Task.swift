@@ -11,7 +11,7 @@ import FirebaseDatabase
 
 class Task {
 
-   
+    var id: String?
     var owner: String?
     var dueDate: Date?
     var name: String?

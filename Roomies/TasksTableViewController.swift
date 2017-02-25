@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FirebaseDatabase
 
 class TasksTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     let userCalendar = NSCalendar.current
@@ -15,10 +16,34 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
     var tasks: [Task] = []
     var fetchResultController: NSFetchedResultsController<TaskMO>!
     
+    let ref = FIRDatabase.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
         BaseViewControllerUtil.setup(viewController: self)
+        
+        
+        let userData = (UIApplication.shared.delegate as! AppDelegate).tempUserData
+        
+        if let group = userData?["group"] as? String {
+            
+            // Listen pho data
+            ref.child("groups/\(group)/tasks").observe(.value, with: { (snapshot) in
+                let tasks = snapshot.value as? [String:[String:Any]] ?? [:]
+                
+                for (key, value) in tasks {
+                    let t = Task()
+                    t.id = key
+                    t.name = value["name"] as? String
+                    //t.dueDate = Date(timeIntervalSince1970: value["due"] as! TimeInterval)
+                    
+                    self.tasks.append(t)
+                }
+                
+                self.tableView.reloadData()
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,12 +80,12 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
             let dueMinutes = timeDelta / 60
             let dueHours = dueMinutes / 60
             let dueDays = dueHours / 24
-            
-            print("DELTA \(timeDelta)")
-            print(dueDays)
-            print(dueHours)
-            print(dueMinutes)
-            
+//            
+//            print("DELTA \(timeDelta)")
+//            print(dueDays)
+//            print(dueHours)
+//            print(dueMinutes)
+//            
             
             
             //CountDownDoubleDifference.day

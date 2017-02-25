@@ -78,12 +78,13 @@ class AddTaskTableViewController: UITableViewController {
             
             if let group = userData?["group"] as? String {
                 let childStr = "groups/\(group)/tasks"
-                
                 let key = ref.child(childStr).childByAutoId().key
-                ref.child("\(childStr)/\(key)").setValue([
-                    "name": addTask.name,
+                let task: [String:Any] = [
+                    "name": addTask.name!,
                     "due": Int((addTask.dueDate?.timeIntervalSince1970)!)
-                    ])
+                ]
+                
+                ref.child(childStr).child(group).setValue(task)
             }
             
             print("new task")
