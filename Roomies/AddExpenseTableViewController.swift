@@ -8,9 +8,11 @@
 
 import UIKit
 import CoreData
+import FirebaseDatabase
 
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate  {
-   
+    let ref = FIRDatabase.database().reference()
+    
     var allCellsText = ""
     var emojiText = ""
     var expenseType = ""
@@ -283,12 +285,32 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             print("Type: \(expenseType)")
             print("Title: \(allCellsText)")
             print("Emoji: \(emojiText)")
-//            print("Emoji: \(emojiTextView.text)")
+
             addExpense.amount = amount.text
             addExpense.username = selectedUser
             addExpense.type = expenseType
             addExpense.title = allCellsText
             addExpense.emoji = emojiText
+            
+            
+            
+            let userData = (UIApplication.shared.delegate as! AppDelegate).tempUserData
+            
+            if let group = userData?["group"] as? String {
+                let childStr = "groups/\(group)/expenses"
+                
+                let key = ref.child(childStr).childByAutoId().key
+                ref.child("\(childStr)/\(key)").setValue([
+                    "username": addExpense.username,
+                    "amount": addExpense.amount,
+                    "emoji": addExpense.emoji,
+                    "title": addExpense.title,
+                    "type": addExpense.type
+                    ])
+            }
+            
+            print("new expense")
+            print(userData?["group"])
             
             print("Saving data to context ...")
             

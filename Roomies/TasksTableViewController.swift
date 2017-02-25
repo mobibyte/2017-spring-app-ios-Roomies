@@ -47,7 +47,6 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         
         let task = tasks[indexPath.row]
         
-        // TODO: Wrap duedate optional
         
         var str: String!
         
@@ -103,8 +102,10 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         } else {
             newTask.owner = addTask.addTask.owner
         }
+        
         tasks.append(newTask)
         self.tableView.reloadData()
+    
     }
     
     
