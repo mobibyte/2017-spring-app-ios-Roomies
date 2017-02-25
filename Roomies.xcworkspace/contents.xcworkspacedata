@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Group.swift">
+   </FileRef>
+   <FileRef
       location = "group:Roomies.xcodeproj">
    </FileRef>
    <FileRef
