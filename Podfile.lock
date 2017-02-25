@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (4.3.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -53,9 +56,13 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - Material (2.4.19):
+    - Material/Core (= 2.4.19)
+  - Material/Core (2.4.19)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
+  - AlamofireImage (~> 3.2.0)
   - Bolts
   - FBSDKCoreKit
   - FBSDKLoginKit
@@ -64,9 +71,12 @@ DEPENDENCIES:
   - Firebase/Core (~> 3.10.0)
   - Firebase/Database
   - JSQMessagesViewController (~> 7.3.4)
+  - Material (~> 2.4.19)
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
@@ -83,8 +93,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Material: 67b52869f68ab95757e14801ffba0a52a4f19c31
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: '0494cc4a25370d720e536ebd4712ecea3cb8d846'
+PODFILE CHECKSUM: 5faa05a21f7b12391ab2a83b50121ed169b646d7
 
 COCOAPODS: 1.2.0

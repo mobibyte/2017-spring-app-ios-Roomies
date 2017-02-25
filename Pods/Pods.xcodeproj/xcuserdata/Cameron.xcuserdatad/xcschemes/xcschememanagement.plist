@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,6 +54,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Material-io.cosmicmind.material.fonts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Material-io.cosmicmind.material.icons.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Material.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Roomies.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,12 +87,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>21AE7ED49AC887D50A17241ADAC657E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4017B0B8815FF792314F1A877AAA2243</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B8141D18E0C41186FDEF1AC6551BAA76</key>
+		<key>4A2F765C0008E6907A56FA900AB21F77</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>694BA39C49982C477070A0A7A294B3CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7DCF2B547F7871B9BFD74DE93B0E173</key>
+		<key>C10A3D56D9722EC76584E3911946028F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CFABC84234C1D888D1F358F623D5095A</key>
+		<key>C7DCF2B547F7871B9BFD74DE93B0E173</key>
 		<dict>
 			<key>primary</key>
 			<true/>
