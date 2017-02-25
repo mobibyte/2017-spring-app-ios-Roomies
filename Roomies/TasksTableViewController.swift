@@ -36,8 +36,7 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
                     let t = Task()
                     t.id = key
                     t.name = value["name"] as? String
-                    //t.dueDate = Date(timeIntervalSince1970: value["due"] as! TimeInterval)
-                    
+//                    t.dueDate = Date(timeIntervalSince1970: value["due"] as! TimeInterval)
                     self.tasks.append(t)
                 }
                 

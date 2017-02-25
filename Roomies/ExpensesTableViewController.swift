@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FirebaseDatabase
 
 class ExpensesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
@@ -23,8 +24,9 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     var expenseTypes = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
     
     var expenses: [Expense] = []
-    
     var fetchResultController: NSFetchedResultsController<ExpenseMO>!
+    
+    let ref = FIRDatabase.database().reference()
     
     @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) {
         
@@ -49,6 +51,10 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         super.viewDidLoad()
         
         BaseViewControllerUtil.setup(viewController: self)
+        
+        //Listen for Data
+        if let group = userData?["group"]
+            
     }
 
     
