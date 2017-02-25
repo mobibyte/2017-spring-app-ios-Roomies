@@ -9,7 +9,7 @@
 import Foundation
 
 class Expense {
-    
+    var id: String?
     var amount: String?
     var title: String?
     var type: String?

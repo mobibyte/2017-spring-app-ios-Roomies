@@ -52,9 +52,30 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         
         BaseViewControllerUtil.setup(viewController: self)
         
-        //Listen for Data
-        if let group = userData?["group"]
+        
+        let userData = (UIApplication.shared.delegate as! AppDelegate).tempUserData
+        
+        if let group = userData?["group"] as? String {
             
+            // Listen pho data
+            ref.child("groups/\(group)/expenses").observe(.value, with: { (snapshot) in
+                let expenses = snapshot.value as? [String:[String:Any]] ?? [:]
+                print(expenses)
+                for (key, value) in expenses {
+                    let E = Expense()
+                    E.id = key
+                    E.amount = value["amount"] as? String
+                    E.emoji = value["emoji"] as? String
+                    E.title = value["title"] as? String
+                    E.type = value["type"] as? String
+                    E.username = value["username"] as? String
+
+                    self.expenses.append(E)
+                }
+                
+                self.tableView.reloadData()
+            })
+        }
     }
 
     
