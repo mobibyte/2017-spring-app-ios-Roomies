@@ -20,6 +20,7 @@
 		7E1D6BCA1E456A0D009E6634 /* Expenses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */; };
 		7E1D6BCC1E456A20009E6634 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */; };
 		7E5624F31E611E7100E63E91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5624F21E611E7100E63E91 /* User.swift */; };
+		7E5624F51E6120F600E63E91 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5624F41E6120F600E63E91 /* Group.swift */; };
 		7E5F45631E4E9CDB003CD686 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5F45621E4E9CDB003CD686 /* Settings.storyboard */; };
 		7E5F45661E4E9D67003CD686 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */; };
 		7E6529491E4E6D1500E4BDEF /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6529481E4E6D1500E4BDEF /* Chat.storyboard */; };
@@ -60,6 +61,7 @@
 		7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Expenses.storyboard; sourceTree = "<group>"; };
 		7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		7E5624F21E611E7100E63E91 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7E5624F41E6120F600E63E91 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		7E5F45621E4E9CDB003CD686 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7E6529481E4E6D1500E4BDEF /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		86E322731E61149C000056F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7E5624F41E6120F600E63E91 /* Group.swift */,
 				860FC4721E3C305300A0980D /* Task.swift */,
 				86594BCB1E3FB3DF006736BB /* Expense.swift */,
 				7E5624F21E611E7100E63E91 /* User.swift */,
@@ -394,6 +397,7 @@
 				86594BCC1E3FB3DF006736BB /* Expense.swift in Sources */,
 				86310DA91E15BF44001BAAD8 /* ExpenseTableViewCell.swift in Sources */,
 				86A9D1E31E3596A500E17091 /* TaskTableViewCell.swift in Sources */,
+				7E5624F51E6120F600E63E91 /* Group.swift in Sources */,
 				7E1D6BBC1E45636F009E6634 /* EntryViewController.swift in Sources */,
 				7E84A0F21DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift in Sources */,
 				7E8AD0961E4EF34F00523F5B /* UIViewControllerExtension.swift in Sources */,
