@@ -46,8 +46,8 @@ class ChatViewController: JSQMessagesViewController {
         self.senderId = "self"
         self.senderDisplayName = "test"
         
-        self.outBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
-        self.inBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        self.outBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatBlue)
+        self.inBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatGray)
     }
     
     

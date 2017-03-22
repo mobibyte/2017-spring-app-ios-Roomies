@@ -22,6 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        // Configure Navbar
+        // Navbar color
+        let navbarAppearace = UINavigationBar.appearance()
+        navbarAppearace.tintColor = UIColor.chatBlue
+        navbarAppearace.barTintColor = UIColor.white
+        navbarAppearace.isTranslucent = false
+        
+        // Navbar underline
+        navbarAppearace.shadowImage = UIColor(netHex: 0xF3F3F3).as1ptImage()
+        navbarAppearace.setBackgroundImage(UIColor.white.as1ptImage(), for: .default)
+        
+        // Navbar font
+        navbarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.primaryText]
+        
         return true
     }
     

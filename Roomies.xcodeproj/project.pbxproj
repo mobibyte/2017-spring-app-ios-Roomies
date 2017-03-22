@@ -26,6 +26,7 @@
 		7E5624F51E6120F600E63E91 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5624F41E6120F600E63E91 /* Group.swift */; };
 		7E5F45631E4E9CDB003CD686 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5F45621E4E9CDB003CD686 /* Settings.storyboard */; };
 		7E5F45661E4E9D67003CD686 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */; };
+		7E63A32C1E833D2B00BBE50A /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E63A32B1E833D2B00BBE50A /* UIColorExtension.swift */; };
 		7E6529491E4E6D1500E4BDEF /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6529481E4E6D1500E4BDEF /* Chat.storyboard */; };
 		7E65294B1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E65294A1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift */; };
 		7E84A0EE1DCD61B30064770E /* AddExpenseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */; };
@@ -70,6 +71,7 @@
 		7E5624F41E6120F600E63E91 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		7E5F45621E4E9CDB003CD686 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		7E63A32B1E833D2B00BBE50A /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		7E6529481E4E6D1500E4BDEF /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		7E65294A1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewControllerUtil.swift; sourceTree = "<group>"; };
 		7E84A0ED1DCD61B30064770E /* AddExpenseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseTableViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				7E8AD0951E4EF34F00523F5B /* UIViewControllerExtension.swift */,
+				7E63A32B1E833D2B00BBE50A /* UIColorExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				860FC4731E3C305300A0980D /* Task.swift in Sources */,
 				7E65294B1E4E70DD00E4BDEF /* BaseViewControllerUtil.swift in Sources */,
 				86A9D1E11E35931B00E17091 /* TasksTableViewController.swift in Sources */,
+				7E63A32C1E833D2B00BBE50A /* UIColorExtension.swift in Sources */,
 				8685DF891E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift in Sources */,
 				7E1769F51DC41E1F00EA7B1E /* ChatViewController.swift in Sources */,
 				86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */,
