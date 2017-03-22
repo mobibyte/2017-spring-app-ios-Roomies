@@ -23,12 +23,15 @@ class CalendarTableViewController: UITableViewController {
     let output = UITextView()
     
     var events : [GTLCalendarEvent] = []
+    var authController: GTMOAuth2ViewControllerTouch?
+    var autoTriedAuth = false
     
     
     // When the view loads, create necessary subviews
     // and initialize the Google Calendar API service
     override func viewDidLoad() {
         super.viewDidLoad()
+        BaseViewControllerUtil.setup(viewController: self)
         
         //output.frame = view.bounds
         //output.isEditable = false
@@ -53,11 +56,14 @@ class CalendarTableViewController: UITableViewController {
             let canAuth = authorizer.canAuthorize, canAuth {
             fetchEvents()
         } else {
-            present(
-                createAuthController(),
-                animated: true,
-                completion: nil
-            )
+            if !self.autoTriedAuth {
+                self.present(
+                    createAuthController(),
+                    animated: true,
+                    completion: nil
+                )
+                self.autoTriedAuth = true
+            }
         }
     }
     
@@ -116,15 +122,15 @@ class CalendarTableViewController: UITableViewController {
     // Creates the auth controller for authorizing access to Google Calendar API
     private func createAuthController() -> UIViewController {
         let scopeString = scopes.joined(separator: "")
-        let authController = GTMOAuth2ViewControllerTouch(
+        self.authController = GTMOAuth2ViewControllerTouch(
             scope: scopeString,
             clientID: kClientID,
             clientSecret: nil,
             keychainItemName: kKeychainItemName,
             delegate: self,
             finishedSelector: Selector(("viewController:finishedWithAuth:error:"))
-        )!
-        let navController = UINavigationController(rootViewController: authController)
+        )
+        let navController = UINavigationController(rootViewController: authController!)
         let navbar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64))
         let navItems = UINavigationItem(title: "Login with Google")
         navItems.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelGoogleLogin))
@@ -138,12 +144,8 @@ class CalendarTableViewController: UITableViewController {
     
     func cancelGoogleLogin() {
         print("PRESSED CANCEL")
-        //self.navigationController?.dismiss(animated: true, completion: nil)
-//        let alert = UIAlertController(title: "Failed to Auth", message: "Looks like you didn't login do you google account, sad.", preferredStyle: .alert)
-//        self.present(alert, animated: true, completion: nil)
-//        self.dismiss(animated: true, completion: {
-//            
-//        })
+        self.authController?.cancelSigningIn()
+        self.dismiss(animated: true, completion: nil)
     }
     
     // Handle completion of the authorization process, and update the Google Calendar API
@@ -159,7 +161,6 @@ class CalendarTableViewController: UITableViewController {
         
         service.authorizer = authResult
         self.dismiss(animated: true, completion: nil)
-//
     }
     
     
