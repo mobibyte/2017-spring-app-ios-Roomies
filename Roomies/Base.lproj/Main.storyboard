@@ -213,7 +213,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Tcx-Sj-gxZ" kind="custom" customClass="SWRevealViewControllerSegueSetController" id="EBS-Tu-BQ6"/>
+                                            <segue destination="Tcx-Sj-gxZ" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Ynd-vT-vaG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="aAV-Su-8bX" style="IBUITableViewCellStyleDefault" id="etE-Ip-sKT">
@@ -361,6 +361,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Kj1-jb-6Ju"/>
-        <segue reference="EBS-Tu-BQ6"/>
+        <segue reference="Ynd-vT-vaG"/>
     </inferredMetricsTieBreakers>
 </document>
