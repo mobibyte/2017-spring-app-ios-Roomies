@@ -13,7 +13,7 @@ import JSQMessagesViewController
 class ChatViewController: JSQMessagesViewController {
     
     
-    var ref: FIRDatabaseReference!
+    var messagesRef: FIRDatabaseReference!
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
     
     var messages = [JSQMessage]()
@@ -28,10 +28,21 @@ class ChatViewController: JSQMessagesViewController {
         
         BaseViewControllerUtil.setup(viewController: self)
         
-        self.ref = FIRDatabase.database().reference()
-        //self.ref.queryLimited(toLast: <#T##UInt#>)
+        // Load messages
+        self.messagesRef = FIRDatabase.database().reference().child("groups/\(localGroup.id)/messages")
+        self.messagesRef.queryLimited(toLast: 50).observe(.childAdded, with: { (snapshot) in
+            let data = snapshot.value as? Dictionary ?? [:]
+
+            let text = data["text"] as? String
+            let sender = data["sender"] as? String
+            let message = JSQMessage(senderId: sender, displayName: "uhh", text: text)
+            
+            if let message = message {
+                self.messages.append(message)
+                self.finishReceivingMessage()
+            }
+        })
         
-        //self.edgesForExtendedLayout = []
         self.senderId = "self"
         self.senderDisplayName = "test"
         
@@ -63,19 +74,21 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        print(text)
-        
-        let message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text: text)
-        messages.append(message!)
         
         sendMessage(text: text, sender: self.senderId)
         
         self.finishSendingMessage(animated: true)
     }
     
+    override func didPressAccessoryButton(_ sender: UIButton!) {
+        let alert = UIAlertController(title: "We're not there yet", message: "Cant attach stuff yet, sorry", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - Utils
     func sendMessage(text: String, sender: String) {
-        ref.child("groups/\(localGroup.id)/messages").childByAutoId().setValue([
+        self.messagesRef.childByAutoId().setValue([
             "text": text,
             "sender": sender
             ])
