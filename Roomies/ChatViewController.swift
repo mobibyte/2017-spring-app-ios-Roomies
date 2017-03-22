@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import FirebaseDatabase
 import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
+    
+    
+    var ref: FIRDatabaseReference!
     
     var messages = [JSQMessage]()
     
@@ -22,6 +26,9 @@ class ChatViewController: JSQMessagesViewController {
         super.viewDidLoad()
         
         BaseViewControllerUtil.setup(viewController: self)
+        
+        self.ref = FIRDatabase.database().reference()
+        //self.ref.queryLimited(toLast: <#T##UInt#>)
         
         //self.edgesForExtendedLayout = []
         self.senderId = "self"
@@ -60,6 +67,19 @@ class ChatViewController: JSQMessagesViewController {
         let message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text: text)
         messages.append(message!)
         
+        sendMessage(text: text, sender: self.senderId)
+        
         self.finishSendingMessage(animated: true)
+    }
+    
+    // MARK: - Utils
+    func sendMessage(text: String, sender: String) {
+        if let group = (UIApplication.shared.delegate as! AppDelegate).tempUserData?["group"] {
+            ref.child("groups/\(group)/messages").childByAutoId().setValue([
+                "text": text,
+                "sender": sender
+            ])
+            print("SENDING WITH GROUP \(group)")
+        }
     }
 }

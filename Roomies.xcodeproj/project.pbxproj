@@ -19,6 +19,7 @@
 		7E1D6BC81E456A06009E6634 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BC71E456A06009E6634 /* Tasks.storyboard */; };
 		7E1D6BCA1E456A0D009E6634 /* Expenses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */; };
 		7E1D6BCC1E456A20009E6634 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */; };
+		7E3833A41E832927000F6DAA /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3833A31E832927000F6DAA /* ChatMessage.swift */; };
 		7E460F461E8235AC00CB10B3 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E460F451E8235AC00CB10B3 /* CalendarTableViewCell.swift */; };
 		7E460F481E8235DA00CB10B3 /* CalendarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E460F471E8235DA00CB10B3 /* CalendarTableViewController.swift */; };
 		7E5624F31E611E7100E63E91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5624F21E611E7100E63E91 /* User.swift */; };
@@ -62,6 +63,7 @@
 		7E1D6BC71E456A06009E6634 /* Tasks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
 		7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Expenses.storyboard; sourceTree = "<group>"; };
 		7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		7E3833A31E832927000F6DAA /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		7E460F451E8235AC00CB10B3 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		7E460F471E8235DA00CB10B3 /* CalendarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewController.swift; sourceTree = "<group>"; };
 		7E5624F21E611E7100E63E91 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				860FC4721E3C305300A0980D /* Task.swift */,
 				86594BCB1E3FB3DF006736BB /* Expense.swift */,
 				7E5624F21E611E7100E63E91 /* User.swift */,
+				7E3833A31E832927000F6DAA /* ChatMessage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				8685DF891E57940600581C6B /* AddExpenseEmojiTextViewTableViewCell.swift in Sources */,
 				7E1769F51DC41E1F00EA7B1E /* ChatViewController.swift in Sources */,
 				86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */,
+				7E3833A41E832927000F6DAA /* ChatMessage.swift in Sources */,
 				7E1D6BBE1E45636F009E6634 /* SplashViewController.swift in Sources */,
 				7E460F481E8235DA00CB10B3 /* CalendarTableViewController.swift in Sources */,
 				7E84A0EE1DCD61B30064770E /* AddExpenseTableViewController.swift in Sources */,

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roomies/ChatViewController.swift"
-            timestampString = "499392870.905627"
+            timestampString = "511912766.821666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "ChatViewController"
             landmarkType = "3">
          </BreakpointContent>
