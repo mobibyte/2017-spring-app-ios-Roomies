@@ -89,6 +89,11 @@ class JoinRoomViewController: UIViewController {
         ]
 
         ref.updateChildValues(updates) { (error, dataGroup) in
+            (UIApplication.shared.delegate as! AppDelegate).localGroup = Group(
+                id: key,
+                joinKey: groupKey,
+                members: []
+            )
             self.gotoRoom()
         }
     }

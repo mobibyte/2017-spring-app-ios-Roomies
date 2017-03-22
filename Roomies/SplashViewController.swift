@@ -23,9 +23,10 @@ class SplashViewController: UIViewController {
             ref.child("users/\(user.uid)").observeSingleEvent(of: .value, with: { (snapshot) in
                 let userData = snapshot.value as? NSDictionary
                 
-                (UIApplication.shared.delegate as! AppDelegate).tempUserData = userData
-                
-                if userData?["group"] != nil {
+                if let group = userData?["group"] as? String {
+                    let group = Group(id: group, joinKey: "", members: [])
+                    (UIApplication.shared.delegate as! AppDelegate).localGroup = group
+                    
                     self.gotoRoom()
                 } else {
                     self.gotoEntry()

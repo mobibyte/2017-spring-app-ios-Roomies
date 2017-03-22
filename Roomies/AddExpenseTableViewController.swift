@@ -11,7 +11,9 @@ import CoreData
 import FirebaseDatabase
 
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate  {
+    
     let ref = FIRDatabase.database().reference()
+    let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
     
     var allCellsText = ""
     var emojiText = ""
@@ -294,23 +296,18 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             
             
             
-            let userData = (UIApplication.shared.delegate as! AppDelegate).tempUserData
+            let childStr = "groups/\(localGroup.id)/expenses"
             
-            if let group = userData?["group"] as? String {
-                let childStr = "groups/\(group)/expenses"
-                
-                let key = ref.child(childStr).childByAutoId().key
-                ref.child("\(childStr)/\(key)").setValue([
-                    "username": addExpense.username,
-                    "amount": addExpense.amount,
-                    "emoji": addExpense.emoji,
-                    "title": addExpense.title,
-                    "type": addExpense.type
-                    ])
-            }
+            let key = ref.child(childStr).childByAutoId().key
+            ref.child("\(childStr)/\(key)").setValue([
+                "username": addExpense.username,
+                "amount": addExpense.amount,
+                "emoji": addExpense.emoji,
+                "title": addExpense.title,
+                "type": addExpense.type
+            ])
             
             print("new expense")
-            print(userData?["group"])
             
             print("Saving data to context ...")
             

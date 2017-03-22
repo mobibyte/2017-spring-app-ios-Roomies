@@ -14,6 +14,7 @@ class ChatViewController: JSQMessagesViewController {
     
     
     var ref: FIRDatabaseReference!
+    let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
     
     var messages = [JSQMessage]()
     
@@ -21,7 +22,7 @@ class ChatViewController: JSQMessagesViewController {
     
     var outBubble: JSQMessagesBubbleImage!
     var inBubble: JSQMessagesBubbleImage!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +39,7 @@ class ChatViewController: JSQMessagesViewController {
         self.inBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
     
-
+    
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
     }
@@ -74,12 +75,10 @@ class ChatViewController: JSQMessagesViewController {
     
     // MARK: - Utils
     func sendMessage(text: String, sender: String) {
-        if let group = (UIApplication.shared.delegate as! AppDelegate).tempUserData?["group"] {
-            ref.child("groups/\(group)/messages").childByAutoId().setValue([
-                "text": text,
-                "sender": sender
+        ref.child("groups/\(localGroup.id)/messages").childByAutoId().setValue([
+            "text": text,
+            "sender": sender
             ])
-            print("SENDING WITH GROUP \(group)")
-        }
+        print("SENDING WITH GROUP \(localGroup.id)")
     }
 }

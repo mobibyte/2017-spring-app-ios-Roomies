@@ -8,12 +8,13 @@
 
 class Group {
     
-    var id: String!
-    var joinKey: String!
-    var members: [User]?
+    var id: String
+    var joinKey: String
+    var members: [User]
     
-    init(id: String, joinKey: String) {
+    init(id: String, joinKey: String, members: [User]) {
         self.id = id
         self.joinKey = joinKey
+        self.members = members
     }
 }

@@ -18,6 +18,7 @@ class AddTaskTableViewController: UITableViewController {
     var task:Task!
     var taskNametext = ""
     
+    let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
     
     let ref = FIRDatabase.database().reference()
     
@@ -74,21 +75,18 @@ class AddTaskTableViewController: UITableViewController {
             addTask.dueDate = taskDueDatePicker.date
             
             
-            let userData = (UIApplication.shared.delegate as! AppDelegate).tempUserData
             
-            if let group = userData?["group"] as? String {
-                let childStr = "groups/\(group)/tasks"
-                let key = ref.child(childStr).childByAutoId().key
-                let task: [String:Any] = [
-                    "name": addTask.name!,
-                    "due": Int((addTask.dueDate?.timeIntervalSince1970)!)
-                ]
-                
-                ref.child(childStr).child(group).setValue(task)
-            }
+            
+            let childStr = "groups/\(localGroup.id)/tasks"
+            let key = ref.child(childStr).childByAutoId().key
+            let task: [String:Any] = [
+                "name": addTask.name!,
+                "due": Int((addTask.dueDate?.timeIntervalSince1970)!)
+            ]
+            
+            ref.child(childStr).child(key).setValue(task)
             
             print("new task")
-            print(userData?["group"])
             
             
             
