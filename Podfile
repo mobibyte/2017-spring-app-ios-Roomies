@@ -16,4 +16,7 @@ target 'Roomies' do
   pod 'Firebase/Core', '~> 3.10.0'
   pod 'Firebase/Auth', '~> 3.10.0'
   pod 'Firebase/Database'
+
+  pod 'GoogleAPIClient/Calendar', '~> 1.0.2'
+  pod 'GTMOAuth2', '~> 1.1.0'
 end

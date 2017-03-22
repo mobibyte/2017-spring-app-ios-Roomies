@@ -19,6 +19,8 @@
 		7E1D6BC81E456A06009E6634 /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BC71E456A06009E6634 /* Tasks.storyboard */; };
 		7E1D6BCA1E456A0D009E6634 /* Expenses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */; };
 		7E1D6BCC1E456A20009E6634 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */; };
+		7E460F461E8235AC00CB10B3 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E460F451E8235AC00CB10B3 /* CalendarTableViewCell.swift */; };
+		7E460F481E8235DA00CB10B3 /* CalendarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E460F471E8235DA00CB10B3 /* CalendarTableViewController.swift */; };
 		7E5624F31E611E7100E63E91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5624F21E611E7100E63E91 /* User.swift */; };
 		7E5624F51E6120F600E63E91 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5624F41E6120F600E63E91 /* Group.swift */; };
 		7E5F45631E4E9CDB003CD686 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5F45621E4E9CDB003CD686 /* Settings.storyboard */; };
@@ -60,6 +62,8 @@
 		7E1D6BC71E456A06009E6634 /* Tasks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
 		7E1D6BC91E456A0D009E6634 /* Expenses.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Expenses.storyboard; sourceTree = "<group>"; };
 		7E1D6BCB1E456A20009E6634 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		7E460F451E8235AC00CB10B3 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		7E460F471E8235DA00CB10B3 /* CalendarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewController.swift; sourceTree = "<group>"; };
 		7E5624F21E611E7100E63E91 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7E5624F41E6120F600E63E91 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		7E5F45621E4E9CDB003CD686 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 		7E1D6BBF1E4568E8009E6634 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				7E976E4D1E8234E400BA73A8 /* Calendar */,
 				7E5F45641E4E9D14003CD686 /* Settings */,
 				7E1D6BC31E456906009E6634 /* Entry */,
 				7E1D6BC21E4568FF009E6634 /* Tasks */,
@@ -238,6 +243,15 @@
 				7E8AD0951E4EF34F00523F5B /* UIViewControllerExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		7E976E4D1E8234E400BA73A8 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				7E460F451E8235AC00CB10B3 /* CalendarTableViewCell.swift */,
+				7E460F471E8235DA00CB10B3 /* CalendarTableViewController.swift */,
+			);
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 		86E322731E61149C000056F6 /* Models */ = {
@@ -397,6 +411,7 @@
 				86594BCC1E3FB3DF006736BB /* Expense.swift in Sources */,
 				86310DA91E15BF44001BAAD8 /* ExpenseTableViewCell.swift in Sources */,
 				86A9D1E31E3596A500E17091 /* TaskTableViewCell.swift in Sources */,
+				7E460F461E8235AC00CB10B3 /* CalendarTableViewCell.swift in Sources */,
 				7E5624F51E6120F600E63E91 /* Group.swift in Sources */,
 				7E1D6BBC1E45636F009E6634 /* EntryViewController.swift in Sources */,
 				7E84A0F21DCD61D00064770E /* AddExpensePickerViewTableViewCell.swift in Sources */,
@@ -412,6 +427,7 @@
 				7E1769F51DC41E1F00EA7B1E /* ChatViewController.swift in Sources */,
 				86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */,
 				7E1D6BBE1E45636F009E6634 /* SplashViewController.swift in Sources */,
+				7E460F481E8235DA00CB10B3 /* CalendarTableViewController.swift in Sources */,
 				7E84A0EE1DCD61B30064770E /* AddExpenseTableViewController.swift in Sources */,
 				7E5F45661E4E9D67003CD686 /* SettingsTableViewController.swift in Sources */,
 				7E84A0F01DCD61C00064770E /* ExpensesTableViewController.swift in Sources */,

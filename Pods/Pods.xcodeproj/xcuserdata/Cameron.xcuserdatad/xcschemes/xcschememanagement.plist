@@ -34,7 +34,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GTMOAuth2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleAPIClient.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -87,7 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21AE7ED49AC887D50A17241ADAC657E0</key>
+		<key>20C101155E9F5E994103381E67EB0313</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>31A3B7B5900C0618C580B51F1FC24E5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,11 +122,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>694BA39C49982C477070A0A7A294B3CD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
@@ -122,17 +132,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BC5000D645EEAF961C85907CDC796FE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BEF7E6E85DB5CDE5D7A18F4F2EB8494B</key>
+		<key>BCB0F3FCDA72D5EB4BC620FF0E86D87B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
+		<key>BEF7E6E85DB5CDE5D7A18F4F2EB8494B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -143,6 +158,11 @@
 			<true/>
 		</dict>
 		<key>C7DCF2B547F7871B9BFD74DE93B0E173</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9C01ACED2978423B67BA2FAC5CC4A99</key>
 		<dict>
 			<key>primary</key>
 			<true/>
