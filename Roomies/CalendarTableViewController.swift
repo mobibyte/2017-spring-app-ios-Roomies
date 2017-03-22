@@ -148,18 +148,18 @@ class CalendarTableViewController: UITableViewController {
     
     // Handle completion of the authorization process, and update the Google Calendar API
     // with the new credentials.
-    func viewController(vc : UIViewController?,
-                        finishedWithAuth authResult : GTMOAuth2Authentication?, error : NSError?) {
+    func viewController(vc : UIViewController,
+                        finishedWithAuth authResult : GTMOAuth2Authentication, error : NSError?) {
         
-//        if error != nil {
-//            service.authorizer = nil
-//            showAlert(title: "Authentication Error", message: (error?.localizedDescription)!)
-//            return
-//        }
-//        
-//        service.authorizer = authResult
-//        self.dismiss(animated: true, completion: nil)
-//        
+        if error != nil {
+            service.authorizer = nil
+            showAlert(title: "Authentication Error", message: (error?.localizedDescription)!)
+            return
+        }
+        
+        service.authorizer = authResult
+        self.dismiss(animated: true, completion: nil)
+//
     }
     
     
