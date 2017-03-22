@@ -114,32 +114,52 @@ class CalendarTableViewController: UITableViewController {
     
     
     // Creates the auth controller for authorizing access to Google Calendar API
-    private func createAuthController() -> GTMOAuth2ViewControllerTouch {
+    private func createAuthController() -> UIViewController {
         let scopeString = scopes.joined(separator: "")
-        return GTMOAuth2ViewControllerTouch(
+        let authController = GTMOAuth2ViewControllerTouch(
             scope: scopeString,
             clientID: kClientID,
             clientSecret: nil,
             keychainItemName: kKeychainItemName,
             delegate: self,
             finishedSelector: Selector(("viewController:finishedWithAuth:error:"))
-        )
+        )!
+        let navController = UINavigationController(rootViewController: authController)
+        let navbar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64))
+        let navItems = UINavigationItem(title: "Login with Google")
+        navItems.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelGoogleLogin))
+        navbar.items = [navItems]
+        
+        navController.view.addSubview(navbar)
+        
+        
+        return navController
+    }
+    
+    func cancelGoogleLogin() {
+        print("PRESSED CANCEL")
+        //self.navigationController?.dismiss(animated: true, completion: nil)
+//        let alert = UIAlertController(title: "Failed to Auth", message: "Looks like you didn't login do you google account, sad.", preferredStyle: .alert)
+//        self.present(alert, animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: {
+//            
+//        })
     }
     
     // Handle completion of the authorization process, and update the Google Calendar API
     // with the new credentials.
-    func viewController(vc : UIViewController,
-                        finishedWithAuth authResult : GTMOAuth2Authentication, error : NSError?) {
+    func viewController(vc : UIViewController?,
+                        finishedWithAuth authResult : GTMOAuth2Authentication?, error : NSError?) {
         
-        if error != nil {
-            service.authorizer = nil
-            showAlert(title: "Authentication Error", message: (error?.localizedDescription)!)
-            return
-        }
-        
-        service.authorizer = authResult
-        self.dismiss(animated: true, completion: nil)
-        
+//        if error != nil {
+//            service.authorizer = nil
+//            showAlert(title: "Authentication Error", message: (error?.localizedDescription)!)
+//            return
+//        }
+//        
+//        service.authorizer = authResult
+//        self.dismiss(animated: true, completion: nil)
+//        
     }
     
     
