@@ -17,7 +17,7 @@ class BaseViewControllerUtil {
             
             // Add menu button automatically
             vc.navigationItem.leftBarButtonItem = UIBarButtonItem(
-                title: "Menu",
+                image: UIImage(named: "ic_menu"),
                 style: .plain,
                 target: vc.revealViewController(),
                 action: #selector((SWRevealViewController.revealToggle) as (SWRevealViewController) -> (Void) -> Void)

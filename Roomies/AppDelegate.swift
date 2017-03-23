@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Configure Navbar
         // Navbar color
         let navbarAppearace = UINavigationBar.appearance()
-        navbarAppearace.tintColor = UIColor.chatBlue
+        navbarAppearace.tintColor = UIColor.primaryText
         navbarAppearace.barTintColor = UIColor.white
         navbarAppearace.isTranslucent = false
         
