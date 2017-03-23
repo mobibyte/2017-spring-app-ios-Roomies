@@ -33,12 +33,13 @@
                                         <segment title="Amount"/>
                                         <segment title="Category"/>
                                     </segments>
+                                    <color key="tintColor" red="0.28235294117647058" green="0.27450980392156865" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
                                         <action selector="segmentChange:" destination="fhi-Z9-e38" eventType="valueChanged" id="LiT-H9-Gmd"/>
                                     </connections>
                                 </segmentedControl>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.97254901960784312" green="0.98039215686274506" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="gnh-bi-OLv" firstAttribute="leading" secondItem="7vg-or-jDR" secondAttribute="leading" constant="19" id="3Es-xG-p3f"/>
                                 <constraint firstAttribute="trailing" secondItem="gnh-bi-OLv" secondAttribute="trailing" constant="17" id="Idb-O1-Dri"/>
@@ -156,7 +157,7 @@
                                         <constraint firstAttribute="trailing" secondItem="opC-H9-HXE" secondAttribute="trailing" constant="16" id="qc9-fE-llp"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.97224575280000003" green="0.98055738209999999" blue="0.97628480200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.98039215686274506" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="emojiImage" destination="LGh-kp-EeH" id="q8d-25-hOv"/>
                                     <outlet property="expenseAmount" destination="rDa-7j-LBJ" id="IT0-nm-Bah"/>
@@ -418,7 +419,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ExpensesNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="3Go-J7-kqb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hxg-mC-Qje">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hxg-mC-Qje">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
