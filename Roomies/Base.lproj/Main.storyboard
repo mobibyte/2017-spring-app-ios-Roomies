@@ -61,19 +61,7 @@
                     <view key="view" contentMode="scaleToFill" id="2p7-An-fr3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPt-uF-bXL">
-                                <rect key="frame" x="157" y="323" width="61" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cPt-uF-bXL" firstAttribute="centerX" secondItem="2p7-An-fr3" secondAttribute="centerX" id="ATg-5V-MTI"/>
-                            <constraint firstItem="cPt-uF-bXL" firstAttribute="centerY" secondItem="2p7-An-fr3" secondAttribute="centerY" id="d4i-Pt-evh"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.28235294119999998" green="0.27450980390000002" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <segue destination="exZ-ba-3Sc" kind="showDetail" identifier="EntryViewController" id="AyO-3Q-sD6">
@@ -397,7 +385,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Kj1-jb-6Ju"/>
+        <segue reference="1jb-XA-FpH"/>
         <segue reference="Ynd-vT-vaG"/>
     </inferredMetricsTieBreakers>
 </document>

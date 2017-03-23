@@ -70,6 +70,7 @@ PODS:
   - Material (2.4.19):
     - Material/Core (= 2.4.19)
   - Material/Core (2.4.19)
+  - NVActivityIndicatorView (3.5.1)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
@@ -85,6 +86,7 @@ DEPENDENCIES:
   - GTMOAuth2 (~> 1.1.0)
   - JSQMessagesViewController (~> 7.3.4)
   - Material (~> 2.4.19)
+  - NVActivityIndicatorView (~> 3.5.1)
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
@@ -109,8 +111,9 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Material: 67b52869f68ab95757e14801ffba0a52a4f19c31
+  NVActivityIndicatorView: 075563b3547445ebcff840e3297ce9dd4a23731f
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 6a0581de57649b7f2fe4a130b72b9b07b48a3caf
+PODFILE CHECKSUM: cceb048cff76d5894861466276b5e793dca678a7
 
 COCOAPODS: 1.2.0

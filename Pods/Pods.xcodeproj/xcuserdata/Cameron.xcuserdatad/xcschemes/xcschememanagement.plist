@@ -79,6 +79,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Roomies.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -102,7 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31A3B7B5900C0618C580B51F1FC24E5C</key>
+		<key>3EDFE4052B5DE7D509935AC0774CB135</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,6 +132,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8B26EC6F29EBB09EC48241A18A469CB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>93845F136A4C87C73A16B4EAA836C8D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
@@ -138,11 +153,6 @@
 			<true/>
 		</dict>
 		<key>BC5000D645EEAF961C85907CDC796FE1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BCB0F3FCDA72D5EB4BC620FF0E86D87B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
