@@ -13,6 +13,8 @@ import NVActivityIndicatorView
 
 class SplashViewController: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -38,11 +40,14 @@ class SplashViewController: UIViewController {
             ref.child("users/\(user.uid)").observeSingleEvent(of: .value, with: { (snapshot) in
                 let userData = snapshot.value as? NSDictionary
                 
+                let user = User(id: user.uid, name: userData?["name"] as? String, email: userData?["email"] as? String, avatarUrl: userData?["avatarUrl"] as? String)
+                self.appDelegate.localUser = user
+                
+                
                 if let group = userData?["group"] as? String {
                     let group = Group(id: group, joinKey: "", members: [])
-                    (UIApplication.shared.delegate as! AppDelegate).localGroup = group
+                    self.appDelegate.localGroup = group
                     
-                    //
                     self.fadeOutAnimation {
                         self.gotoRoom()
                     }
