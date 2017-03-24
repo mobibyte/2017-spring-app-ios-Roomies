@@ -10,10 +10,10 @@ import UIKit
 
 extension UIColor {
     
-    static let chatBlue = UIColor(netHex: 0x6095F2)
-    static let chatGray = UIColor(netHex: 0xF5F8FE)
+    static var chatBlue: UIColor { return UIColor(netHex: 0x6095F2) }
+    static var chatGray: UIColor { return UIColor(netHex: 0xF5F8FE) }
     
-    static let primaryText = UIColor(netHex: 0x484644)
+    static var primaryText: UIColor { return UIColor(netHex: 0x484644) }
     
     // MARK: - Extension Functions
     convenience init(red: Int, green: Int, blue: Int) {
