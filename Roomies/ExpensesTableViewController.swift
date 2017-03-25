@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class ExpensesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+   
     @IBOutlet var sorterSegmentedControl: UISegmentedControl!
    
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
@@ -24,8 +25,9 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     
     var expenseTypes = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
     
-    var expenses: [Expense] = []
-    var fetchResultController: NSFetchedResultsController<ExpenseMO>!
+    var expenses = [Expense]()
+    
+    var searchResults = [[String : AnyObject]]()
     
     let ref = FIRDatabase.database().reference()
     
@@ -34,17 +36,17 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     }
     
     @IBAction func DoneExpense(segue: UIStoryboardSegue){
-        let newExpense = Expense()
-        let addExpense = segue.source as! AddExpenseTableViewController
-        
-        newExpense.username = addExpense.addExpense.username
-        newExpense.amount = addExpense.addExpense.amount
-        newExpense.title = addExpense.addExpense.title
-        newExpense.type = addExpense.addExpense.type
-        newExpense.emoji = addExpense.addExpense.emoji
-        
-        expenses.append(newExpense)
-        self.tableView.reloadData()
+//        let newExpense = Expense()
+//        let addExpense = segue.source as! AddExpenseTableViewController
+//        
+//        newExpense.username = addExpense.addExpense.username
+//        newExpense.amount = addExpense.addExpense.amount
+//        newExpense.title = addExpense.addExpense.title
+//        newExpense.type = addExpense.addExpense.type
+//        newExpense.emoji = addExpense.addExpense.emoji
+//        
+//        expenses.append(newExpense)
+//        self.tableView.reloadData()
     }
 
     
@@ -54,12 +56,11 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         BaseViewControllerUtil.setup(viewController: self)
         
         // Listen pho data
-        ref.child("groups/\(localGroup.id)/expenses").observe(.value, with: { (snapshot) in
-            let expenses = snapshot.value as? [String:[String:Any]] ?? [:]
-            print(expenses)
-            for (key, value) in expenses {
+        ref.child("groups/\(localGroup.id)/expenses").observe(.childAdded, with: { (snapshot) in
+            
+            if let value = snapshot.value as? [String:Any] {
                 let E = Expense()
-                E.id = key
+                E.id = snapshot.key
                 E.amount = value["amount"] as? String
                 E.emoji = value["emoji"] as? String
                 E.title = value["title"] as? String
@@ -76,7 +77,7 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     
     @IBAction func segmentChange(_ sender: Any) {
         viewDidLoad()
-        tableView.reloadData()
+//        tableView.reloadData()
         
     }
     
@@ -110,8 +111,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         cell.expenseCategory.text = expenses[indexPath.row].type
 
         cell.emojiImage.text = expenses[indexPath.row].emoji
-        
-        
         
         return cell
     }
