@@ -77,7 +77,7 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     
     @IBAction func segmentChange(_ sender: Any) {
         viewDidLoad()
-//        tableView.reloadData()
+        tableView.reloadData()
         
     }
     

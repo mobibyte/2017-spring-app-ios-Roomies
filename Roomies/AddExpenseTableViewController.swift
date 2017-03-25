@@ -256,60 +256,54 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
         if identifier == "doneExpense" {
-            if amount.text == "0" {
-                let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+            if Int(amount.text!) != nil && Int(amount.text!) != 0 && ((emojiText.characters.count) == 1) && allCellsText.isEmpty == false {
+                return true
+            } else {
+                
+                let alertController = UIAlertController(title: "Oops", message: "We can't proceed because your amount isn't fill in.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(alertAction)
                 present(alertController, animated: true, completion: nil)
-                return false
                 
             }
         }
-        
-        
-        
-        return true
-        
+        return false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doneExpense" {
-            
-            if amount.text == "0" {
-                let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(alertAction)
-                present(alertController, animated: true, completion: nil)
-            }
-            
-            print("Amount: \(amount.text)")
-            print("User: \(selectedUser)")
-            print("Type: \(expenseType)")
-            print("Title: \(allCellsText)")
-            print("Emoji: \(emojiText)")
+                
+                print("Amount: \(amount.text)")
+                print("User: \(selectedUser)")
+                print("Type: \(expenseType)")
+                print("Title: \(allCellsText)")
+                print("Emoji: \(emojiText)")
+                
+                addExpense.amount = amount.text
+                addExpense.username = selectedUser
+                addExpense.type = expenseType
+                addExpense.title = allCellsText
+                addExpense.emoji = emojiText
+                
+                
+                
+                let childStr = "groups/\(localGroup.id)/expenses"
+                
+                let key = ref.child(childStr).childByAutoId().key
+                ref.child("\(childStr)/\(key)").setValue([
+                    "username": addExpense.username,
+                    "amount": addExpense.amount,
+                    "emoji": addExpense.emoji,
+                    "title": addExpense.title,
+                    "type": addExpense.type
+                    ])
+                
+                print("new expense")
+                
+                print("Saving data to context ...")
 
-            addExpense.amount = amount.text
-            addExpense.username = selectedUser
-            addExpense.type = expenseType
-            addExpense.title = allCellsText
-            addExpense.emoji = emojiText
             
-            
-            
-            let childStr = "groups/\(localGroup.id)/expenses"
-            
-            let key = ref.child(childStr).childByAutoId().key
-            ref.child("\(childStr)/\(key)").setValue([
-                "username": addExpense.username,
-                "amount": addExpense.amount,
-                "emoji": addExpense.emoji,
-                "title": addExpense.title,
-                "type": addExpense.type
-            ])
-            
-            print("new expense")
-            
-            print("Saving data to context ...")
+
             
         }
         
