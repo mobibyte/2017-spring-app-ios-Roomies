@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.3.0)
+  - Alamofire (4.4.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
   - Bolts (1.8.4):
@@ -74,6 +74,7 @@ PODS:
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.4.0)
   - AlamofireImage (~> 3.2.0)
   - Bolts
   - FBSDKCoreKit
@@ -90,7 +91,7 @@ DEPENDENCIES:
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
@@ -114,6 +115,6 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 075563b3547445ebcff840e3297ce9dd4a23731f
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: cceb048cff76d5894861466276b5e793dca678a7
+PODFILE CHECKSUM: 82f68c664c6e973849862cc249ec5a019a8de6b9
 
 COCOAPODS: 1.2.0
