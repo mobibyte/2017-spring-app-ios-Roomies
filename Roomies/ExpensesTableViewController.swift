@@ -75,11 +75,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     }
 
     
-    @IBAction func segmentChange(_ sender: Any) {
-        viewDidLoad()
-        tableView.reloadData()
-        
-    }
     
     
     override func didReceiveMemoryWarning() {

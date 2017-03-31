@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
+import Firebase
 
 class AddTaskTableViewController: UITableViewController {
     
@@ -26,7 +28,6 @@ class AddTaskTableViewController: UITableViewController {
         super.viewDidLoad()
         
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,14 +67,16 @@ class AddTaskTableViewController: UITableViewController {
         if segue.identifier == "doneSegue" {
             
             
-            print("Name: \(taskNameTextField.text)")
+            let user = FIRAuth.auth()?.currentUser
+            
+            print("Name: \(String(describing: taskNameTextField.text))")
             print("Date: \(taskDueDatePicker.date)")
             print("Date: \(taskDueDatePicker.countDownDuration)")
             
             
             addTask.name = taskNameTextField.text
             addTask.dueDate = taskDueDatePicker.date
-            
+          
             
             
             
@@ -81,13 +84,14 @@ class AddTaskTableViewController: UITableViewController {
             let key = ref.child(childStr).childByAutoId().key
             let task: [String:Any] = [
                 "name": addTask.name!,
-                "due": Int((addTask.dueDate?.timeIntervalSince1970)!)
-            ]
+                "due": addTask.dueDate as NSDate?!,
+                "owner": user!.email
+                ]
             
             ref.child(childStr).child(key).setValue(task)
             
             print("new task")
-            
+            print(user!.email)
             
             
             print("Saving data to context ...")
