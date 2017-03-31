@@ -32,9 +32,10 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
             if let value = snapshot.value as? [String:Any] {
                 let t = Task()
                 t.id = snapshot.key
-                t.dueDate = value["due"] as! Date
+                t.dueDate = Date.init(timeIntervalSince1970: (value["due"] as? Double)!)
                 t.name = value["name"] as? String
                 t.owner = value["owner"] as? String
+                
                 self.tasks.append(t)
                 
                 
@@ -93,7 +94,7 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
             } else if dueMinutes > 0 {
                 str = "\(dueMinutes) minutes left"
             } else {
-                str = "YOU DIDNT DO IT"
+                str = "Past Due"
             }
         } else {
             str = ""
@@ -124,37 +125,38 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
 //        
 //        tasks.append(newTask)
 //        self.tableView.reloadData()
-    
+
     }
     
     
     // MARK: - Delete Button
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         
         if editingStyle == .delete {
-            
         }
-        
         tableView.deleteRows(at: [indexPath], with: .fade)
         
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
         
         // Delete button
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
             
             self.tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
         })
         
+        deleteAction.backgroundColor = UIColor(red: 210/255.0, green: 77/255.0, blue: 89/255.0, alpha: 1.0)
         
-        deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+       return [deleteAction]
         
-        return [deleteAction]
-    }
+        }
+    
+    
 
 }

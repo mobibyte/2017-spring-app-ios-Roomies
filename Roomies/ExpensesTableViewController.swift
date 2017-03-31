@@ -130,6 +130,11 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
             
             self.expenses.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.ref.child("groups/\(self.localGroup.id)/expenses").child().removeValue { (error, ref) in
+                if error != nil {
+                    print("error \(error)")
+                }
+            }
         })
 
         deleteAction.backgroundColor = UIColor(red: 210/255.0, green: 77/255.0, blue: 89/255.0, alpha: 1.0)

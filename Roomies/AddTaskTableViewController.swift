@@ -84,9 +84,9 @@ class AddTaskTableViewController: UITableViewController {
             let key = ref.child(childStr).childByAutoId().key
             let task: [String:Any] = [
                 "name": addTask.name!,
-                "due": addTask.dueDate as NSDate?!,
+                "due": addTask.dueDate?.timeIntervalSince1970,
                 "owner": user!.email
-                ]
+                            ]
             
             ref.child(childStr).child(key).setValue(task)
             
