@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="-1764" y="448"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Sidebar Table View Controller-->
         <scene sceneID="txW-AC-RF9">
             <objects>
-                <tableViewController id="uld-uu-QzN" sceneMemberID="viewController">
+                <tableViewController id="uld-uu-QzN" customClass="SidebarTableViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" id="CKq-E7-l9u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -330,6 +330,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="vgG-fC-d3q"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="oiu-7g-2YF" id="EbV-9Q-SoO"/>
+                        <outlet property="sidebarAvatar" destination="bvD-tF-n4l" id="Pnj-wu-Twt"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V5V-Wm-LCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -385,7 +389,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1jb-XA-FpH"/>
+        <segue reference="2bU-Rb-FTT"/>
         <segue reference="Ynd-vT-vaG"/>
     </inferredMetricsTieBreakers>
 </document>

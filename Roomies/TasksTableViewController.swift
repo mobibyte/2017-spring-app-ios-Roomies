@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import FirebaseDatabase
-
+import FirebaseAuth
 class TasksTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     let userCalendar = NSCalendar.current
     
@@ -23,22 +23,32 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        
         BaseViewControllerUtil.setup(viewController: self)
         
         // Listen pho data
-        ref.child("groups/\(localGroup.id)/tasks").observe(.value, with: { (snapshot) in
-            let tasks = snapshot.value as? [String:[String:Any]] ?? [:]
+        ref.child("groups/\(localGroup.id)/tasks").observe(.childAdded, with: { (snapshot) in
             
-            for (key, value) in tasks {
+            if let value = snapshot.value as? [String:Any] {
                 let t = Task()
-                t.id = key
+                t.id = snapshot.key
+                t.dueDate = Date.init(timeIntervalSince1970: (value["due"] as? Double)!)
                 t.name = value["name"] as? String
-                //                    t.dueDate = Date(timeIntervalSince1970: value["due"] as! TimeInterval)
+                t.owner = value["owner"] as? String
+                
                 self.tasks.append(t)
+                
+                
             }
             
             self.tableView.reloadData()
         })
+    }
+    
+    @IBAction func segmentChange(_ sender: Any) {
+        viewDidLoad()
+        tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,13 +85,6 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
             let dueMinutes = timeDelta / 60
             let dueHours = dueMinutes / 60
             let dueDays = dueHours / 24
-//            
-//            print("DELTA \(timeDelta)")
-//            print(dueDays)
-//            print(dueHours)
-//            print(dueMinutes)
-//            
-            
             
             //CountDownDoubleDifference.day
             if (dueDays > 0){
@@ -91,13 +94,14 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
             } else if dueMinutes > 0 {
                 str = "\(dueMinutes) minutes left"
             } else {
-                str = "YOU DIDNT DO IT"
+                str = "Past Due"
             }
         } else {
             str = ""
         }
-        
-        
+        print(task.name)
+        print(task.owner)
+        print(task.dueDate)
         cell.taskName.text = task.name
         cell.taskOwners.text = task.owner
         cell.taskDueDate.text = str
@@ -112,50 +116,47 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
     }
     
     @IBAction func done(segue:UIStoryboardSegue) {
-        let newTask = Task()
-        let addTask = segue.source as! AddTaskTableViewController
-        
-        newTask.name = addTask.addTask.name
-        newTask.dueDate = addTask.addTask.dueDate
-        if (addTask.addTask.owner == nil){
-            newTask.owner = "None"
-        } else {
-            newTask.owner = addTask.addTask.owner
-        }
-        
-        tasks.append(newTask)
-        self.tableView.reloadData()
-    
+//        let newTask = Task()
+//        let addTask = segue.source as! AddTaskTableViewController
+//        
+//        newTask.name = addTask.addTask.name
+//        newTask.dueDate = addTask.addTask.dueDate
+//        newTask.owner = addTask.addTask.owner
+//        
+//        tasks.append(newTask)
+//        self.tableView.reloadData()
+
     }
     
     
     // MARK: - Delete Button
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         
         if editingStyle == .delete {
-            
         }
-        
         tableView.deleteRows(at: [indexPath], with: .fade)
         
     }
     
+    
+    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
         
         // Delete button
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
             
             self.tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
         })
         
+        deleteAction.backgroundColor = UIColor(red: 210/255.0, green: 77/255.0, blue: 89/255.0, alpha: 1.0)
         
-        deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+       return [deleteAction]
         
-        return [deleteAction]
-    }
+        }
+    
+    
 
 }
