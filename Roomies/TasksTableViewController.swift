@@ -147,6 +147,14 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         // Delete button
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
             
+
+            print(self.tasks[indexPath.row].id!)
+            self.ref.child("groups/\(self.localGroup.id)/tasks/\(self.tasks[indexPath.row].id!)").removeValue { (error, ref) in
+                if error != nil {
+                    print("error \(String(describing: error))")
+                }
+            }
+            
             self.tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         })
