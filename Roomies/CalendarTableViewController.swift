@@ -181,7 +181,10 @@ class CalendarTableViewController: UITableViewController {
         let event = self.events[indexPath.row]
         
         cell.eventName.text = event.summary
-        cell.eventEndtime.text = event.start.date.stringValue
+        if let date = event.start.date {
+            cell.eventEndtime.text = date.stringValue
+        }
+        
 //        cell.eventDescription.text = event.description.
         
         print("TRYING TO CREATE")
