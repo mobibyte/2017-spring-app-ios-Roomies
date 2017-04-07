@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092F22721E85E5B20092F3A3 /* SidebarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F22711E85E5B20092F3A3 /* SidebarTableViewController.swift */; };
 		7E037B7A1DDFC4E800385C2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E037B791DDFC4E800385C2E /* GoogleService-Info.plist */; };
 		7E1769E11DC419B100EA7B1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1769E01DC419B100EA7B1E /* AppDelegate.swift */; };
 		7E1769E61DC419B100EA7B1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1769E41DC419B100EA7B1E /* Main.storyboard */; };
@@ -44,10 +45,12 @@
 		86A9D1E31E3596A500E17091 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E21E3596A500E17091 /* TaskTableViewCell.swift */; };
 		86A9D1E51E359B6300E17091 /* AddTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */; };
 		86A9D1E81E36D08600E17091 /* Roomies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86A9D1E61E36D08600E17091 /* Roomies.xcdatamodeld */; };
+		A33E64AD1E8F195B00874D71 /* UICalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E64AC1E8F195B00874D71 /* UICalendarViewController.swift */; };
 		AE672AD0639E421620F4D8B8 /* Pods_Roomies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2794CB297C84749E5189FD52 /* Pods_Roomies.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		092F22711E85E5B20092F3A3 /* SidebarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarTableViewController.swift; sourceTree = "<group>"; };
 		2794CB297C84749E5189FD52 /* Pods_Roomies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roomies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E037B791DDFC4E800385C2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7E1769DD1DC419B100EA7B1E /* Roomies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +93,7 @@
 		86A9D1E41E359B6300E17091 /* AddTaskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskTableViewController.swift; sourceTree = "<group>"; };
 		86A9D1E71E36D08600E17091 /* Roomies1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Roomies1.xcdatamodel; sourceTree = "<group>"; };
 		86F1821C1E4EA42700D582B5 /* AddExpenseEmojiTextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseEmojiTextViewTableViewCell.swift; sourceTree = "<group>"; };
+		A33E64AC1E8F195B00874D71 /* UICalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICalendarViewController.swift; sourceTree = "<group>"; };
 		AE17966670C156D6A21D3C32 /* Pods-Roomies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roomies/Pods-Roomies.release.xcconfig"; sourceTree = "<group>"; };
 		BA375E9C639FE6B50720DC2D /* Pods-Roomies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roomies/Pods-Roomies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092F22701E85E5830092F3A3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				092F22711E85E5B20092F3A3 /* SidebarTableViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		1582BFFACBFA9C2201053757 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +169,7 @@
 		7E1D6BBF1E4568E8009E6634 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				092F22701E85E5830092F3A3 /* Main */,
 				7E976E4D1E8234E400BA73A8 /* Calendar */,
 				7E5F45641E4E9D14003CD686 /* Settings */,
 				7E1D6BC31E456906009E6634 /* Entry */,
@@ -255,6 +268,7 @@
 			children = (
 				7E460F451E8235AC00CB10B3 /* CalendarTableViewCell.swift */,
 				7E460F471E8235DA00CB10B3 /* CalendarTableViewController.swift */,
+				A33E64AC1E8F195B00874D71 /* UICalendarViewController.swift */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -438,8 +452,10 @@
 				7E460F481E8235DA00CB10B3 /* CalendarTableViewController.swift in Sources */,
 				7E84A0EE1DCD61B30064770E /* AddExpenseTableViewController.swift in Sources */,
 				7E5F45661E4E9D67003CD686 /* SettingsTableViewController.swift in Sources */,
+				092F22721E85E5B20092F3A3 /* SidebarTableViewController.swift in Sources */,
 				7E84A0F01DCD61C00064770E /* ExpensesTableViewController.swift in Sources */,
 				7E1769E11DC419B100EA7B1E /* AppDelegate.swift in Sources */,
+				A33E64AD1E8F195B00874D71 /* UICalendarViewController.swift in Sources */,
 				7E1D6BBD1E45636F009E6634 /* JoinRoomViewController.swift in Sources */,
 				7E5624F31E611E7100E63E91 /* User.swift in Sources */,
 			);

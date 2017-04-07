@@ -176,13 +176,13 @@ class CalendarTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CalendarTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalendarCell", for: indexPath) as! CalendarTableViewCell
         
         let event = self.events[indexPath.row]
         
-        cell.eventName.text = event.eTag
-        cell.eventDatetime.text = event.start.dateTime.stringValue
-        cell.eventDescription.text = event.summary
+        cell.eventName.text = event.summary
+        cell.eventEndtime.text = event.start.date.stringValue
+//        cell.eventDescription.text = event.description.
         
         print("TRYING TO CREATE")
         

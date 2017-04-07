@@ -16,7 +16,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     @IBOutlet var sorterSegmentedControl: UISegmentedControl!
    
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
-    
     var amountText = ""
     
     var userNames = ["Bruce", "Wade", "Logan"]
@@ -66,8 +65,9 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
                 E.title = value["title"] as? String
                 E.type = value["type"] as? String
                 E.username = value["username"] as? String
-                
                 self.expenses.append(E)
+                
+//                print(E.id as Any)
             }
             
             self.tableView.reloadData()
@@ -75,11 +75,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     }
 
     
-    @IBAction func segmentChange(_ sender: Any) {
-        viewDidLoad()
-//        tableView.reloadData()
-        
-    }
     
     
     override func didReceiveMemoryWarning() {
@@ -133,8 +128,20 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         // Delete button
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
             
+        
+            print(self.expenses[indexPath.row].id!)
+            print(indexPath.row)
+            
+            self.ref.child("groups/\(self.localGroup.id)/expenses/\(self.expenses[indexPath.row].id!)").removeValue { (error, ref) in
+                print(indexPath.row)
+                if error != nil {
+                    print("error \(String(describing: error))")
+                }
+            }
             self.expenses.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            print(indexPath.row)
+            
         })
 
         deleteAction.backgroundColor = UIColor(red: 210/255.0, green: 77/255.0, blue: 89/255.0, alpha: 1.0)

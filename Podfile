@@ -7,6 +7,7 @@ target 'Roomies' do
   pod 'Material', '~> 2.4.19'
   pod 'NVActivityIndicatorView', '~> 3.5.1'
  
+  pod 'Alamofire', '~> 4.4.0'
   pod 'AlamofireImage', '~> 3.2.0'
 
   pod 'Bolts'  
