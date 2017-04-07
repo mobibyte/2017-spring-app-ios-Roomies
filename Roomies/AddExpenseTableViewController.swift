@@ -267,6 +267,9 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                 
             }
         }
+        if identifier == "unwindToExpenses" {
+                return true
+        }
         return false
     }
     
