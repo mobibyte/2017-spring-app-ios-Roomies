@@ -11,11 +11,16 @@ import Alamofire
 import AlamofireImage
 
 class SidebarTableViewController: UITableViewController {
+    
+    let localUser = (UIApplication.shared.delegate as! AppDelegate).localUser
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nameLabel.text = "Kyrell"
+        if let user = localUser {
+            nameLabel.text = user.name
+        }
+        
         Alamofire.request("http://www.dogwood.church/wp-content/uploads/2014/03/generic-male-avatar.png").responseImage { response in
             print("got the response")
             print(response.result.value)
