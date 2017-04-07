@@ -21,4 +21,5 @@ target 'Roomies' do
 
   pod 'GoogleAPIClient/Calendar', '~> 1.0.2'
   pod 'GTMOAuth2', '~> 1.1.0'
+  pod 'JTCalendar', '~> 2.0'
 end
