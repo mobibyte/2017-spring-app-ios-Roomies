@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import FirebaseDatabase
+import ISEmojiView
 
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate  {
     
@@ -35,7 +36,8 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var userImages = ["User1", "User2", "User3"]
     
     override func viewDidLoad() {
-       
+        
+
         
     }
     
@@ -109,7 +111,9 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                 let cellIdentifer = "emojiTextViewTableViewCell"
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! EmojiTextViewTableViewCell
                 cell.emojiTextView.text = ""
-                
+                let emojiView = ISEmojiView()
+                emojiView.delegate = self as? ISEmojiViewDelegate
+                cell.emojiTextView.inputView = emojiView
                 
                 return cell
             }else {

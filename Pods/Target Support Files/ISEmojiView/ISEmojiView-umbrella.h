@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double AlamofireVersionNumber;
-FOUNDATION_EXPORT const unsigned char AlamofireVersionString[];
+FOUNDATION_EXPORT double ISEmojiViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char ISEmojiViewVersionString[];
 
