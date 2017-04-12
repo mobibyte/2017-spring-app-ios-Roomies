@@ -20,6 +20,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var emojiText = ""
     var expenseType = ""
     @IBOutlet var amount: UITextField!
+    @IBOutlet var emojiField: UITextField!
     
     let addExpense = Expense()
     var expense:ExpenseMO!
@@ -36,11 +37,19 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var userImages = ["User1", "User2", "User3"]
     
     override func viewDidLoad() {
-        
+        let emojiView = ISEmojiView()
+        emojiView.delegate = self as? ISEmojiViewDelegate
+       
+        emojiField.inputView = emojiView
 
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        emojiField.becomeFirstResponder()
+    }
     
     // MARK: - Picker View
     
@@ -75,7 +84,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         case 0:
             return userNames.count
         case 1:
-            return 3
+            return 1
         default:
             return 0
         }
@@ -107,23 +116,10 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                 
                 return cell
                 
-            } else if (indexPath.row == 1) {
-                let cellIdentifer = "emojiTextViewTableViewCell"
-                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! EmojiTextViewTableViewCell
-                cell.emojiTextView.text = ""
-                let emojiView = ISEmojiView()
-                emojiView.delegate = self as? ISEmojiViewDelegate
-                cell.emojiTextView.inputView = emojiView
-                
-                return cell
+            
             }else {
                 let cellIdentifier = "pickerViewTableViewCell"
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PickerViewTableViewCell
-                
-                cell.categoryPicker.showsSelectionIndicator = true
-                cell.categoryPicker.delegate = self
-                cell.categoryPicker.dataSource = self
-                
                 
                 
                 return cell
@@ -277,6 +273,16 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         return false
     }
     
+   
+    
+    func emojiViewDidSelectEmoji(emojiView: ISEmojiView, emoji: String) {
+        emojiField.insertText(emoji)
+    }
+    
+    func emojiViewDidPressDeleteButton(emojiView: ISEmojiView) {
+        emojiField.deleteBackward()
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doneExpense" {
                 

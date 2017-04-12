@@ -217,6 +217,23 @@
                                 <constraint firstAttribute="trailing" secondItem="bt5-4d-CeC" secondAttribute="trailing" constant="20" id="jiO-93-Jwp"/>
                             </constraints>
                         </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="ZhG-H5-xqY">
+                            <rect key="frame" x="0.0" y="392.5" width="375" height="49"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Emoji" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nxm-c2-78y">
+                                    <rect key="frame" x="8" y="10" width="359" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="emojiFieldDidChangeEditing:" destination="uuG-Oc-ng9" eventType="editingDidEnd" id="6c7-JU-oRO"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="UserTableViewCell" rowHeight="85" id="TS3-p5-Bkl" userLabel="UserTableViewCell" customClass="UserTableViewCell" customModule="Roomies" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="220.5" width="375" height="85"/>
@@ -301,78 +318,6 @@
                                     <outlet property="expenseTitle" destination="qMl-dI-XeY" id="eFQ-sU-dM0"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="emojiTextViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="emojiTextViewTableViewCell" rowHeight="69" id="maS-Qb-BpC" customClass="EmojiTextViewTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="374.5" width="375" height="69"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="maS-Qb-BpC" id="bXB-35-Roy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expense Emoji" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsW-PI-kCg">
-                                            <rect key="frame" x="16" y="19" width="343" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <action selector="emojiFieldDidChangeEditing:" destination="uuG-Oc-ng9" eventType="editingChanged" id="0wK-RE-qwX"/>
-                                            </connections>
-                                        </textField>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="emojiTextView" destination="jsW-PI-kCg" id="j6b-p1-8eO"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="pickerViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="pickerViewTableViewCell" rowHeight="201" id="4V0-Dw-j7K" customClass="PickerViewTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="443.5" width="375" height="201"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4V0-Dw-j7K" id="aST-vQ-Esc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qou-kF-Cyh">
-                                            <rect key="frame" x="16" y="12" width="120" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                                    <integer key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
-                                        <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-ZO-UNs">
-                                            <rect key="frame" x="8" y="38" width="359" height="154"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="uuG-Oc-ng9" id="xaZ-ka-7ym"/>
-                                            </connections>
-                                        </pickerView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Qou-kF-Cyh" firstAttribute="top" secondItem="aST-vQ-Esc" secondAttribute="topMargin" constant="4" id="Gds-J6-A4u"/>
-                                        <constraint firstAttribute="bottom" secondItem="8Zp-ZO-UNs" secondAttribute="bottom" constant="8.5" id="JGe-yS-hNd"/>
-                                        <constraint firstItem="8Zp-ZO-UNs" firstAttribute="leading" secondItem="aST-vQ-Esc" secondAttribute="leading" constant="8" id="VUy-Fx-rPb"/>
-                                        <constraint firstAttribute="trailing" secondItem="8Zp-ZO-UNs" secondAttribute="trailing" constant="8" id="XeM-2Y-OKw"/>
-                                        <constraint firstItem="8Zp-ZO-UNs" firstAttribute="top" secondItem="Qou-kF-Cyh" secondAttribute="bottom" constant="8" id="aAS-9z-wNE"/>
-                                        <constraint firstItem="Qou-kF-Cyh" firstAttribute="leading" secondItem="aST-vQ-Esc" secondAttribute="leading" constant="16" id="aD1-XU-t89"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="categoriesLabel" destination="Qou-kF-Cyh" id="23J-ss-nrz"/>
-                                    <outlet property="categoryPicker" destination="8Zp-ZO-UNs" id="yCw-dY-0jE"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Expenses" id="kRY-dj-jAb">
@@ -389,6 +334,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="amount" destination="bt5-4d-CeC" id="2A5-CK-C44"/>
+                        <outlet property="emojiField" destination="Nxm-c2-78y" id="NMT-Xr-hdu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bl5-qV-vMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
