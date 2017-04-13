@@ -334,7 +334,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="amount" destination="bt5-4d-CeC" id="2A5-CK-C44"/>
-                        <outlet property="emojiField" destination="Nxm-c2-78y" id="NMT-Xr-hdu"/>
+                        <outlet property="emojiField" destination="Nxm-c2-78y" id="xFa-1g-pzd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bl5-qV-vMK" userLabel="First Responder" sceneMemberID="firstResponder"/>

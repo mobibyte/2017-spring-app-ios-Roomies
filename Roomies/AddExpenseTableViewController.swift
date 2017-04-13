@@ -11,16 +11,20 @@ import CoreData
 import FirebaseDatabase
 import ISEmojiView
 import Firebase
-class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate  {
+class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, ISEmojiViewDelegate   {
+   
+    //Firebase Variables
     
     let ref = FIRDatabase.database().reference()
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
+    
+    // Amount and Emoji (Header and Footer) Variables
     
     var allCellsText = ""
     var emojiText = ""
     var expenseType = ""
     @IBOutlet var amount: UITextField!
-    @IBOutlet var emojiField: UITextField!
+    @IBOutlet weak var emojiField: UITextField!
     
     let addExpense = Expense()
     var expense:ExpenseMO!
@@ -30,23 +34,21 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var selectedUserIndex:Int? = nil
     
     var amountText = String()
-    
-    
-    
     var selectedIndexPath : IndexPath?
     var pickerExpenseTypeArray = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
     var userNames = [String]()
     var userImages = ["User1", "User2", "User3","User1", "User2", "User3","User1", "User2", "User3"]
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+        //Set up Emoji Keyboard
         let emojiView = ISEmojiView()
-        emojiView.delegate = self as? ISEmojiViewDelegate
-       
+        emojiView.delegate = self
         emojiField.inputView = emojiView
         
+        //Get user IDs for choosing roomates
         ref.child("groups/\(localGroup.id)/members").observe(.childAdded, with: { (snapshot) in
-            print(snapshot.key)
+        
             self.userNames.append(snapshot.key)
             
             self.tableView.reloadData()
@@ -57,12 +59,22 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//        super.viewDidAppear(animated)
         
-        emojiField.becomeFirstResponder()
+//        emojiField.becomeFirstResponder()
         
     }
     
+    //MARK: <ISEmojiViewDelegate>
+    
+    func emojiViewDidSelectEmoji(emojiView: ISEmojiView, emoji: String) {
+        self.emojiField.insertText(emoji)
+    }
+    
+    func emojiViewDidPressDeleteButton(emojiView: ISEmojiView) {
+        self.emojiField.deleteBackward()
+    }
+
     // MARK: - Picker View
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -244,17 +256,14 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     }
     
     
-    
+    // Get text from the Header (Amount) and Footer (Emoji)
     @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
         
         allCellsText = sender.text!
-        
     }
-    
     @IBAction func emojiFieldDidChangeEditing(_ sender: UITextField) {
         
         emojiText = sender.text!
-        
     }
     
     
@@ -264,6 +273,9 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         expenseType = pickerExpenseTypeArray[row]
 
     }
+    
+    
+    //MARK: Segue
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
@@ -286,15 +298,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     }
     
    
-    
-    func emojiViewDidSelectEmoji(emojiView: ISEmojiView, emoji: String) {
-        emojiField.insertText(emoji)
-    }
-    
-    func emojiViewDidPressDeleteButton(emojiView: ISEmojiView) {
-        emojiField.deleteBackward()
-    }
-
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doneExpense" {
                 
@@ -324,17 +328,9 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                     ])
                 
                 print("new expense")
-                
-                print("Saving data to context ...")
-
-            
-
             
         }
-        
     }
-   
-    
  }
 
 
