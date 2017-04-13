@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import FirebaseDatabase
 import ISEmojiView
-
+import Firebase
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate  {
     
     let ref = FIRDatabase.database().reference()
@@ -31,16 +31,27 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     var amountText = String()
     
+    
+    
     var selectedIndexPath : IndexPath?
     var pickerExpenseTypeArray = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
-    var userNames = ["Bruce", "Wade", "Logan"]
-    var userImages = ["User1", "User2", "User3"]
+    var userNames = [String]()
+    var userImages = ["User1", "User2", "User3","User1", "User2", "User3","User1", "User2", "User3"]
     
     override func viewDidLoad() {
+        
         let emojiView = ISEmojiView()
         emojiView.delegate = self as? ISEmojiViewDelegate
        
         emojiField.inputView = emojiView
+        
+        ref.child("groups/\(localGroup.id)/members").observe(.childAdded, with: { (snapshot) in
+            print(snapshot.key)
+            self.userNames.append(snapshot.key)
+            
+            self.tableView.reloadData()
+        })
+        
 
         
     }
@@ -49,6 +60,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         super.viewDidAppear(animated)
         
         emojiField.becomeFirstResponder()
+        
     }
     
     // MARK: - Picker View

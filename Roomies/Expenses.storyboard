@@ -218,7 +218,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ZhG-H5-xqY">
-                            <rect key="frame" x="0.0" y="392.5" width="375" height="49"/>
+                            <rect key="frame" x="0.0" y="392.5" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Emoji" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nxm-c2-78y">
@@ -347,7 +347,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0LZ-Vd-xz0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wWw-vC-t9L">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wWw-vC-t9L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -365,7 +365,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ExpensesNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="3Go-J7-kqb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hxg-mC-Qje">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hxg-mC-Qje">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

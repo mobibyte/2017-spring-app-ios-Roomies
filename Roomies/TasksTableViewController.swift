@@ -43,6 +43,8 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
             
             self.tableView.reloadData()
         })
+        
+        
     }
     
     @IBAction func segmentChange(_ sender: Any) {

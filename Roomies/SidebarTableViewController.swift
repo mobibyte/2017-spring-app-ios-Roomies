@@ -13,6 +13,7 @@ import AlamofireImage
 class SidebarTableViewController: UITableViewController {
     
     let localUser = (UIApplication.shared.delegate as! AppDelegate).localUser
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()

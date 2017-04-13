@@ -60,7 +60,7 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         
         // Listen pho data
         ref.child("groups/\(localGroup.id)/expenses").observe(.childAdded, with: { (snapshot) in
-            
+        
             if let value = snapshot.value as? [String:Any] {
                 let E = Expense()
                 E.id = snapshot.key
@@ -71,7 +71,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
                 E.username = value["username"] as? String
                 self.expenses.append(E)
                 
-//                print(E.id as Any)
             }
             
             self.tableView.reloadData()
