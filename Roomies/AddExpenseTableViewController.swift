@@ -46,9 +46,25 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         emojiView.delegate = self
         emojiField.inputView = emojiView
         
+        //Get all the users
+        self.ref.child("users").observe(.childAdded, with: {snapshot in
+//            if let value = snapshot.value as? [String:Any]{
+//                let E = User(
+//                    id = value(forKey: "id") as? String,
+//                    name = as? String
+//                        email: String?
+//                avatarUrl: String?)
+//                
+//                self.expenses.append(E)
+//
+//            }
+            
+            
+        })
+        
         //Get user IDs for choosing roomates
         ref.child("groups/\(localGroup.id)/members").observe(.childAdded, with: { (snapshot) in
-        
+            
             self.userNames.append(snapshot.key)
             
             self.tableView.reloadData()

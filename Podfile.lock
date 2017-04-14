@@ -73,6 +73,17 @@ PODS:
     - Material/Core (= 2.4.19)
   - Material/Core (2.4.19)
   - NVActivityIndicatorView (3.5.1)
+  - PromiseKit (4.1.7):
+    - PromiseKit/Foundation (= 4.1.7)
+    - PromiseKit/QuartzCore (= 4.1.7)
+    - PromiseKit/UIKit (= 4.1.7)
+  - PromiseKit/CorePromise (4.1.7)
+  - PromiseKit/Foundation (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.1.7):
+    - PromiseKit/CorePromise
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
@@ -92,6 +103,7 @@ DEPENDENCIES:
   - JTCalendar (~> 2.0)
   - Material (~> 2.4.19)
   - NVActivityIndicatorView (~> 3.5.1)
+  - PromiseKit (~> 4.0)
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
@@ -119,8 +131,9 @@ SPEC CHECKSUMS:
   JTCalendar: beb2f4c1b639bf6880f680b4858227acf83a049c
   Material: 67b52869f68ab95757e14801ffba0a52a4f19c31
   NVActivityIndicatorView: 075563b3547445ebcff840e3297ce9dd4a23731f
+  PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 4e938a651f9f5dd0a0bb33ff5df1012198710713
+PODFILE CHECKSUM: c88f49faf4fa6ebac2cb7bd7b993501627ad667c
 
 COCOAPODS: 1.2.0

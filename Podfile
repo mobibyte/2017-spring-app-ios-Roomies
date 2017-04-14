@@ -6,11 +6,11 @@ target 'Roomies' do
   pod 'JSQMessagesViewController', '~> 7.3.4'
   pod 'Material', '~> 2.4.19'
   pod 'NVActivityIndicatorView', '~> 3.5.1'
- 
+
   pod 'Alamofire', '~> 4.4.0'
   pod 'AlamofireImage', '~> 3.2.0'
 
-  pod 'Bolts'  
+  pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
@@ -24,4 +24,6 @@ target 'Roomies' do
   pod 'JTCalendar', '~> 2.0'
 
   pod 'ISEmojiView’,'~> 0.0.4'
+
+  pod 'PromiseKit','~> 4.0'
 end

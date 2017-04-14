@@ -10,9 +10,11 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import NVActivityIndicatorView
+import PromiseKit
+
 
 class SplashViewController: UIViewController {
-    
+  
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidAppear(_ animated: Bool) {
