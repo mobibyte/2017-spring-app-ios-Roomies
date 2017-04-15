@@ -20,6 +20,7 @@ class SidebarTableViewController: UITableViewController {
 
         if let user = localUser {
             nameLabel.text = user.name
+            
         }
         
         Alamofire.request("http://www.dogwood.church/wp-content/uploads/2014/03/generic-male-avatar.png").responseImage { response in
