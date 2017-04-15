@@ -15,6 +15,7 @@ class ChatViewController: JSQMessagesViewController {
     
     var messagesRef: FIRDatabaseReference!
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
+    let localUser = (UIApplication.shared.delegate as! AppDelegate).localUser!
     
     var messages = [JSQMessage]()
     
@@ -34,8 +35,12 @@ class ChatViewController: JSQMessagesViewController {
             let data = snapshot.value as? Dictionary ?? [:]
 
             let text = data["text"] as? String
-            let sender = data["sender"] as? String
-            let message = JSQMessage(senderId: sender, displayName: "uhh", text: text)
+            let sender = data["sender"] as! String
+            let message = JSQMessage(
+                senderId: sender,
+                displayName: self.localGroup.members[sender]!.name,
+                text: text
+            )
             
             if let message = message {
                 self.messages.append(message)
@@ -43,8 +48,8 @@ class ChatViewController: JSQMessagesViewController {
             }
         })
         
-        self.senderId = "self"
-        self.senderDisplayName = "test"
+        self.senderId = localUser.id
+        self.senderDisplayName = localUser.name
         
         self.outBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatBlue)
         self.inBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatGray)
