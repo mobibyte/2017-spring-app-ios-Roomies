@@ -11,6 +11,7 @@ import CoreData
 import FirebaseDatabase
 import ISEmojiView
 import Firebase
+import Alamofire
 class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, ISEmojiViewDelegate   {
    
     //Firebase Variables
@@ -48,16 +49,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         
         //Get all the users
         self.ref.child("users").observe(.childAdded, with: {snapshot in
-//            if let value = snapshot.value as? [String:Any]{
-//                let E = User(
-//                    id = value(forKey: "id") as? String,
-//                    name = as? String
-//                        email: String?
-//                avatarUrl: String?)
-//                
-//                self.expenses.append(E)
-//
-//            }
+
             
             
         })
@@ -133,14 +125,20 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0  {
-            
-            
+            // Choose a Roomate
             let cellIdentifier = "UserTableViewCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! UserTableViewCell
             
-            // Configure the cell...
-            cell.nameLabel.text = userNames[indexPath.row]
-            cell.thumbnailImageView.image = UIImage(named: userImages[indexPath.row])
+            cell.nameLabel.text = localGroup.members[userNames[indexPath.row]]?.name
+            Alamofire.request((localGroup.members[userNames[indexPath.row]]?.avatarUrl)!).responseImage { response in
+                print("got the response")
+                print(response.result.value as Any)
+                
+                if let image = response.result.value {
+                    cell.thumbnailImageView.image = image
+                }
+            }
+
             cell.accessoryType = indexPath.row == selectedUserIndex ?  .checkmark : .none
             
             return cell

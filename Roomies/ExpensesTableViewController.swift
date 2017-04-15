@@ -105,7 +105,7 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         
         cell.expenseAmount.text = ("$" + expenses[indexPath.row].amount!)
         cell.expenseTitle.text =   expenses[indexPath.row].title!
-        cell.expenseForUser.text = ("Owed to " + expenses[indexPath.row].username!)
+        cell.expenseForUser.text = ("Owed to \((localGroup.members[expenses[indexPath.row].username!])!.name)")
         cell.expenseCategory.text = expenses[indexPath.row].type
 
         cell.emojiImage.text = expenses[indexPath.row].emoji
