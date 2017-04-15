@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roomies/SplashViewController.swift"
-            timestampString = "513926764.036788"
+            timestampString = "513926988.080221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "fetchGroupMembers(members:)"
             landmarkType = "7">
          </BreakpointContent>

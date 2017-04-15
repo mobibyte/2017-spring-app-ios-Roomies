@@ -33,7 +33,12 @@ class SplashViewController: UIViewController {
         let indicatorSize: CGFloat = 60
         
         let loadingIndicator = NVActivityIndicatorView(
-            frame: CGRect(x: center.x - indicatorSize / 2, y: center.y - indicatorSize / 2, width: indicatorSize, height: indicatorSize),
+            frame: CGRect(
+                x: center.x - indicatorSize / 2,
+                y: center.y - indicatorSize / 2,
+                width: indicatorSize,
+                height: indicatorSize
+            ),
             type: .ballClipRotatePulse,
             color: UIColor.white,
             padding: 0
@@ -47,7 +52,12 @@ class SplashViewController: UIViewController {
         
         self.fetchUserData(currentUser: currentUser).then { userData -> Promise<NSDictionary> in
             // Create user from data and store global
-            let user = User(id: currentUser!.uid, name: userData["name"] as? String, email: userData["email"] as? String, avatarUrl: userData["avatarUrl"] as? String)
+            let user = User(
+                id: currentUser!.uid,
+                name: userData["name"] as? String,
+                email: userData["email"] as? String,
+                avatarUrl: userData["avatarUrl"] as? String
+            )
             self.appDelegate.localUser = user
             
             groupId = userData["group"] as? String
@@ -67,7 +77,12 @@ class SplashViewController: UIViewController {
         }.then { members -> Void in
             // Load up local group members by data
             for m in members {
-                let member = User(id: m.key, name: m.value["name"] as? String, email: m.value["email"] as? String, avatarUrl: m.value["avatarUrl"] as? String)
+                let member = User(
+                    id: m.key,
+                    name: m.value["name"] as? String,
+                    email: m.value["email"] as? String,
+                    avatarUrl: m.value["avatarUrl"] as? String
+                )
                 self.appDelegate.localGroup?.members[m.key] = member
             }
             
