@@ -10,9 +10,9 @@ class Group {
     
     var id: String
     var joinKey: String
-    var members: [User]
+    var members: [String:User]
     
-    init(id: String, joinKey: String, members: [User]) {
+    init(id: String, joinKey: String, members: [String:User]) {
         self.id = id
         self.joinKey = joinKey
         self.members = members

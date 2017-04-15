@@ -48,6 +48,9 @@ class ChatViewController: JSQMessagesViewController {
         
         self.outBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatBlue)
         self.inBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatGray)
+        
+        print("people involved in group")
+        print(localGroup.members)
     }
     
     

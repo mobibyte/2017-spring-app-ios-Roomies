@@ -52,14 +52,23 @@ class SplashViewController: UIViewController {
             
             // Fix this to optional
             return self.fetchGroupData(groupId: groupId)
-        }.then { groupData -> Void in
-            let group = Group(id: groupId, joinKey: "", members: [])
+        }.then { groupData -> Promise<[String:NSDictionary]> in
+            let group = Group(id: groupId, joinKey: "", members: [:])
             self.appDelegate.localGroup = group
             
+            // TODO: Filter out those with False
+            let members = (groupData["members"] as! NSDictionary).allKeys as! [String]
+            return self.fetchGroupMembers(members: members)
+        }.then { members -> Void in
+            for m in members {
+                let member = User(id: m.key, name: m.value["name"] as? String, email: m.value["email"] as? String, avatarUrl: m.value["avatarUrl"] as? String)
+                self.appDelegate.localGroup?.members[m.key] = member
+            }
             self.fadeOutAnimation {
                 self.gotoRoom()
             }
         }.catch { error in
+            print("WAS AN EROR")
             self.fadeOutAnimation {
                 self.gotoEntry()
             }
@@ -113,10 +122,32 @@ class SplashViewController: UIViewController {
     
     func fetchGroupData(groupId: String?) -> Promise<NSDictionary> {
         return Promise { resolve, reject in
+            print("FETCH GROUP")
             guard let groupId = groupId else { return reject(LoginError.notInGroup) }
             ref.child("groups/\(groupId)").observeSingleEvent(of: .value, with: { (snapshot) in
                 resolve(snapshot.value as! NSDictionary)
             })
+        }
+    }
+    
+    func fetchGroupMembers(members: [String]) -> Promise<[String:NSDictionary]> {
+        return Promise { resolve, reject in
+            var data = [String:NSDictionary]()
+            
+            if members.count == 0 {
+                resolve([:])
+            }
+            
+            for user in members {
+                ref.child("users/\(user)").observeSingleEvent(of: .value, with: { (snapshot) in
+                    data[user] = snapshot.value as! NSDictionary
+                    
+                    // All data is finished
+                    if(data.count == members.count) {
+                        resolve(data)
+                    }
+                })
+            }
         }
     }
     
