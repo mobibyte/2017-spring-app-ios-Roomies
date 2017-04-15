@@ -12,10 +12,14 @@ import FBSDKLoginKit
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBOutlet weak var inviteLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         BaseViewControllerUtil.setup(viewController: self)
+        
+        inviteLabel.text = "Invite Roomies"
     }
     
     
@@ -45,7 +49,13 @@ class SettingsTableViewController: UITableViewController {
         self.tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 0 {
-            logoutWarning()
+            if indexPath.row == 0{
+                logoutWarning()
+
+            }
+           
         }
     }
+    
+    
 }
