@@ -13,7 +13,7 @@ import AlamofireImage
 class SidebarTableViewController: UITableViewController {
     
     let localUser = (UIApplication.shared.delegate as! AppDelegate).localUser
-  
+//    print("This is a local user")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class SidebarTableViewController: UITableViewController {
             
         }
         
-        Alamofire.request("http://www.dogwood.church/wp-content/uploads/2014/03/generic-male-avatar.png").responseImage { response in
+        Alamofire.request((localUser?.avatarUrl)!).responseImage { response in
             print("got the response")
             print(response.result.value)
             
@@ -31,6 +31,7 @@ class SidebarTableViewController: UITableViewController {
                 self.sidebarAvatar.image = image
             }
         }
+        print("The local user is " + (localUser?.avatarUrl)!)
         
 //        sidebarAvatar.image =
     }
