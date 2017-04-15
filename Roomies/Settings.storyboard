@@ -70,6 +70,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Zok-Pj-YcT"/>
                     <connections>
+                        <outlet property="inviteButton" destination="OFS-KD-tUD" id="zmX-Bj-znI"/>
                         <outlet property="inviteLabel" destination="8LH-j2-ahS" id="gHJ-s0-ar2"/>
                         <segue destination="9nX-6h-2sd" kind="showDetail" identifier="LogoutSegue" id="KYy-IP-By8"/>
                     </connections>

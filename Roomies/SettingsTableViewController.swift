@@ -14,12 +14,14 @@ class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var inviteLabel: UILabel!
     
+    let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         BaseViewControllerUtil.setup(viewController: self)
-        
-        inviteLabel.text = "Invite Roomies"
+        let groupID = localGroup.id
+        inviteLabel.text = "Invite Roomies: " + groupID
     }
     
     
@@ -53,7 +55,6 @@ class SettingsTableViewController: UITableViewController {
                 logoutWarning()
 
             }
-           
         }
     }
     
