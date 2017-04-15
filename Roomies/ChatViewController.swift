@@ -99,7 +99,6 @@ class ChatViewController: JSQMessagesViewController {
         self.messagesRef.childByAutoId().setValue([
             "text": text,
             "sender": sender
-            ])
-        print("SENDING WITH GROUP \(localGroup.id)")
+        ])
     }
 }

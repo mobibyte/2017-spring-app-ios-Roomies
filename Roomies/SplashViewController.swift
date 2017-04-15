@@ -46,24 +46,32 @@ class SplashViewController: UIViewController {
         let currentUser = FIRAuth.auth()?.currentUser
         
         self.fetchUserData(currentUser: currentUser).then { userData -> Promise<NSDictionary> in
+            // Create user from data and store global
             let user = User(id: currentUser!.uid, name: userData["name"] as? String, email: userData["email"] as? String, avatarUrl: userData["avatarUrl"] as? String)
             self.appDelegate.localUser = user
-            groupId = userData["group"] as! String
             
-            // Fix this to optional
+            groupId = userData["group"] as? String
+            
+            // Get group data
             return self.fetchGroupData(groupId: groupId)
+            
         }.then { groupData -> Promise<[String:NSDictionary]> in
+            // Create group from data and store global
             let group = Group(id: groupId, joinKey: "", members: [:])
             self.appDelegate.localGroup = group
             
             // TODO: Filter out those with False
             let members = (groupData["members"] as! NSDictionary).allKeys as! [String]
             return self.fetchGroupMembers(members: members)
+            
         }.then { members -> Void in
+            // Load up local group members by data
             for m in members {
                 let member = User(id: m.key, name: m.value["name"] as? String, email: m.value["email"] as? String, avatarUrl: m.value["avatarUrl"] as? String)
                 self.appDelegate.localGroup?.members[m.key] = member
             }
+            
+            // AAANNNDDD action..
             self.fadeOutAnimation {
                 self.gotoRoom()
             }
@@ -73,47 +81,13 @@ class SplashViewController: UIViewController {
                 self.gotoEntry()
             }
         }
-        
-        //if let currentUser = FIRAuth.auth()?.currentUser {
-            
-            
-            
-            // Get user
-//            print("GETTING USER")
-//            ref.child("users/\(user.uid)").observeSingleEvent(of: .value, with: { (snapshot) in
-//                let userData = snapshot.value as? NSDictionary
-//                
-//                let user = User(id: user.uid, name: userData?["name"] as? String, email: userData?["email"] as? String, avatarUrl: userData?["avatarUrl"] as? String)
-//                self.appDelegate.localUser = user
-//                
-//                
-//                if let group = userData?["group"] as? String {
-//                    let group = Group(id: group, joinKey: "", members: [])
-//                    self.appDelegate.localGroup = group
-//                    
-//                    self.fadeOutAnimation {
-//                        self.gotoRoom()
-//                    }
-//                } else {
-//                    self.fadeOutAnimation {
-//                        self.gotoEntry()
-//                    }
-//                }
-//                
-//                // TODO: Validate group
-//            })
-            
-//        } else {
-//            self.fadeOutAnimation {
-//                self.gotoEntry()
-//            }
-//        }
     }
     
     // MARK: Promise data calls
     func fetchUserData(currentUser: FIRUser?) -> Promise<NSDictionary> {
         return Promise { resolve, reject in
             guard let currentUser = currentUser else { return reject(LoginError.notLoggedIn) }
+            
             ref.child("users/\(currentUser.uid)").observeSingleEvent(of: .value, with: { (snapshot) in
                 resolve(snapshot.value as! NSDictionary)
             })
@@ -122,8 +96,8 @@ class SplashViewController: UIViewController {
     
     func fetchGroupData(groupId: String?) -> Promise<NSDictionary> {
         return Promise { resolve, reject in
-            print("FETCH GROUP")
             guard let groupId = groupId else { return reject(LoginError.notInGroup) }
+            
             ref.child("groups/\(groupId)").observeSingleEvent(of: .value, with: { (snapshot) in
                 resolve(snapshot.value as! NSDictionary)
             })
@@ -151,6 +125,7 @@ class SplashViewController: UIViewController {
         }
     }
     
+    // MARK: UI Stuff
     func fadeOutAnimation(complete: @escaping () -> ()) {
         UIView.animate(withDuration: 0.5, animations: {
             self.view.backgroundColor = UIColor.white
@@ -159,6 +134,7 @@ class SplashViewController: UIViewController {
         }
     }
 
+    // MARK: Navigation
     func gotoEntry() {
         self.performSegue(withIdentifier: "EntryViewController", sender: self)
     }
