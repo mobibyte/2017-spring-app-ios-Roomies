@@ -29,17 +29,7 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     }
     
     @IBAction func DoneExpense(segue: UIStoryboardSegue){
-//        let newExpense = Expense()
-//        let addExpense = segue.source as! AddExpenseTableViewController
-//        
-//        newExpense.username = addExpense.addExpense.username
-//        newExpense.amount = addExpense.addExpense.amount
-//        newExpense.title = addExpense.addExpense.title
-//        newExpense.type = addExpense.addExpense.type
-//        newExpense.emoji = addExpense.addExpense.emoji
-//        
-//        expenses.append(newExpense)
-//        self.tableView.reloadData()
+
     }
 
     

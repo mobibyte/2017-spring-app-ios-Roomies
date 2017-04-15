@@ -268,11 +268,13 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
         allCellsText = sender.text!
     }
     @IBAction func emojiFieldDidChangeEditing(_ sender: UITextField) {
-        
+        if ((sender.text?.characters.count)! > 1) {
+            sender.deleteBackward()
+        }
         emojiText = sender.text!
     }
     
-    
+   
     
     //MARK: Segue
     
@@ -300,7 +302,7 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doneExpense" {
-                
+            
                 print("Amount: \(amount.text)")
                 print("User: \(selectedUser)")
                 print("Type: \(expenseType)")
