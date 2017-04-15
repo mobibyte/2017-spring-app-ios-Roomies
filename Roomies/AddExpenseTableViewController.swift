@@ -12,7 +12,7 @@ import FirebaseDatabase
 import ISEmojiView
 import Firebase
 import Alamofire
-class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, ISEmojiViewDelegate   {
+class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, UITextViewDelegate, ISEmojiViewDelegate   {
    
     //Firebase Variables
     
@@ -24,6 +24,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var allCellsText = ""
     var emojiText = ""
     var expenseType = ""
+    
     @IBOutlet var amount: UITextField!
     @IBOutlet weak var emojiField: UITextField!
     
@@ -36,9 +37,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     var amountText = String()
     var selectedIndexPath : IndexPath?
-    var pickerExpenseTypeArray = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
     var userNames = [String]()
-    var userImages = ["User1", "User2", "User3","User1", "User2", "User3","User1", "User2", "User3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,13 +84,6 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
 
     // MARK: - Picker View
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerExpenseTypeArray[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerExpenseTypeArray.count
-    }
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int{
         return 1
@@ -280,13 +272,6 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         emojiText = sender.text!
     }
     
-    
-    
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        expenseType = pickerExpenseTypeArray[row]
-
-    }
     
     
     //MARK: Segue

@@ -17,17 +17,7 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
    
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
     var amountText = ""
-    
-    var userNames = ["Bruce", "Wade", "Logan"]
-    var userDict = [String: [String]] ()
-    var userSectionTitles = [String] ()
-    
-    var expenseTypes = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
-    
     var expenses = [Expense]()
-    
-    var searchResults = [[String : AnyObject]]()
-    
     let ref = FIRDatabase.database().reference()
     
     @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) {
@@ -100,8 +90,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "ExpenseCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ExpenseTableViewCell
-        
-        // Configure the cell...
         
         cell.expenseAmount.text = ("$" + expenses[indexPath.row].amount!)
         cell.expenseTitle.text =   expenses[indexPath.row].title!
