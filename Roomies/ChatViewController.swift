@@ -12,7 +12,7 @@ import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
     
-    
+    let ref = FIRDatabase.database().reference()
     var messagesRef: FIRDatabaseReference!
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
     let localUser = (UIApplication.shared.delegate as! AppDelegate).localUser!
@@ -52,8 +52,7 @@ class ChatViewController: JSQMessagesViewController {
         self.senderDisplayName = localUser.name
         
         self.outBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatBlue)
-        self.inBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatGray)
-        
+        self.inBubble = factory?.incomingMessagesBubbleImage(with: UIColor.init(red: 229, green: 229, blue: 234))
         print("people involved in group")
         print(localGroup.members)
     }
@@ -80,6 +79,7 @@ class ChatViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
     }
+    
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
