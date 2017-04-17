@@ -40,6 +40,8 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
     var userNames = [String]()
     
     override func viewDidLoad() {
+        
+
         super.viewDidLoad()
         //Set up Emoji Keyboard
         let emojiView = ISEmojiView()
