@@ -17,7 +17,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" id="7wz-2c-Rhw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.97224575280000003" green="0.98055738209999999" blue="0.97628480200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="7vg-or-jDR">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -31,7 +31,6 @@
                                     <segments>
                                         <segment title="Owed to"/>
                                         <segment title="Amount"/>
-                                        <segment title="Category"/>
                                     </segments>
                                     <color key="tintColor" red="0.28235294117647058" green="0.27450980392156865" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
@@ -39,7 +38,7 @@
                                     </connections>
                                 </segmentedControl>
                             </subviews>
-                            <color key="backgroundColor" red="0.97254901960784312" green="0.98039215686274506" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="gnh-bi-OLv" firstAttribute="leading" secondItem="7vg-or-jDR" secondAttribute="leading" constant="19" id="3Es-xG-p3f"/>
                                 <constraint firstAttribute="trailing" secondItem="gnh-bi-OLv" secondAttribute="trailing" constant="17" id="Idb-O1-Dri"/>
@@ -55,7 +54,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opC-H9-HXE" customClass="MaterialView" customModule="Roomies" customModuleProvider="target">
-                                            <rect key="frame" x="18" y="0.0" width="341" height="66"/>
+                                            <rect key="frame" x="17" y="10" width="341" height="66"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpR-ko-ysN">
                                                     <rect key="frame" x="71" y="2" width="169" height="35"/>
@@ -89,7 +88,7 @@
                                                         <constraint firstAttribute="width" constant="80" id="eGm-kP-RKz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <color key="textColor" red="0.31687700749999997" green="0.71450942750000002" blue="0.91870957610000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.28254669904708862" green="0.2746405303478241" blue="0.26620426774024963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -152,12 +151,12 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="opC-H9-HXE" firstAttribute="leading" secondItem="oij-lF-Ig1" secondAttribute="leading" constant="18" id="3tu-9n-oEQ"/>
-                                        <constraint firstItem="opC-H9-HXE" firstAttribute="top" secondItem="oij-lF-Ig1" secondAttribute="top" id="dWm-F8-Z1r"/>
-                                        <constraint firstAttribute="trailing" secondItem="opC-H9-HXE" secondAttribute="trailing" constant="16" id="qc9-fE-llp"/>
+                                        <constraint firstItem="opC-H9-HXE" firstAttribute="leading" secondItem="oij-lF-Ig1" secondAttribute="leading" constant="17" id="3tu-9n-oEQ"/>
+                                        <constraint firstItem="opC-H9-HXE" firstAttribute="top" secondItem="oij-lF-Ig1" secondAttribute="top" constant="10" id="dWm-F8-Z1r"/>
+                                        <constraint firstAttribute="trailing" secondItem="opC-H9-HXE" secondAttribute="trailing" constant="17" id="qc9-fE-llp"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.98039215686274506" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="emojiImage" destination="LGh-kp-EeH" id="q8d-25-hOv"/>
                                     <outlet property="expenseAmount" destination="rDa-7j-LBJ" id="IT0-nm-Bah"/>
@@ -193,10 +192,10 @@
         <scene sceneID="8j0-Wi-SHL">
             <objects>
                 <tableViewController id="uuG-Oc-ng9" userLabel="AddExpenses" customClass="AddExpenseTableViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="YTK-uZ-QX1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YTK-uZ-QX1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Uvq-01-7MC">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -211,6 +210,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                             </subviews>
+                            <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="bt5-4d-CeC" firstAttribute="centerY" secondItem="Uvq-01-7MC" secondAttribute="centerY" id="82x-Nr-sXG"/>
                                 <constraint firstItem="bt5-4d-CeC" firstAttribute="leading" secondItem="Uvq-01-7MC" secondAttribute="leading" constant="20" id="Gcg-Sg-eeU"/>
@@ -218,14 +218,19 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ZhG-H5-xqY">
-                            <rect key="frame" x="0.0" y="392.5" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="332" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z4w-J8-g7B">
+                                    <rect key="frame" x="0.0" y="38" width="375" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Emoji" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nxm-c2-78y">
-                                    <rect key="frame" x="8" y="10" width="359" height="30"/>
+                                    <rect key="frame" x="16" y="0.0" width="351" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
                                         <action selector="emojiFieldDidChangeEditing:" destination="uuG-Oc-ng9" eventType="editingChanged" id="iVa-Ua-Pjo"/>
@@ -235,31 +240,18 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="UserTableViewCell" rowHeight="85" id="TS3-p5-Bkl" userLabel="UserTableViewCell" customClass="UserTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="220.5" width="375" height="85"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserTableViewCell" selectionStyle="none" indentationWidth="11" reuseIdentifier="UserTableViewCell" rowHeight="70" id="TS3-p5-Bkl" userLabel="UserTableViewCell" customClass="UserTableViewCell" customModule="Roomies" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="193" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Add" tableViewCell="TS3-p5-Bkl" id="Pho-Pg-Fic">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBh-oQ-ROi">
-                                            <rect key="frame" x="12" y="7" width="70" height="70"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRe-5n-eWU">
-                                            <rect key="frame" x="90" y="28" width="195" height="29"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRe-5n-eWU">
+                                            <rect key="frame" x="62" y="21" width="305" height="29"/>
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="29" id="0Mj-ui-myb"/>
-                                                <constraint firstAttribute="width" constant="195" id="w1D-Ts-anM"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <color key="textColor" red="0.21909407380000001" green="0.21909407380000001" blue="0.21909407380000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.41511718750000004" green="0.41511718750000004" blue="0.41511718750000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -267,14 +259,32 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rBh-oQ-ROi">
+                                            <rect key="frame" x="8" y="12" width="46" height="46"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="gCf-eP-bey"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="WRe-5n-eWU" firstAttribute="leading" secondItem="Pho-Pg-Fic" secondAttribute="leadingMargin" constant="82" id="0EO-o7-KG5"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="WRe-5n-eWU" secondAttribute="bottom" constant="19.5" id="77L-ec-3DD"/>
-                                        <constraint firstItem="WRe-5n-eWU" firstAttribute="top" secondItem="Pho-Pg-Fic" secondAttribute="topMargin" constant="20" id="TJL-kE-8KN"/>
+                                        <constraint firstItem="rBh-oQ-ROi" firstAttribute="leading" secondItem="Pho-Pg-Fic" secondAttribute="leadingMargin" id="01b-1H-TS7"/>
+                                        <constraint firstItem="WRe-5n-eWU" firstAttribute="top" secondItem="Pho-Pg-Fic" secondAttribute="topMargin" constant="13" id="EpG-HS-Azf"/>
+                                        <constraint firstItem="WRe-5n-eWU" firstAttribute="trailing" secondItem="Pho-Pg-Fic" secondAttribute="trailingMargin" id="Ixs-Fx-Ytv"/>
+                                        <constraint firstItem="WRe-5n-eWU" firstAttribute="leading" secondItem="rBh-oQ-ROi" secondAttribute="trailing" constant="8" id="J6t-dy-L7T"/>
+                                        <constraint firstItem="rBh-oQ-ROi" firstAttribute="centerY" secondItem="Pho-Pg-Fic" secondAttribute="centerY" id="OFC-Vz-ni2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="WRe-5n-eWU" secondAttribute="bottom" constant="12" id="Wud-nj-rdo"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rBh-oQ-ROi" secondAttribute="bottom" constant="4" id="YQ1-hb-KvE"/>
+                                        <constraint firstItem="rBh-oQ-ROi" firstAttribute="top" secondItem="Pho-Pg-Fic" secondAttribute="topMargin" constant="4" id="hjh-Kx-E41"/>
+                                        <constraint firstItem="WRe-5n-eWU" firstAttribute="leading" secondItem="rBh-oQ-ROi" secondAttribute="trailing" constant="8" id="hps-7x-sp8"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="tintColor" red="0.41511718750000004" green="0.41511718750000004" blue="0.41511718750000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
                                         <integer key="value" value="30"/>
@@ -286,7 +296,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="textViewTableViewCell" selectionStyle="default" indentationWidth="11" reuseIdentifier="textViewTableViewCell" rowHeight="69" id="xgt-um-vUm" customClass="TextViewTableViewCell" customModule="Roomies" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="305.5" width="375" height="69"/>
+                                <rect key="frame" x="0.0" y="263" width="375" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xgt-um-vUm" id="1rB-Og-ISc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>

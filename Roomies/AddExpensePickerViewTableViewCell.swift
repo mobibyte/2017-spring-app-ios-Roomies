@@ -18,7 +18,7 @@ class PickerViewTableViewCell: UITableViewCell {
     
     
     class var expandedHeight: CGFloat { get { return 200 } }
-    class var defaultHeight: CGFloat  { get { return 44  } }
+    class var defaultHeight: CGFloat  { get { return 60  } }
     
     
     func checkHeight() {

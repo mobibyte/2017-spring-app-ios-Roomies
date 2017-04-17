@@ -16,7 +16,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="106" sectionHeaderHeight="28" sectionFooterHeight="28" id="B6U-Ep-uNd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.97224575281143188" green="0.98055738210678101" blue="0.97628480195999146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TaskCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="106" id="rZf-Hg-emV" customClass="TaskTableViewCell" customModule="Roomies" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="106"/>
@@ -57,7 +57,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.97224575281143188" green="0.98055738210678101" blue="0.97628480195999146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.97224575281143188" green="0.98055738210678101" blue="0.97628480195999146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>

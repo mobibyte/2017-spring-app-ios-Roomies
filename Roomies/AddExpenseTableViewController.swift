@@ -139,23 +139,13 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
             
         }  else {
             
-            if indexPath.row == 0 {
-                
+            
                 let cellIdentifier = "textViewTableViewCell"
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TextViewTableViewCell
                 cell.expenseTitle.text = ""
                 cell.expenseTitle.delegate = self
                 
                 return cell
-                
-            
-            }else {
-                let cellIdentifier = "pickerViewTableViewCell"
-                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PickerViewTableViewCell
-                
-                
-                return cell
-            }
             
         }
         
@@ -177,6 +167,7 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
             //update the checkmark for the current row
             let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
+            
             
             
             } else if indexPath.section == 1 && indexPath.row == 2 {
@@ -241,7 +232,7 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch(section) {
         case 0:
-            return "Choose a roommate"
+            return "Choose a roomie"
         case 1:
             return "Other Info"
         default:
