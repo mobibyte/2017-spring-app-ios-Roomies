@@ -43,6 +43,7 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
         
 
         super.viewDidLoad()
+        amount.becomeFirstResponder()
         //Set up Emoji Keyboard
         let emojiView = ISEmojiView()
         emojiView.delegate = self
