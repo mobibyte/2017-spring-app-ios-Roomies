@@ -49,12 +49,6 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
         emojiView.delegate = self
         emojiField.inputView = emojiView
         
-        //Get all the users
-        self.ref.child("users").observe(.childAdded, with: {snapshot in
-
-            
-            
-        })
         
         //Get user IDs for choosing roomates
         ref.child("groups/\(localGroup.id)/members").observe(.childAdded, with: { (snapshot) in
