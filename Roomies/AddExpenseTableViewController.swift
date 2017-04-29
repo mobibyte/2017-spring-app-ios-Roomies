@@ -15,7 +15,8 @@ import Alamofire
 class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, UITextViewDelegate, ISEmojiViewDelegate   {
    
     //Firebase Variables
-    
+    let currencyFormatter = NumberFormatter()
+
     let ref = FIRDatabase.database().reference()
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
     
@@ -49,12 +50,6 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
         emojiView.delegate = self
         emojiField.inputView = emojiView
         
-        //Get all the users
-        self.ref.child("users").observe(.childAdded, with: {snapshot in
-
-            
-            
-        })
         
         //Get user IDs for choosing roomates
         ref.child("groups/\(localGroup.id)/members").observe(.childAdded, with: { (snapshot) in
@@ -64,8 +59,7 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
             self.tableView.reloadData()
         })
         
-
-        
+        amount.text = "$" + amount.text!
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -160,6 +154,9 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
             if let index = selectedUserIndex {
                 let cell = tableView.cellForRow(at: NSIndexPath(row: index, section: 0) as IndexPath)
                 cell?.accessoryType = .none
+                amount.endEditing(true)
+                emojiField.endEditing(true)
+                
             }
             
             selectedUserIndex = indexPath.row
@@ -258,8 +255,9 @@ class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, 
     
     // Get text from the Header (Amount) and Footer (Emoji)
     @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
-        
         allCellsText = sender.text!
+        //amount.text = "$ + \(self.allCellsText)"
+        
     }
     @IBAction func emojiFieldDidChangeEditing(_ sender: UITextField) {
         if ((sender.text?.characters.count)! > 1) {
