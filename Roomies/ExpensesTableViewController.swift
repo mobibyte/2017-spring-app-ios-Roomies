@@ -17,35 +17,19 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
    
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
     var amountText = ""
-    
-    var userNames = ["Bruce", "Wade", "Logan"]
-    var userDict = [String: [String]] ()
-    var userSectionTitles = [String] ()
-    
-    var expenseTypes = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
-    
     var expenses = [Expense]()
-    
-    var searchResults = [[String : AnyObject]]()
-    
     let ref = FIRDatabase.database().reference()
     
     @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) {
         
     }
     
+    @IBAction func unwindToExpenses(segue:UIStoryboardSegue) {
+        
+    }
+    
     @IBAction func DoneExpense(segue: UIStoryboardSegue){
-//        let newExpense = Expense()
-//        let addExpense = segue.source as! AddExpenseTableViewController
-//        
-//        newExpense.username = addExpense.addExpense.username
-//        newExpense.amount = addExpense.addExpense.amount
-//        newExpense.title = addExpense.addExpense.title
-//        newExpense.type = addExpense.addExpense.type
-//        newExpense.emoji = addExpense.addExpense.emoji
-//        
-//        expenses.append(newExpense)
-//        self.tableView.reloadData()
+
     }
 
     
@@ -56,7 +40,7 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         
         // Listen pho data
         ref.child("groups/\(localGroup.id)/expenses").observe(.childAdded, with: { (snapshot) in
-            
+        
             if let value = snapshot.value as? [String:Any] {
                 let E = Expense()
                 E.id = snapshot.key
@@ -67,7 +51,6 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
                 E.username = value["username"] as? String
                 self.expenses.append(E)
                 
-//                print(E.id as Any)
             }
             
             self.tableView.reloadData()
@@ -98,11 +81,9 @@ class ExpensesTableViewController: UITableViewController, NSFetchedResultsContro
         let cellIdentifier = "ExpenseCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ExpenseTableViewCell
         
-        // Configure the cell...
-        
         cell.expenseAmount.text = ("$" + expenses[indexPath.row].amount!)
         cell.expenseTitle.text =   expenses[indexPath.row].title!
-        cell.expenseForUser.text = ("Owed to " + expenses[indexPath.row].username!)
+        cell.expenseForUser.text = ("Owed to \((localGroup.members[expenses[indexPath.row].username!])!.name)")
         cell.expenseCategory.text = expenses[indexPath.row].type
 
         cell.emojiImage.text = expenses[indexPath.row].emoji

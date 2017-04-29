@@ -43,15 +43,13 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
         calendarManager.delegate = self
         calendarManager.settings.pageViewHaveWeekDaysView = false
         calendarManager.settings.pageViewNumberOfWeeks = 0
-        
         calendarView.manager = calendarManager
         
         weekDayView.manager = calendarManager
         weekDayView.reload()
         
-        
-        calendarManager.menuView = calendarMenuView
-        calendarManager.contentView = calendarView
+        calendarManager.menuView = self.calendarMenuView
+        calendarManager.contentView = self.calendarView
         calendarManager.setDate(Date())
         
         calendarMenuView.scrollView.isScrollEnabled = false
@@ -63,49 +61,52 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
             service.authorizer = auth
         }
         
+        
     }
     
-    @nonobjc func calendar(_ calendar: JTCalendarManager!, prepareDayView dayView: JTCalendarDayView!) {
-        dayView.isHidden = false
+    public func calendar(_ calendar: JTCalendarManager!, prepareDayView dayView: UIView!) {
+        let myDayView = dayView as! JTCalendarDayView
+        myDayView.isHidden = false
         
-        if dayView.isFromAnotherMonth {
-            dayView.isHidden = true
-        } else if calendarManager.dateHelper.date(Date(), isTheSameDayThan: dayView.date) {
-            dayView.circleView.isHidden = false
-            dayView.circleView.backgroundColor = UIColor.blue
-            dayView.dotView.backgroundColor = UIColor.white
-            dayView.textLabel?.textColor = UIColor.white
-        } else if (dateSelected != nil) && calendarManager.dateHelper.date(dateSelected, isTheSameDayThan: dayView.date) {
-            dayView.circleView.isHidden = false
-            dayView.circleView.backgroundColor = UIColor.red
-            dayView.dotView.backgroundColor = UIColor.white
-            dayView.textLabel?.textColor = UIColor.white
-        }  else if !calendarManager.dateHelper.date(calendarView.date, isTheSameMonthThan: dayView.date) {
-            dayView.circleView.isHidden = true
-            dayView.dotView.backgroundColor = UIColor.red
-            dayView.textLabel?.textColor = UIColor.lightGray
+        if myDayView.isFromAnotherMonth {
+            myDayView.isHidden = true
+        } else if calendarManager.dateHelper.date(Date(), isTheSameDayThan: myDayView.date) {
+            myDayView.circleView.isHidden = false
+            myDayView.circleView.backgroundColor = UIColor.blue
+            myDayView.dotView.backgroundColor = UIColor.white
+            myDayView.textLabel?.textColor = UIColor.white
+        } else if (dateSelected != nil) && calendarManager.dateHelper.date(dateSelected, isTheSameDayThan: myDayView.date) {
+            myDayView.circleView.isHidden = false
+            myDayView.circleView.backgroundColor = UIColor.red
+            myDayView.dotView.backgroundColor = UIColor.white
+            myDayView.textLabel?.textColor = UIColor.white
+        }  else if !calendarManager.dateHelper.date(calendarView.date, isTheSameMonthThan: myDayView.date) {
+            myDayView.circleView.isHidden = true
+            myDayView.dotView.backgroundColor = UIColor.red
+            myDayView.textLabel?.textColor = UIColor.lightGray
         } else {
-            dayView.circleView.isHidden = true
-            dayView.dotView.backgroundColor = UIColor.red
-            dayView.textLabel?.textColor = UIColor.black
+            myDayView.circleView.isHidden = true
+            myDayView.dotView.backgroundColor = UIColor.red
+            myDayView.textLabel?.textColor = UIColor.black
         }
         
-        if haveEvent(forDay: dayView.date ) {
-            dayView.dotView.isHidden = false
+        if haveEvent(forDay: myDayView.date ) {
+            myDayView.dotView.isHidden = false
+            print("You had an event")
         }
         else {
-            dayView.dotView.isHidden = true
+            myDayView.dotView.isHidden = true
         }
-        
-        
     }
     
-    func calendar(_ calendar: JTCalendarManager, didTouch dayView: JTCalendarDayView) {
-        dateSelected = dayView.date
+    public func calendar(_ calendar: JTCalendarManager, didTouch dayView: UIView!) {
+        let myDayView = dayView as! JTCalendarDayView
+        
+        dateSelected = myDayView.date
         // Animation for the circleView
-        dayView.circleView.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
-        UIView.transition(with: dayView, duration: 0.3, options: [], animations: {() -> Void in
-            dayView.circleView.transform = CGAffineTransform.identity
+        myDayView.circleView.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
+        UIView.transition(with: myDayView, duration: 0.3, options: [], animations: {() -> Void in
+            myDayView.circleView.transform = CGAffineTransform.identity
             self.calendarManager.reload()
         }, completion: { _ in })
         // Don't change page in week mode because block the selection of days in first and last weeks of the month
@@ -113,8 +114,8 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
             return
         }
         // Load the previous or next page if touch a day from another month
-        if !calendarManager.dateHelper.date(calendarView.date, isTheSameMonthThan: dayView.date) {
-            if calendarView.date?.compare(dayView.date) == .orderedAscending {
+        if !calendarManager.dateHelper.date(calendarView.date, isTheSameMonthThan: myDayView.date) {
+            if calendarView.date?.compare(myDayView.date) == .orderedAscending {
                 calendarView.loadNextPageWithAnimation()
             }
             else {
@@ -229,10 +230,21 @@ class CalendarViewController: UIViewController, JTCalendarDelegate {
     }
     
     func haveEvent(forDay date: Date) -> Bool {
-        let date_string: String = dateFormatter().string(from: date)
         for event: GTLCalendarEvent! in events {
-            let temp_date_string: String = dateFormatter().string(from: event.created.date)
-            if date_string == temp_date_string {
+            if (event == nil) {
+                break
+            }
+        
+            let date_string = date.description as String!
+            let event_string = event.created.date.description as String!
+            
+            let date_start = date_string?.index((date_string?.startIndex)!, offsetBy: 10)
+            let event_start = event_string?.index((event_string?.startIndex)!, offsetBy: 10)
+            
+            let date_sub = date_string?.substring(to: date_start!)
+            let event_sub = event_string?.substring(to: event_start!)
+            
+            if date_sub == event_sub {
                 return true;
             }
         }

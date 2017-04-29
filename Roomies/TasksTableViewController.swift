@@ -43,6 +43,8 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
             
             self.tableView.reloadData()
         })
+        
+        
     }
     
     @IBAction func segmentChange(_ sender: Any) {
@@ -88,7 +90,11 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
             
             //CountDownDoubleDifference.day
             if (dueDays > 0){
-                str = "\(dueDays) days left"
+                if (dueDays == 1){
+                    str = "\(dueDays) day left"
+                } else {
+                    str = "\(dueDays) days left"
+                }
             } else if dueHours > 0 {
                 str = "\(dueHours) hours left"
             } else if dueMinutes > 0 {

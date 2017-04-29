@@ -12,9 +12,10 @@ import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
     
-    
+    let ref = FIRDatabase.database().reference()
     var messagesRef: FIRDatabaseReference!
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
+    let localUser = (UIApplication.shared.delegate as! AppDelegate).localUser!
     
     var messages = [JSQMessage]()
     
@@ -34,8 +35,12 @@ class ChatViewController: JSQMessagesViewController {
             let data = snapshot.value as? Dictionary ?? [:]
 
             let text = data["text"] as? String
-            let sender = data["sender"] as? String
-            let message = JSQMessage(senderId: sender, displayName: "uhh", text: text)
+            let sender = data["sender"] as! String
+            let message = JSQMessage(
+                senderId: sender,
+                displayName: self.localGroup.members[sender]!.name,
+                text: text
+            )
             
             if let message = message {
                 self.messages.append(message)
@@ -43,11 +48,13 @@ class ChatViewController: JSQMessagesViewController {
             }
         })
         
-        self.senderId = "self"
-        self.senderDisplayName = "test"
+        self.senderId = localUser.id
+        self.senderDisplayName = localUser.name
         
         self.outBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatBlue)
-        self.inBubble = factory?.outgoingMessagesBubbleImage(with: UIColor.chatGray)
+        self.inBubble = factory?.incomingMessagesBubbleImage(with: UIColor.init(red: 229, green: 229, blue: 234))
+        print("people involved in group")
+        print(localGroup.members)
     }
     
     
@@ -73,6 +80,7 @@ class ChatViewController: JSQMessagesViewController {
         return nil
     }
     
+    
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
         sendMessage(text: text, sender: self.senderId)
@@ -91,7 +99,6 @@ class ChatViewController: JSQMessagesViewController {
         self.messagesRef.childByAutoId().setValue([
             "text": text,
             "sender": sender
-            ])
-        print("SENDING WITH GROUP \(localGroup.id)")
+        ])
     }
 }

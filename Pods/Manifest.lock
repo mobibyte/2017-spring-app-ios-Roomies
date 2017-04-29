@@ -64,14 +64,23 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
+  - ISEmojiView (0.0.4)
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
   - JTCalendar (2.1.9)
-  - Material (2.4.19):
-    - Material/Core (= 2.4.19)
-  - Material/Core (2.4.19)
   - NVActivityIndicatorView (3.5.1)
+  - PromiseKit (4.1.7):
+    - PromiseKit/Foundation (= 4.1.7)
+    - PromiseKit/QuartzCore (= 4.1.7)
+    - PromiseKit/UIKit (= 4.1.7)
+  - PromiseKit/CorePromise (4.1.7)
+  - PromiseKit/Foundation (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.1.7):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.1.7):
+    - PromiseKit/CorePromise
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
@@ -86,10 +95,11 @@ DEPENDENCIES:
   - Firebase/Database
   - GoogleAPIClient/Calendar (~> 1.0.2)
   - GTMOAuth2 (~> 1.1.0)
+  - ISEmojiView (~> 0.0.4)
   - JSQMessagesViewController (~> 7.3.4)
   - JTCalendar (~> 2.0)
-  - Material (~> 2.4.19)
   - NVActivityIndicatorView (~> 3.5.1)
+  - PromiseKit (~> 4.0)
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
@@ -111,13 +121,14 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  ISEmojiView: 04bea1836abeb628af1d2ae2b5617fd4dfa813ec
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   JTCalendar: beb2f4c1b639bf6880f680b4858227acf83a049c
-  Material: 67b52869f68ab95757e14801ffba0a52a4f19c31
   NVActivityIndicatorView: 075563b3547445ebcff840e3297ce9dd4a23731f
+  PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: f07e888bc5cd1f7694cac8b788e68989d09a7fae
+PODFILE CHECKSUM: a14fdc8d3601b5de09bb07ef4a7976840365be0a
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

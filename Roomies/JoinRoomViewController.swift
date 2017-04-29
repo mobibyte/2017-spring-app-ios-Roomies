@@ -92,7 +92,7 @@ class JoinRoomViewController: UIViewController {
             (UIApplication.shared.delegate as! AppDelegate).localGroup = Group(
                 id: key,
                 joinKey: groupKey,
-                members: []
+                members: [:]
             )
             self.gotoRoom()
         }

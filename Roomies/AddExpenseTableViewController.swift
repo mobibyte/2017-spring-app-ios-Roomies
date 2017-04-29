@@ -9,16 +9,24 @@
 import UIKit
 import CoreData
 import FirebaseDatabase
-
-class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate  {
+import ISEmojiView
+import Firebase
+import Alamofire
+class AddExpenseTableViewController: UITableViewController,UITextFieldDelegate, UITextViewDelegate, ISEmojiViewDelegate   {
+   
+    //Firebase Variables
     
     let ref = FIRDatabase.database().reference()
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
     
+    // Amount and Emoji (Header and Footer) Variables
+    
     var allCellsText = ""
     var emojiText = ""
     var expenseType = ""
+    
     @IBOutlet var amount: UITextField!
+    @IBOutlet weak var emojiField: UITextField!
     
     let addExpense = Expense()
     var expense:ExpenseMO!
@@ -28,27 +36,57 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     var selectedUserIndex:Int? = nil
     
     var amountText = String()
-    
     var selectedIndexPath : IndexPath?
-    var pickerExpenseTypeArray = [ "Rent", "Bills", "Entertainment", "Food", "Other" ]
-    var userNames = ["Bruce", "Wade", "Logan"]
-    var userImages = ["User1", "User2", "User3"]
+    var userNames = [String]()
     
     override func viewDidLoad() {
-       
+        
+
+        super.viewDidLoad()
+        amount.becomeFirstResponder()
+        //Set up Emoji Keyboard
+        let emojiView = ISEmojiView()
+        emojiView.delegate = self
+        emojiField.inputView = emojiView
+        
+        //Get all the users
+        self.ref.child("users").observe(.childAdded, with: {snapshot in
+
+            
+            
+        })
+        
+        //Get user IDs for choosing roomates
+        ref.child("groups/\(localGroup.id)/members").observe(.childAdded, with: { (snapshot) in
+            
+            self.userNames.append(snapshot.key)
+            
+            self.tableView.reloadData()
+        })
+        
+
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+        
+//        emojiField.becomeFirstResponder()
+        
+    }
     
+    //MARK: <ISEmojiViewDelegate>
+    
+    func emojiViewDidSelectEmoji(emojiView: ISEmojiView, emoji: String) {
+        self.emojiField.insertText(emoji)
+    }
+    
+    func emojiViewDidPressDeleteButton(emojiView: ISEmojiView) {
+        self.emojiField.deleteBackward()
+    }
+
     // MARK: - Picker View
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerExpenseTypeArray[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerExpenseTypeArray.count
-    }
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int{
         return 1
@@ -73,7 +111,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
         case 0:
             return userNames.count
         case 1:
-            return 3
+            return 1
         default:
             return 0
         }
@@ -82,48 +120,33 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0  {
-            
-            
+            // Choose a Roomate
             let cellIdentifier = "UserTableViewCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! UserTableViewCell
             
-            // Configure the cell...
-            cell.nameLabel.text = userNames[indexPath.row]
-            cell.thumbnailImageView.image = UIImage(named: userImages[indexPath.row])
+            cell.nameLabel.text = localGroup.members[userNames[indexPath.row]]?.name
+            Alamofire.request((localGroup.members[userNames[indexPath.row]]?.avatarUrl)!).responseImage { response in
+                print("got the response")
+                print(response.result.value as Any)
+                
+                if let image = response.result.value {
+                    cell.thumbnailImageView.image = image
+                }
+            }
+
             cell.accessoryType = indexPath.row == selectedUserIndex ?  .checkmark : .none
             
             return cell
             
         }  else {
             
-            if indexPath.row == 0 {
-                
+            
                 let cellIdentifier = "textViewTableViewCell"
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TextViewTableViewCell
                 cell.expenseTitle.text = ""
                 cell.expenseTitle.delegate = self
                 
                 return cell
-                
-            } else if (indexPath.row == 1) {
-                let cellIdentifer = "emojiTextViewTableViewCell"
-                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifer, for: indexPath) as! EmojiTextViewTableViewCell
-                cell.emojiTextView.text = ""
-                
-                
-                return cell
-            }else {
-                let cellIdentifier = "pickerViewTableViewCell"
-                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PickerViewTableViewCell
-                
-                cell.categoryPicker.showsSelectionIndicator = true
-                cell.categoryPicker.delegate = self
-                cell.categoryPicker.dataSource = self
-                
-                
-                
-                return cell
-            }
             
         }
         
@@ -145,6 +168,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
             //update the checkmark for the current row
             let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
+            
             
             
             } else if indexPath.section == 1 && indexPath.row == 2 {
@@ -209,7 +233,7 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch(section) {
         case 0:
-            return "Choose a roommate"
+            return "Choose a roomie"
         case 1:
             return "Other Info"
         default:
@@ -232,26 +256,21 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
     }
     
     
-    
+    // Get text from the Header (Amount) and Footer (Emoji)
     @IBAction func textFieldDidChangeEditing(_ sender: UITextField) {
         
         allCellsText = sender.text!
-        
     }
-    
     @IBAction func emojiFieldDidChangeEditing(_ sender: UITextField) {
-        
+        if ((sender.text?.characters.count)! > 1) {
+            sender.deleteBackward()
+        }
         emojiText = sender.text!
-        
     }
     
+   
     
-    
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        expenseType = pickerExpenseTypeArray[row]
-
-    }
+    //MARK: Segue
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
@@ -267,12 +286,17 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                 
             }
         }
+        if identifier == "unwindToExpenses" {
+                return true
+        }
         return false
     }
     
+   
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doneExpense" {
-                
+            
                 print("Amount: \(amount.text)")
                 print("User: \(selectedUser)")
                 print("Type: \(expenseType)")
@@ -299,17 +323,9 @@ class AddExpenseTableViewController: UITableViewController, UIPickerViewDataSour
                     ])
                 
                 print("new expense")
-                
-                print("Saving data to context ...")
-
-            
-
             
         }
-        
     }
-   
-    
  }
 
 
