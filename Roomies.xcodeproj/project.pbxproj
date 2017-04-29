@@ -37,6 +37,7 @@
 		7E84A0F81DCD62800064770E /* AddExpenseUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84A0F71DCD62800064770E /* AddExpenseUserTableViewCell.swift */; };
 		7E8AD0961E4EF34F00523F5B /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8AD0951E4EF34F00523F5B /* UIViewControllerExtension.swift */; };
 		860FC4731E3C305300A0980D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FC4721E3C305300A0980D /* Task.swift */; };
+		8620487C1EB3EBEE00442A45 /* UserSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8620487B1EB3EBEE00442A45 /* UserSettingsTableViewCell.swift */; };
 		86310DA91E15BF44001BAAD8 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */; };
 		86594BCC1E3FB3DF006736BB /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86594BCB1E3FB3DF006736BB /* Expense.swift */; };
 		868093B11E19E712003A440B /* ExpenseMaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868093B01E19E712003A440B /* ExpenseMaterialView.swift */; };
@@ -84,6 +85,7 @@
 		7E84A0F71DCD62800064770E /* AddExpenseUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseUserTableViewCell.swift; sourceTree = "<group>"; };
 		7E8AD0951E4EF34F00523F5B /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		860FC4721E3C305300A0980D /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		8620487B1EB3EBEE00442A45 /* UserSettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		86310DA81E15BF44001BAAD8 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		86594BCB1E3FB3DF006736BB /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		868093B01E19E712003A440B /* ExpenseMaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseMaterialView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				7E5F45651E4E9D67003CD686 /* SettingsTableViewController.swift */,
+				8620487B1EB3EBEE00442A45 /* UserSettingsTableViewCell.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				7E1769E11DC419B100EA7B1E /* AppDelegate.swift in Sources */,
 				A33E64AD1E8F195B00874D71 /* UICalendarViewController.swift in Sources */,
 				7E1D6BBD1E45636F009E6634 /* JoinRoomViewController.swift in Sources */,
+				8620487C1EB3EBEE00442A45 /* UserSettingsTableViewCell.swift in Sources */,
 				7E5624F31E611E7100E63E91 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

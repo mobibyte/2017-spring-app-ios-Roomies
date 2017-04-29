@@ -10,15 +10,15 @@ import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
 import Firebase
+import Alamofire
 class SettingsTableViewController: UITableViewController {
     
+    var localAdmin = ""
     let ref = FIRDatabase.database().reference()
     let localGroup = (UIApplication.shared.delegate as! AppDelegate).localGroup!
-    
-
-    
+    var userName = ""
     var userNames = [String]()
-    
+    var userID = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,8 +29,19 @@ class SettingsTableViewController: UITableViewController {
             
             self.tableView.reloadData()
         })
-
+        ref.child("groups/\(localGroup.id)").observe(.value, with: { (snapshot) in
+            if let value = snapshot.value as? [String:Any] {
+                self.localAdmin = (value["creator"] as! String)
+                print(self.localAdmin)
+                print("CHECK THIS OUT IT")
+            }
+           
+        })
         BaseViewControllerUtil.setup(viewController: self)
+        
+    
+        
+
     }
     //Number of Sections and Rows
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,7 +74,16 @@ class SettingsTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch(section) {
+        case 0:
+            return "Logout"
+        case 1:
+            return "Roomies"
+        default:
+            return nil
+        }
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if (indexPath.section == 0 && indexPath.row == 0)
@@ -73,8 +93,24 @@ class SettingsTableViewController: UITableViewController {
             return cell
         } else {
             let cellIdentifier = "userCell"
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-            cell.textLabel!.text = localGroup.members[userNames[indexPath.row]]?.name
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! UserSettingsTableViewCell
+            
+            
+            userName = (localGroup.members[userNames[indexPath.row]]?.name)!
+            
+            cell.userName.text = userName
+            
+            
+            Alamofire.request((localGroup.members[userNames[indexPath.row]]?.avatarUrl)!).responseImage { response in
+                print("got the response")
+                print(response.result.value as Any)
+                
+                if let image = response.result.value {
+                    cell.userImage.image = image
+                    cell.userImage.layer.cornerRadius = 14.0
+                    cell.userImage.clipsToBounds = true
+                }
+            }
             return cell
         }
     }

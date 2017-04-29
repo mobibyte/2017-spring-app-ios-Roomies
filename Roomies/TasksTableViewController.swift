@@ -111,7 +111,12 @@ class TasksTableViewController: UITableViewController, NSFetchedResultsControlle
         cell.taskName.text = task.name
         cell.taskOwners.text = task.owner
         cell.taskDueDate.text = str
-    
+        if (str == "Past Due"){
+            cell.taskDueDate.backgroundColor = UIColor(red: 210/255.0, green: 77/255.0, blue: 89/255.0, alpha: 1.0)
+            cell.taskDueDate.layer.cornerRadius = 5.0
+            cell.taskDueDate.clipsToBounds = true
+            cell.taskDueDate.textColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
+        }
         return cell
     }
     
